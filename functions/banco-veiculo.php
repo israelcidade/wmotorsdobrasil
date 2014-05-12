@@ -30,5 +30,10 @@
 			return $result;
 		}
 
+		function DeletaVeiculo($id){
+			$Sql = "Delete from c_veiculos where idveiculo = ".$id;
+			$result = $this->Execute($Sql);
+		}
+
 	}
 ?>

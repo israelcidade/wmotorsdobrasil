@@ -7,6 +7,7 @@
 
 	#Declara Variaveis
 	$botao = 'Salvar';
+	$botaodeletar = '';
 	$marca = '';
 	$modelo = '';
 
@@ -14,6 +15,7 @@
 	if($this->PaginaAux[0] == 'editar'){
 		$idveiculo = $this->PaginaAux[1];
 		$botao = 'Atualizar';
+		$botaodeletar = "<a href='".UrlPadrao."veiculo/deletar/".$idveiculo."' onClick=\"return confirm('Tem certeza que deseja deletar ?')\" >Deletar</a>";	
 
 		$result = $banco->BuscaVeiculo($idveiculo);
 		$num_rows = $banco->Linha($result);
@@ -23,6 +25,13 @@
 			$marca = $rs['marca'];
 			$modelo = $rs['modelo'];
 		}
+	}
+
+	#trabalha com Deeltar
+	if($this->PaginaAux[0] == 'deletar'){
+		$idveiculo = $this->PaginaAux[1];
+		$banco->DeletaVeiculo($idveiculo);
+		$banco->RedirecionaPara('lista-veiculos');
 	}
 
 	#Trabalha com Post
@@ -43,6 +52,8 @@
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('veiculo');
 	$Conteudo = str_replace('<%BOTAO%>',$botao,$Conteudo);
+	$Conteudo = str_replace('<%BOTAODELETAR%>',$botaodeletar,$Conteudo);
 	$Conteudo = str_replace('<%MARCA%>',$marca,$Conteudo);
 	$Conteudo = str_replace('<%MODELO%>',$modelo,$Conteudo);
+
 ?>
