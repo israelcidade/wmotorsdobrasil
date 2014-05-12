@@ -18,6 +18,11 @@
 		$banco->RedirecionaPara('veiculo');
 	}
 
+	if($this->PaginaAux[0] == 'editar'){
+		$idveiculo = $this->PaginaAux[1];
+		echo $idveiculo;
+	}
+	
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('veiculo');
 	$Conteudo = str_replace('<%BOTAO%>',$botao,$Conteudo);
