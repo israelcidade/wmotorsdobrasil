@@ -1,13 +1,13 @@
 <?php
 	#Definições do Sistema
 	date_default_timezone_set('America/Sao_Paulo');
-	define('UrlPadrao' , "http://localhost/sistema_base/");
+	define('UrlPadrao' , "http://localhost/wmotorsdobrasil/");
 	
 	#Definições do Banco de Dados
-	define('DB_Host' , "db4free.net");
-	define('DB_Database' , "colcom");
-	define('DB_User' , "colcom");
-	define('DB_Pass' , "s1stem@");
+	define('DB_Host' , "localhost");
+	define('DB_Database' , "wmotorsdobrasil");
+	define('DB_User' , "root");
+	define('DB_Pass' , "");
 	
 	#Definições FPDF
 	define('DPI', 96);
