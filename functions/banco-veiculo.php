@@ -24,5 +24,11 @@
 			return $Veiculos;
 		}
 
+		function BuscaVeiculo($id){
+			$Sql = "Select * from c_veiculos where idveiculo = ".$id;
+			$result = $this->Execute($Sql);
+			return $result;
+		}
+
 	}
 ?>
