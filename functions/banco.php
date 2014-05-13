@@ -11,7 +11,32 @@
 			if (!$db_selected) {
 				$this->ChamaManutencao();
 			}
-		}	
+		}
+
+		#Funcao que redireciona para pagina solicitada
+		function RedirecionaPara($nome){
+			header("Location: ".UrlPadrao.$nome);
+		}
+
+		#abre a sessao
+		function IniciaSessao($usuario){
+			session_start('login');
+			$_SESSION['usuario'] = $usuario;
+		}
+
+		#fecha sessao
+		function FechaSessao(){
+			$_SESSION = array();
+			session_destroy();
+		}
+
+		function VerificaSessao(){
+			if( isset($_SESSION['usuario']) ){
+				return true;
+			}else{
+				return false;
+			}
+		}
 		
 		#funcao imprime conteudo
 		function Imprime($Conteudo){
@@ -84,11 +109,6 @@
 		static function Linha($result){
 			$num_rows = mysql_num_rows($result);
 			return $num_rows;
-		}
-		
-		#Funcao que redireciona para pagina solicitada
-		function RedirecionaPara($nome){
-			header("Location: ".UrlPadrao.$nome);
 		}
 		
 		#Funcao que carrega as páginas
