@@ -26,11 +26,13 @@
 
 		#fecha sessao
 		function FechaSessao(){
+			session_start('login');
 			$_SESSION = array();
 			session_destroy();
 		}
 
 		function VerificaSessao(){
+			session_start('login');
 			if( isset($_SESSION['usuario']) ){
 				return true;
 			}else{

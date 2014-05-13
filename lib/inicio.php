@@ -27,7 +27,7 @@
 			$banco->RedirecionaPara('admin');
 		}
 	}
-
+	
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('inicio');
 	$Conteudo = str_replace('<%BOTAO%>', $botao, $Conteudo);

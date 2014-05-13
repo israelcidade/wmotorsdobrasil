@@ -1,6 +1,4 @@
 <?php
-	session_start('login');
-	
 	#include das funcoes da tela inico
 	include('functions/banco-admin.php');
 
