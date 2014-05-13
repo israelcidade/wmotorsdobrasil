@@ -22,12 +22,15 @@
 		$flag = $banco->BuscaUsuario($usuario,$senha);
 
 		if($flag){
-			$deslogar = "<a href='".UrlPadrao."inicio/deslogar/".$idveiculo."' onClick=\"return confirm('Tem certeza que deseja deletar ?')\" >Deletar</a>";
 			$banco->IniciaSessao($usuario);
 			$banco->RedirecionaPara('admin');
 		}
 	}
-	
+
+	if($banco->VerificaSessao()){
+		$deslogar = "<a href='".UrlPadrao."inicio/deslogar/' onClick=\"return confirm('Tem certeza que deseja deslogar ?')\" >Deslogar</a>";
+	}
+
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('inicio');
 	$Conteudo = str_replace('<%BOTAO%>', $botao, $Conteudo);
