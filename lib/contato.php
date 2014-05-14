@@ -5,10 +5,14 @@
 	#Instancia o objeto
 	$banco = new bancocontato();
 
-	$nome = strip_tags(trim(addslashes($_POST["nome"])));
-	$email = strip_tags(trim(addslashes($_POST["email"])));
-	$assunto = strip_tags(trim(addslashes($_POST["assunto"])));
-	$mensagem = strip_tags(trim(addslashes($_POST["mensagem"])));
+	if(isset($_POST['acao']) && $_POST['acao'] != ''){
+		$nome = strip_tags(trim(addslashes($_POST["nome"])));
+		$email = strip_tags(trim(addslashes($_POST["email"])));
+		$assunto = strip_tags(trim(addslashes($_POST["assunto"])));
+		$mensagem = strip_tags(trim(addslashes($_POST["mensagem"])));
+
+		$banco->EnviaEmailContato($nome,$email,$assunto,$mensagem);
+	}
 
 	$Conteudo = $banco->CarregaHtml('contato');
 ?>
