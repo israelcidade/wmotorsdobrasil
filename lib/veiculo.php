@@ -36,7 +36,7 @@
 
 	#Trabalha com Post
 	if( isset($_POST["acao"]) && $_POST["acao"] != '' ){
-		$marca = strip_tags(trim(addslashes($_POST["marca"])));
+		$marca = strip_tags(trim(addslashes($_POST["marcas"])));
 		$modelo = strip_tags(trim(addslashes($_POST["modelo"])));
 		
 		if($botao == 'Atualizar'){
@@ -50,7 +50,7 @@
 	}
 
 	#Monta o Select das Marcas
-	$Marcas = $banco->MontaSelectMarcas($idmarca);
+	$Marcas = $banco->MontaSelectMarcas($marca);
 
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('veiculo');
