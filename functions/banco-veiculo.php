@@ -4,7 +4,9 @@
 		function ListaVeiculos($Auxilio){
 			$Banco_Vazio = "Banco esta Vazio";
 			#Query Busca Folders
-			$Sql = "SELECT * FROM c_veiculos";
+			$Sql = "Select V.*,M.marca as nomedamarca 
+					FROM c_veiculos V
+					INNER JOIN c_marcas M ON V.marca = M.idmarca";
 			$result = parent::Execute($Sql);
 			$num_rows = parent::Linha($result);
 
@@ -14,7 +16,7 @@
 				{
 					$Linha = $Auxilio;
 					$Linha = str_replace('<%ID%>',$rs['idveiculo'],$Linha);
-					$Linha = str_replace('<%MARCA%>',$rs['marca'],$Linha);
+					$Linha = str_replace('<%MARCA%>',$rs['nomedamarca'],$Linha);
 					$Linha = str_replace('<%MODELO%>', $rs['modelo'], $Linha);
 					$Veiculos .= $Linha;
 				}
