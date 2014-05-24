@@ -13,7 +13,7 @@
 				while( $rs = mysql_fetch_array($result , MYSQL_ASSOC) )
 				{
 					$Linha = $Auxilio;
-					$Linha = str_replace('<%ID%>',$rs['idveiculo'],$Linha);
+					$Linha = str_replace('<%ID%>',$rs['idmarca'],$Linha);
 					$Linha = str_replace('<%MARCA%>',$rs['marca'],$Linha);
 					$Marcas .= $Linha;
 				}

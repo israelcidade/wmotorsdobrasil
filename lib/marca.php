@@ -39,7 +39,7 @@
 			$marca = strip_tags(trim(addslashes($_POST["marca"])));
 			
 			if($botao == 'Atualizar'){
-				$SqlBanco = "Update c_veiculos SET marca = '".$marca."', modelo = '".$modelo."' where idveiculo = '".$idveiculo."' ";
+				$SqlBanco = "Update c_marcas SET marca = '".$marca."' where idmarca = '".$idmarca."' ";
 			}else{
 				$SqlBanco = "Insert Into c_marcas (marca) VALUES ('".$marca."')";
 			}
