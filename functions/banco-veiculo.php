@@ -35,5 +35,23 @@
 			$result = $this->Execute($Sql);
 		}
 
+		function MontaSelectMarcas($idmarca){
+			$marcas = '<select name="marcas">';
+			$marcas .= '<option value="0">Selecione uma Marca</option>';
+			$Sql = "Select idmarca , marca from c_marcas";
+			$result = parent::Execute($Sql);
+			while($aux = mysql_fetch_array($result, MYSQL_ASSOC))
+			{
+				#$selected = '1';
+				#if($idsetorusuario == $aux['idsetor']){
+				#	$selected = 'selected';
+				#}
+
+				$marcas .= '<option value= "'.$aux['idmarca'].'" '.$selected.'>'.$aux['marca'].'</option>';
+
+			}
+			$marcas .= '</select>';
+			return $marcas;	
+		}
 	}
 ?>

@@ -49,11 +49,14 @@
 		$banco->RedirecionaPara('lista-veiculos');
 	}
 
+	#Monta o Select das Marcas
+	$Marcas = $banco->MontaSelectMarcas($idmarca);
+
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('veiculo');
 	$Conteudo = str_replace('<%BOTAO%>',$botao,$Conteudo);
 	$Conteudo = str_replace('<%BOTAODELETAR%>',$botaodeletar,$Conteudo);
-	$Conteudo = str_replace('<%MARCA%>',$marca,$Conteudo);
+	$Conteudo = str_replace('<%MARCAS%>',$Marcas,$Conteudo);
 	$Conteudo = str_replace('<%MODELO%>',$modelo,$Conteudo);
 
 ?>
