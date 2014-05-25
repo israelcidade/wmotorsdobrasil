@@ -13,6 +13,7 @@
 	$anofab = '';
 	$anomod = '';
 	$padrao = '';
+	$titulo = '';
 
 	#Trabalha com o Editar
 	if($this->PaginaAux[0] == 'editar'){
@@ -30,6 +31,7 @@
 			$anofab = $rs['anofab'];
 			$anomod = $rs['anomod'];
 			$padrao = $rs['padrao'];
+			$titulo = $rs['titulo'];
 		}
 	}
 
@@ -47,11 +49,12 @@
 		$anofab = strip_tags(trim(addslashes($_POST["anofab"])));
 		$anomod = strip_tags(trim(addslashes($_POST["anomod"])));
 		$padrao = strip_tags(trim(addslashes($_POST["padrao"])));
+		$titulo = strip_tags(trim(addslashes($_POST["titulo"])));
 		
 		if($botao == 'Atualizar'){
-			$SqlBanco = "Update c_veiculos SET marca = '".$marca."', modelo = '".$modelo."',anofab = '".$anofab."',anomod = '".$anomod."',padrao = '".$padrao."' where idveiculo = '".$idveiculo."' ";
+			$SqlBanco = "Update c_veiculos SET marca = '".$marca."', modelo = '".$modelo."',anofab = '".$anofab."',anomod = '".$anomod."',padrao = '".$padrao."',titulo = '".$titulo."' where idveiculo = '".$idveiculo."' ";
 		}else{
-			$SqlBanco = "Insert Into c_veiculos (marca, modelo, anofab, anomod, padrao) VALUES ('".$marca."','".$modelo."','".$anofab."','".$anomod."','".$padrao."')";
+			$SqlBanco = "Insert Into c_veiculos (marca, modelo, anofab, anomod, padrao, titulo) VALUES ('".$marca."','".$modelo."','".$anofab."','".$anomod."','".$padrao."','".$titulo."')";
 		}
 
 		$banco->Execute($SqlBanco);
@@ -70,4 +73,5 @@
 	$Conteudo = str_replace('<%ANOFAB%>',$anofab,$Conteudo);
 	$Conteudo = str_replace('<%ANOMOD%>',$anomod,$Conteudo);
 	$Conteudo = str_replace('<%PADRAO%>',$padrao,$Conteudo);
+	$Conteudo = str_replace('<%TITULO%>',$titulo,$Conteudo);
 ?>
