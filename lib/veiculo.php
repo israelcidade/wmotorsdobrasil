@@ -11,6 +11,7 @@
 	$marca = '';
 	$modelo = '';
 	$anofab = '';
+	$anomod = '';
 
 	#Trabalha com o Editar
 	if($this->PaginaAux[0] == 'editar'){
@@ -26,6 +27,7 @@
 			$marca = $rs['marca'];
 			$modelo = $rs['modelo'];
 			$anofab = $rs['anofab'];
+			$anomod = $rs['anomod'];
 		}
 	}
 
@@ -41,11 +43,12 @@
 		$marca = strip_tags(trim(addslashes($_POST["marcas"])));
 		$modelo = strip_tags(trim(addslashes($_POST["modelo"])));
 		$anofab = strip_tags(trim(addslashes($_POST["anofab"])));
+		$anomod = strip_tags(trim(addslashes($_POST["anomod"])));
 		
 		if($botao == 'Atualizar'){
-			$SqlBanco = "Update c_veiculos SET marca = '".$marca."', modelo = '".$modelo."',anofab = '".$anofab."' where idveiculo = '".$idveiculo."' ";
+			$SqlBanco = "Update c_veiculos SET marca = '".$marca."', modelo = '".$modelo."',anofab = '".$anofab."',anomod = '".$anomod."' where idveiculo = '".$idveiculo."' ";
 		}else{
-			$SqlBanco = "Insert Into c_veiculos (marca, modelo, anofab) VALUES ('".$marca."','".$modelo."','".$anofab."')";
+			$SqlBanco = "Insert Into c_veiculos (marca, modelo, anofab, anomod) VALUES ('".$marca."','".$modelo."','".$anofab."','".$anomod."')";
 		}
 
 		$banco->Execute($SqlBanco);
@@ -62,5 +65,6 @@
 	$Conteudo = str_replace('<%MARCAS%>',$Marcas,$Conteudo);
 	$Conteudo = str_replace('<%MODELO%>',$modelo,$Conteudo);
 	$Conteudo = str_replace('<%ANOFAB%>',$anofab,$Conteudo);
+	$Conteudo = str_replace('<%ANOMOD%>',$anomod,$Conteudo);
 
 ?>
