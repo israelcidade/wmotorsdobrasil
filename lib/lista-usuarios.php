@@ -6,12 +6,12 @@
 	$banco = new bancousuario();
 
 	#Carrega o html de Auxilio
-	#$Auxilio = $banco->CarregaHtml('itens/lista-usuario-itens');
+	$Auxilio = $banco->CarregaHtml('itens/lista-usuarios-itens');
 
 	#Chama funcao Lista Manual passando o Auxilio
-	#$Usuarios = $banco->ListaUsuarios($Auxilio);
+	$Usuarios = $banco->ListaUsuarios($Auxilio);
 
 	#Imprime Valores
 	$Conteudo = $banco->CarregaHtml('lista-usuarios');
-	#$Conteudo = str_replace('<%USUARIOS%>',$Usuarios,$Conteudo);
+	$Conteudo = str_replace('<%USUARIOS%>',$Usuarios,$Conteudo);
 ?>
