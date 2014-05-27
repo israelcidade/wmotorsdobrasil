@@ -8,6 +8,25 @@
 	#Declara Variaveis
 	$botao = 'Salvar';
 	$nome = '';
+	$foto = '';
+	$img = '';
+
+	#Trabalha com o Editar
+	if($this->PaginaAux[0] == 'editar'){
+		$idbanner = $this->PaginaAux[1];
+		$botao = 'Atualizar';
+		$botaodeletar = "<a href='".UrlPadrao."veiculo/deletar/".$idveiculo."' onClick=\"return confirm('Tem certeza que deseja deletar ?')\" >Deletar</a>";	
+
+		$result = $banco->BuscaBanner($idbanner);
+		$num_rows = $banco->Linha($result);
+
+		if($num_rows){
+			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+			$nome = $rs['nome'];
+			$foto = $rs['foto'];
+			$img = '<img src="'.UrlPadrao.$foto.'" alt="Smiley face">';
+		}
+	}
 
 	#Trabalha com Post
 	if( isset($_POST["acao"]) && $_POST["acao"] != '' ){
@@ -30,4 +49,5 @@
 	$Conteudo = $banco->CarregaHtml('banner');
 	$Conteudo = str_replace('<%BOTAO%>',$botao,$Conteudo);
 	$Conteudo = str_replace('<%NOME%>',$nome,$Conteudo);
+	$Conteudo = str_replace('<%IMG%>',$img,$Conteudo);
 ?>

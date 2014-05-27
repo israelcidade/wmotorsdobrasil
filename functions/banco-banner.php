@@ -23,6 +23,12 @@
 			}
 			return $Banners;
 		}
+
+		function BuscaBanner($id){
+			$Sql = "Select * from c_banners where idbanner = ".$id;
+			$result = $this->Execute($Sql);
+			return $result;
+		}
 		
 	}
 ?>
