@@ -24,7 +24,7 @@
 			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 			$nome = $rs['nome'];
 			$foto = $rs['foto'];
-			$img = '<img src="'.UrlPadrao.$foto.'" alt="Smiley face">';
+			$img = '<img src="'.UrlPadrao.$foto.'" alt="'.$nome.'">';
 		}
 	}
 
@@ -34,7 +34,9 @@
 		$foto = $_FILES["foto"];
 
 		if($botao == 'Atualizar'){
-			$SqlBanco = "Update c_veiculos SET marca = '".$marca."', modelo = '".$modelo."',anofab = '".$anofab."',anomod = '".$anomod."',padrao = '".$padrao."',titulo = '".$titulo."' where idveiculo = '".$idveiculo."' ";
+			if(empty($foto['name'])){
+				$SqlBanco = "Update c_banners SET nome = '".$nome."' where idbanner = '".$idbanner."' ";
+			}
 		}else{
 			preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $foto["name"], $ext);
 			$caminho_foto = "arq/banners/" . $id . "teste." .$ext[1];
