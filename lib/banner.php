@@ -24,7 +24,7 @@
 		}
 
 		$banco->Execute($SqlBanco);
-		$banco->RedirecionaPara('inicio');
+		$banco->RedirecionaPara('lista-banners');
 	}
 
 	$Conteudo = $banco->CarregaHtml('banner');

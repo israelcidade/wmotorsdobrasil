@@ -6,12 +6,12 @@
 	$banco = new bancobanner();
 
 	#Carrega o html de Auxilio
-	#$Auxilio = $banco->CarregaHtml('itens/lista-banners-itens');
+	$Auxilio = $banco->CarregaHtml('itens/lista-banners-itens');
 
 	#Chama funcao Lista Manual passando o Auxilio
-	#$Marcas = $banco->ListaBanners($Auxilio);
+	$Banners = $banco->ListaBanners($Auxilio);
 
 	#Imprime Valores
 	$Conteudo = $banco->CarregaHtml('lista-banners');
-	#$Conteudo = str_replace('<%MARCAS%>',$Marcas,$Conteudo);
+	$Conteudo = str_replace('<%BANNERS%>',$Banners,$Conteudo);
 ?>
