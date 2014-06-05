@@ -34,18 +34,16 @@
 		$foto = $_FILES["foto"];
 
 		if($botao == 'Atualizar'){
-			if(empty($foto['name'])){
+			/*if(empty($foto['name'])){
 				$SqlBanco = "Update c_banners SET nome = '".$nome."' where idbanner = '".$idbanner."' ";
 			}else{
-
 				if($banco->DeletaFotoAntiga($idbanner)){
 					preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $foto["name"], $ext);
 					$caminho_foto = "arq/banners/".$idbanner.'.'.$ext[1];
 					move_uploaded_file($foto["tmp_name"], $caminho_foto);
 					$SqlBanco = "Update c_banners SET nome = '".$nome."', foto = '".$caminho_foto."' where idbanner = '".$idbanner."' ";
 				}
-
-			}
+			}*/
 		}else{
 			$ultimoid = $banco->BuscaMaxId();
 			preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $foto["name"], $ext);
