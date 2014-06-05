@@ -37,11 +37,26 @@
 		#Trabalha com Post
 		if( isset($_POST["acao"]) && $_POST["acao"] != '' ){
 			$marca = strip_tags(trim(addslashes($_POST["marca"])));
+			$foto = $_FILES["foto"];
 			
 			if($botao == 'Atualizar'){
-				$SqlBanco = "Update c_marcas SET marca = '".$marca."' where idmarca = '".$idmarca."' ";
+				if(empty($foto['name'])){
+					$SqlBanco = "Update c_marcas SET marca = '".$marca."' where idmarca = '".$idmarca."' ";
+				}else{
+					if($banco->DeletaFotoAntiga($idmarca)){
+						preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $foto["name"], $ext);
+						$caminho_foto = "arq/banners/".$idmarca.'.'.$ext[1];
+						move_uploaded_file($foto["tmp_name"], $caminho_foto);
+						$SqlBanco = "Update c_marcas SET marca = '".$marca."', foto = '".$caminho_foto."' where idmarca = '".$idmarca."' ";
+					}
+				}
 			}else{
-				$SqlBanco = "Insert Into c_marcas (marca) VALUES ('".$marca."')";
+				$ultimoid = $banco->BuscaMaxId();
+				preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $foto["name"], $ext);
+				$caminho_foto = "arq/marcas/".$ultimoid.'.'.$ext[1];
+				move_uploaded_file($foto["tmp_name"], $caminho_foto);
+				$SqlBanco = "Insert Into c_marcas (marca, foto) VALUES ('".$marca."','".$foto."')";
+				}
 			}
 
 			$banco->Execute($SqlBanco);
