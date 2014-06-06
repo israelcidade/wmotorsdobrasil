@@ -51,12 +51,11 @@
 					}
 				}
 			}else{
-				echo 'teste';die;
 				$ultimoid = $banco->BuscaMaxId();
 				preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $foto["name"], $ext);
 				$caminho_foto = "arq/marcas/".$ultimoid.'.'.$ext[1];
 				move_uploaded_file($foto["tmp_name"], $caminho_foto);
-				$SqlBanco = "Insert Into c_marcas (marca, foto) VALUES ('".$marca."','".$foto."')";
+				$SqlBanco = "Insert Into c_marcas (marca, foto) VALUES ('".$marca."','".$caminho_foto."')";
 			}
 
 			$banco->Execute($SqlBanco);
