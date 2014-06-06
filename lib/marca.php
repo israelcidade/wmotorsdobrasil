@@ -9,6 +9,7 @@
 	$botao = 'Salvar';
 	$botaodeletar = '';
 	$marca = '';
+	$img = '';
 
 	if($banco->VerificaSessao()){
 
@@ -24,6 +25,8 @@
 			if($num_rows){
 				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 				$marca = $rs['marca'];
+				$foto = $rs['foto'];
+				$img = '<img src="'.UrlPadrao.$foto.'" alt="'.$nome.'">';
 			}
 		}
 
@@ -45,7 +48,7 @@
 				}else{
 					if($banco->DeletaFotoAntiga($idmarca)){
 						preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $foto["name"], $ext);
-						$caminho_foto = "arq/banners/".$idmarca.'.'.$ext[1];
+						$caminho_foto = "arq/marcas/".$idmarca.'.'.$ext[1];
 						move_uploaded_file($foto["tmp_name"], $caminho_foto);
 						$SqlBanco = "Update c_marcas SET marca = '".$marca."', foto = '".$caminho_foto."' where idmarca = '".$idmarca."' ";
 					}
@@ -67,6 +70,7 @@
 		$Conteudo = str_replace('<%BOTAO%>',$botao,$Conteudo);
 		$Conteudo = str_replace('<%BOTAODELETAR%>',$botaodeletar,$Conteudo);
 		$Conteudo = str_replace('<%MARCA%>',$marca,$Conteudo);
+		$Conteudo = str_replace('<%IMG%>',$img,$Conteudo);
 	}else{
 		$banco->RedirecionaPara('inicio/acesso');
 	}
