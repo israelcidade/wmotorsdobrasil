@@ -33,7 +33,7 @@
 		#Funcao que deleta a antiga foto
 		function DeletaFotoAntiga($id)
 		{
-			$Sql = "SELECT foto FROM c_banners where idbanner = '".$id."'";
+			$Sql = "select foto from c_banners where idbanner = '".$id."'";
 			if($result = parent::Execute($Sql)){
 				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 				$caminho_foto = $rs['foto'];
@@ -43,6 +43,12 @@
 				return false;
 			}
 			
+		}
+
+		function DeletaBanner($id){
+			$flag = $this->DeletaFotoAntiga($id);
+			$Sql = "Delete from c_banners where idbanner = '".$id."' ";
+			$result = $this->Execute($Sql);
 		}
 
 		#Funcao que busca auto_increment da tabela c_folders

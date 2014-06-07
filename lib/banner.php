@@ -15,7 +15,7 @@
 	if($this->PaginaAux[0] == 'editar'){
 		$idbanner = $this->PaginaAux[1];
 		$botao = 'Atualizar';
-		$botaodeletar = "<a href='".UrlPadrao."veiculo/deletar/".$idveiculo."' onClick=\"return confirm('Tem certeza que deseja deletar ?')\" >Deletar</a>";	
+		$botaodeletar = "<a href='".UrlPadrao."banner/deletar/".$idbanner."' onClick=\"return confirm('Tem certeza que deseja deletar ?')\" >Deletar</a>";	
 
 		$result = $banco->BuscaBanner($idbanner);
 		$num_rows = $banco->Linha($result);
@@ -26,6 +26,13 @@
 			$foto = $rs['foto'];
 			$img = '<img src="'.UrlPadrao.$foto.'" alt="'.$nome.'">';
 		}
+	}
+
+	#trabalha com Deeltar
+	if($this->PaginaAux[0] == 'deletar'){
+		$idbanner = $this->PaginaAux[1];
+		$banco->DeletaBanner($idbanner);
+		$banco->RedirecionaPara('lista-banners');
 	}
 
 	#Trabalha com Post
@@ -59,5 +66,6 @@
 	$Conteudo = $banco->CarregaHtml('banner');
 	$Conteudo = str_replace('<%BOTAO%>',$botao,$Conteudo);
 	$Conteudo = str_replace('<%NOME%>',$nome,$Conteudo);
+	$Conteudo = str_replace('<%BOTAODELETAR%>',$botaodeletar,$Conteudo);
 	$Conteudo = str_replace('<%IMG%>',$img,$Conteudo);
 ?>
