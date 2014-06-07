@@ -30,6 +30,7 @@
 		}
 
 		function DeletaMarca($id){
+			$flag = $this->DeletaFotoAntiga($id);
 			$Sql = "Delete from c_marcas where idmarca = ".$id;
 			$result = $this->Execute($Sql);
 		}
