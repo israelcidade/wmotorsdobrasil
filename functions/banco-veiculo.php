@@ -53,5 +53,22 @@
 			$marcas .= '</select>';
 			return $marcas;	
 		}
+
+		function MontaSelectCategorias($categoria){
+			$categorias = '<select name="categorias">';
+			$categorias .= '<option value="0">Selecione uma Categoria</option>';
+			$Sql = "Select idcategoria , categoria from fixo_categorias";
+			$result = parent::Execute($Sql);
+			while($aux = mysql_fetch_array($result, MYSQL_ASSOC))
+			{
+				$selected = '';
+				if($categoria == $aux['idcategoria']){
+					$selected = 'selected';
+				}
+				$categorias .= '<option value="'.$aux['idcategoria'].'" '.$selected.'>'.$aux['categoria'].'</option>';
+			}
+			$categorias .= '</select>';
+			return $categorias;	
+		}
 	}
 ?>
