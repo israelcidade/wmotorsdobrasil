@@ -55,7 +55,7 @@
 		}
 
 		function MontaSelectCategorias($categoria){
-			$categorias = '<select name="categorias">';
+			$categorias = '<select name="categoria">';
 			$categorias .= '<option value="0">Selecione uma Categoria</option>';
 			$Sql = "Select idcategoria , categoria from fixo_categorias";
 			$result = parent::Execute($Sql);
