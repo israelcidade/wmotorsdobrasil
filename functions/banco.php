@@ -42,7 +42,7 @@
 		
 		#funcao imprime conteudo
 		function Imprime($Conteudo){
-			if($this->Pagina == 'admin'){
+			if($this->Pagina == 'admin' || $this->Pagina == 'veiculo'){
 				$SaidaHtml = $this->CarregaHtml('modelo-admin');
 			}else{
 				$SaidaHtml = $this->CarregaHtml('modelo');	

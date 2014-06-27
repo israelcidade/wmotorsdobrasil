@@ -1,3 +1,65 @@
+<main>
+
+	<h1>Cadastro de veículos</h1>
+
+	<form action="#">
+
+		<h2>Informações gerais</h2>
+		<label>
+			Tipo<br>
+			<select name="tipo">
+				<option value="carro">Carro</option>
+				<option value="moto">Moto</option>
+				<option value="caminhao">Caminhão</option>
+			</select>
+		</label>
+
+		<label>
+			Marca<br>
+			<select name="marca">
+				<option value="volkswagen">Volkswagen</option>
+				<option value="ford">Ford</option>
+				<option value="fiat">Fiat</option>
+			</select>
+		</label>
+
+		<label>
+			Nome<br>
+			<input type="text" placeholder="Nome do carro" name="nome">
+		</label>
+
+		<label>
+			Ano de fabricação<br>
+			<input type="text" placeholder="XXXX" name="ano_fab">
+		</label>
+
+		<label>
+			Ano modelo<br>
+			<input type="text" placeholder="XXXX" name="ano_mod">
+		</label>
+
+		<label>
+			Iniciais do Chassis<br>
+			<input type="text" placeholder="XXXXXXXXXX" name="chassis">
+		</label>
+
+		<h2>Imagens</h2>
+		<ul>
+			<li>
+				<input type="file" name="imagem1">
+				<input type="text" name="imagem1tit" placeholder="Título da imagem">
+				<textarea name="imagem1desc" placeholder="Descrição da Imagem"></textarea>
+			</li>
+		</ul>
+
+	</form>
+
+	<a href="#" class="save">Salvar</a>
+
+	<br class="clear">
+
+</main>
+<!--
 <FORM ACTION="" METHOD="POST" >
 		<input type ="hidden" name="acao" value="acao">
 		Categoria: <%CATEGORIAS%><br>
@@ -9,4 +71,4 @@
 		Titulo: <INPUT TYPE="text" NAME="titulo" SIZE="40" MAXLENGTH="40" TABINDEX="6" VALUE="<%TITULO%>"><br>
 		<INPUT TYPE="submit" NAME="submit" VALUE="<%BOTAO%>" TABINDEX="3">
 		<%BOTAODELETAR%>
-</FORM>
+</FORM> --> 
