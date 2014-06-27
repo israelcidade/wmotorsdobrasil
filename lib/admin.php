@@ -5,11 +5,11 @@
 	#Instancia o objeto
 	$banco = new bancoadmin();
 
-	if($banco->VerificaSessao()){
+	//if($banco->VerificaSessao()){
 		#Imprimi valores
 		$Conteudo = $banco->CarregaHtml('admin');
 		$Conteudo = str_replace('<%USUARIO%>',$_SESSION['usuario'],$Conteudo);
-	}else{
-		$banco->RedirecionaPara('');
-	}
+	//}else{
+	//	$banco->RedirecionaPara('');
+	//}
 ?>
