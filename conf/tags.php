@@ -21,6 +21,6 @@
 
 	//Definicoes do Eamil para contato
 	define('EMAIL_USER', "israelcbj@gmail.com");
-	define('EMAIL_PASS', "compaqmv540@!");
+	define('EMAIL_PASS', "m4r4n4t4");
 	define('EMAIL_RECEB', "israelcbj@gmail.com");
 ?>
