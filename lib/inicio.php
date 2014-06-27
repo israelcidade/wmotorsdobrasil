@@ -24,7 +24,7 @@
 
 		if($flag){
 			$banco->IniciaSessao($usuario);
-			$banco->RedirecionaPara('admin');
+			$banco->RedirecionaPara('lista-veiculos');
 		}
 	}
 
