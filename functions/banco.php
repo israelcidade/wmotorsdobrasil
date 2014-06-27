@@ -42,7 +42,11 @@
 		
 		#funcao imprime conteudo
 		function Imprime($Conteudo){
-			$SaidaHtml = $this->CarregaHtml('modelo');
+			if($this->Pagina == 'admin'){
+				$SaidaHtml = $this->CarregaHtml('modelo-admin');
+			}else{
+				$SaidaHtml = $this->CarregaHtml('modelo');	
+			}
 			$SaidaHtml = str_replace('<%CONTEUDO%>',$Conteudo,$SaidaHtml);
 			$SaidaHtml = str_replace('<%URLPADRAO%>',UrlPadrao,$SaidaHtml);
 			echo $SaidaHtml;

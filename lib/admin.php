@@ -7,8 +7,8 @@
 
 	//if($banco->VerificaSessao()){
 		#Imprimi valores
-		$Conteudo = $banco->CarregaHtml('admin');
-		$Conteudo = str_replace('<%USUARIO%>',$_SESSION['usuario'],$Conteudo);
+	$Conteudo = $banco->CarregaHtml('admin');
+	$Conteudo = str_replace('<%USUARIO%>',$_SESSION['usuario'],$Conteudo);
 	//}else{
 	//	$banco->RedirecionaPara('');
 	//}
