@@ -5,13 +5,18 @@
 	#Instancia objeto que vai tratar o banco de dados dessa pagina
 	$banco = new bancousuario();
 
-	#Carrega o html de Auxilio
-	$Auxilio = $banco->CarregaHtml('itens/lista-usuarios-itens');
+	if($banco->VerificaSessao()){
 
-	#Chama funcao Lista Manual passando o Auxilio
-	$Usuarios = $banco->ListaUsuarios($Auxilio);
+		#Carrega o html de Auxilio
+		$Auxilio = $banco->CarregaHtml('itens/lista-usuarios-itens');
 
-	#Imprime Valores
-	$Conteudo = $banco->CarregaHtml('lista-usuarios');
-	$Conteudo = str_replace('<%USUARIOS%>',$Usuarios,$Conteudo);
+		#Chama funcao Lista Manual passando o Auxilio
+		$Usuarios = $banco->ListaUsuarios($Auxilio);
+
+		#Imprime Valores
+		$Conteudo = $banco->CarregaHtml('lista-usuarios');
+		$Conteudo = str_replace('<%USUARIOS%>',$Usuarios,$Conteudo);
+	}else{
+		$banco->RedirecionaPara('inicio/acesso');
+	}
 ?>
