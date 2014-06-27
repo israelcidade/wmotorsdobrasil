@@ -31,7 +31,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 */
 body { color: #555555; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; font-weight: 400; font-size: 14px; font-size: 0.875rem; background: white url(../img/bkg-body.png) repeat-x left top; }
 
-body.inicial { background: white url(../img/bkg-body-inicial.png) repeat-x left top; }
+body.inicial { background: white url(../images/bkg-body-inicial.png) repeat-x left top; }
 
 a { color: inherit; text-decoration: none; }
 
@@ -39,7 +39,7 @@ h2.page-title { display: block; margin: 10px 0; border-bottom: 5px solid #0466a9
 
 h2.page-title i { color: #ff9900; font-size: 40px; font-size: 2.5rem; margin-right: 5px; }
 
-#illustration { width: 1000px; margin: 0 auto; height: 70px; background: transparent url(../img/camaro.jpg) no-repeat center center; }
+#illustration { width: 1000px; margin: 0 auto; height: 70px; background: transparent url(../imgages/camaro.jpg) no-repeat center center; }
 
 /* ======================= */
 /* HEADER
@@ -48,7 +48,7 @@ header { height: 130px; }
 
 header .center { position: relative; }
 
-#logo { width: 211px; height: 201px; background: url(../img/logo.png) no-repeat center center; text-indent: -9999px; overflow: hidden; position: absolute; top: 0; left: 0; z-index: 10; }
+#logo { width: 211px; height: 201px; background: url(../images/logo.png) no-repeat center center; text-indent: -9999px; overflow: hidden; position: absolute; top: 0; left: 0; z-index: 10; }
 
 .main-search { float: left; margin: 20px 0 0 260px; }
 
@@ -152,7 +152,7 @@ footer .center { border-top: 1px solid #cccccc; padding: 10px 0; margin: 50px au
 
 footer .center .f-left { min-width: 500px; }
 
-#assinatura { width: 50px; height: 47px; float: left; margin-right: 10px; background: transparent url(../img/assinatura.png) no-repeat center center; }
+#assinatura { width: 50px; height: 47px; float: left; margin-right: 10px; background: transparent url(../images/assinatura.png) no-repeat center center; }
 
 .copyrights { font-size: 12px; font-size: 0.75rem; }
 
