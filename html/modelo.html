@@ -1,123 +1,190 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Simple Blue - free website template</title>
-<link href="<%URLPADRAO%>html/templatemo_style.css" rel="stylesheet" type="text/css" />
-<link href="<%URLPADRAO%>/html/css/jquery.ennui.contentslider.css" rel="stylesheet" type="text/css" media="screen,projection" />
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+
+    <!-- DETECÇÃO MOBILE -->
+    <meta name="viewport" content="width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- FAVICON -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- FACEBOOK -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="WMotors do Brasil">
+    <meta property="og:url" content="http://www.wmotorsdobrasil.com.br">
+    <meta property="og:image" content="http://www.wmotorsdobrasil.com.br/social.jpg">
+    <meta property="og:description" content="A WMotors do Brasil oferece um extenso catálogo de posições de números de chassis e câmbio, incluíndo carros nacionais e importados.">
+
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="website">
+    <meta name="twitter:title" content="WMotors do Brasil">
+    <meta name="twitter:url" content="http://www.wmotorsdobrasil.com.br">
+    <meta name="twitter:image" content="http://www.wmotorsdobrasil.com.br/social.jpg">
+    <meta name="twitter:description" content="A WMotors do Brasil oferece um extenso catálogo de posições de números de chassis e câmbio, incluíndo carros nacionais e importados.">
+
+    <!-- SEO -->
+    <meta name="author" content="F-FW>> | Web Development">
+    <meta name="generator" content="F-FW>> | Web Development">
+    <meta name="description" content="F-FW>> Desenvolve sites e sistemas com as atenções voltadas para o futuro.">
+    <meta name="keywords" content="wmotors, carros, número de chassis, número de câmbio, catálogo, perícia">
+
+    <title>WMotors do Brasil</title>
+
+    <link rel="stylesheet" type="text/css" href="<%URLPADRAO%>html/style/css/global.css">
+    <link rel="stylesheet" type="text/css" href="<%URLPADRAO%>html/style/css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="<%URLPADRAO%>html/style/js/plugin/fancybox/jquery.fancybox.css">
 </head>
-<body>
-<div id="templatemo_site_title_bar_wrapper">
-	<div id="templatemo_site_title_bar">
-    	<div id="site_title">
-            <h1><a href="#">Simple Blue<span>free css template</span></a></h1>
-        </div>
-        
-        <ul id="templatemo_menu">
-            <li><a href="<%URLPADRAO%>"><span></span>Inicio</a></li>
-            <li><a href="<%URLPADRAO%>veiculo"><span></span>Veiculo</a></li>
-			<li><a href="<%URLPADRAO%>lista-veiculos"><span></span>Lista Veiculo</a></li>    
-            <li><a href="<%URLPADRAO%>contato"><span></span>Contato</a></li>
-            <li><a href="<%URLPADRAO%>sobre"><span></span>Sobre</a></li>  
-            <li><a href="<%URLPADRAO%>marca"><span></span>Marca</a></li>       
-            <li><a href="<%URLPADRAO%>lista-marcas"><span></span>Lista Marca</a></li>
-            <li><a href="<%URLPADRAO%>lista-usuarios"><span></span>Lista Usuarios</a></li>
-            <li><a href="<%URLPADRAO%>banner"><span></span>Banner</a></li>
-            <li><a href="<%URLPADRAO%>lista-banners"><span></span>Lista Banners</a></li>
-        </ul>       
-	</div> <!-- end of templatemo_site_title_bar -->        
-       
-</div> <!-- end of templatemo_site_title_bar_wrapper -->
+<body class="inicial">
 
-<div id="templatemo_content">
-    
-    <div class="section_w940">
-		<%CONTEUDO%>
+<header>
+    <div class="center">
+        
+        <div id="logo">WMotors do Brasil</div>
+        
+        <section class="main-search">
+            <form action="#">
+                <input type="text" name="search" placeholder="Buscar">
+                <button id="search"><i class="fa fa-search"></i></button>
+            </form>
+        </section>
+
+
+        <div class="login-wrapper">
+            <a href="javascript:;" title="Entre com login e senha" id="login"><i class="fa fa-user"></i> Login</a>
+
+            <div id="login-box">
+
+                <form action="#">
+
+                    <input type="text" name="cpf" placeholder="CPF">
+
+                    <input type="password" name="senha" placeholder="•••••••••" style="float:left; width:100px;">
+
+                    <button type="submit">OK</button>
+
+                </form>
+
+            </div>
+        </div>
+
+        <br class="clear">
+
+        <h1>www.wmotorsdobrasil.com.br</h1>
+
+        <nav>
+            <a href="galeria.html" title="Carros">Carros</a>
+            <a href="galeria.html" title="Motos">Motos</a>
+            <a href="galeria.html" title="Caminhões">Caminhões</a>
+            <a href="index.html" title="Inicial" class="active">Inicial</a>
+            <a href="sobre.html" title="Sobre">Sobre</a>
+            <a href="cadastro.html" title="Cadastro">Cadastro</a>
+            <a href="contato.html" title="Contato">Contato</a>
+        </nav>
+
+    </div>
+</header>
+
+<section id="banner">
+
+    <ul>
+        <li><img src="files/banners/banner2.jpg" alt="Camaro Amarelo"></li>
+        <li><img src="files/banners/banner1.jpg" alt="Malibu"></li>
+    </ul>
+
+</section>
+
+<section id="pesquisa">
+
+    <div class="center">
+
+        <section id="busca-chassis">
+
+            <h2>Busca por chassis</h2>
+
+            <form action="#">
+
+                <input type="text" name="BuscaChassis" placeholder="AB12345678" style="width:120px;" maxlength="10">
+
+                <button type="submit">Buscar</button>
+
+            </form>
+
+        </section>
+
+        <section id="busca-modelo">
+
+            <h2>Busca por veículos</h2>
+
+            <form action="#">
+
+                <select name="Tipo" style="width:120px;">
+                    <option value="undefined" selected>Tipo</option>
+                    <option value="carro">Carro</option>
+                    <option value="moto">Moto</option>
+                    <option value="caminhao">Caminhão</option>
+                </select>
+
+                <select name="Marca" style="width:130px;">
+                    <option value="undefined" selected>Marca</option>
+                    <option value="volkswagen">Volkswagen</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="chvrolet">Chevrolet</option>
+                </select>
+
+                <select name="Nome" style="width:130px;">
+                    <option value="undefined" selected>Nome</option>
+                    <option value="gol">Gol</option>
+                    <option value="fusca">Fusca</option>
+                    <option value="jetta">Jetta</option>
+                </select>
+
+                <input type="text" name="ano_fab" placeholder="Fabricação" maxlength="4" style="width:60px;">
+
+                <input type="text" name="ano_mod" placeholder="Modelo" maxlength="4" style="width:60px;">
+
+                <button type="submit">Buscar</button>
+
+            </form>
+
+        </section>
+
+        <br class="clear">
+
     </div>
     
-    
-    <div class="cleaner"></div>
-</div> <!-- end of templatemo_content -->
- 
+</section>
 
-<div id="templatemo_footer_wrapper">
-<div id="templatemo_footer">
-
-    <div class="section_w240">
-        
-        <h3>Privacy Policy</h3>
-        
-        <div class="sub_content">
-            <p>Nullam ultrices tempor nisi, ac egestas diam aliquam a. Ut eleifend semper turpis, id feugiat arcu dignissim eu. Donec mattis adipiscing imperdiet.</p>
-        </div>
-        
-    </div>
-
-    <div class="section_w240">
-        
-        <h3>Partners</h3>
-        
-        <div class="sub_content">
-            
-            <ul class="footer_list">
-                <li><a href="http://www.templatemo.com/page/1" target="_parent">Free CSS Templates</a></li>
-                <li><a href="http://www.flashmo.com/page/1" target="_parent">Free Flash Templates</a></li>
-                <li><a href="http://www.flashmo.com/store" target="_parent">Template Store</a></li>
-                <li><a href="http://www.webdesignmo.com/blog" target="_parent">Web Design Tips</a></li>
-                <li><a href="http://www.koflash.com" target="_parent">Best Flash Gallery</a></li>               
+<%CONTEUDO%>
+<footer>
+    <div class="center">
+        <div class="f-left">
+            <div id="assinatura"></div>
+            <ul class="footer-menu">
+                <li><a href="#">Inicial</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Cadastro</a></li>
+                <li><a href="#">Contato</a></li>
             </ul>
-            
+            <p class="copyrights">WMotors do Brasil © Todos os direitos reservados.</p>
         </div>
-        
-    </div>
-    
-    <div class="section_w240">
-        
-        <h3>About</h3>
-        
-        <div class="sub_content">
-        
-            <ul class="footer_list">
-                <li><a href="#">Lorem ipsum dolor</a></li>
-                <li><a href="#">Cum sociis</a></li>
-                <li><a href="#">Donec quam</a></li>
-                <li><a href="#">Nulla consequat</a></li>
-                <li><a href="#">In enim justo</a></li>
-            </ul>
-        
-        </div>
-        
-    </div>
-    
-    <div class="section_w240">
-        
-        <h3>XHTML/CSS validations</h3>
-        
-        <div class="sub_content">
-        	
-            <p>Aliquam vehicula accumsan arcu, vestibulum cursus purus lobortis eu. Pellentesque vitae neque non lorem vehicula adipiscing. </p>
-            
-            <div class="cleaner_h20"></div>
-        
-            <a href="http://validator.w3.org/check?uri=referer"><img style="border:0;width:88px;height:31px" src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Transitional" width="88" height="31" vspace="8" border="0" /></a>
-            
-            <a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px"  src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!" vspace="8" border="0" /></a>
-            
-        </div>
-            
-    </div>
-    
-    <div class="cleaner_h40"></div>
-    
-    
-    <center>
-        Copyright © 2048 <a href="#">Your Company Name</a> | 
-        <a href="http://www.iwebsitetemplate.com" target="_parent">Website Templates</a> by <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a>
-    </center>
-    
 
-</div> <!-- end of footer -->
-</div> <!-- end of footer wrapper -->
+        <p class="creatos f-right">Criado e Desenvolvido por<br> <a href="http://www.perdidao.net">Lucas Almeida</a> e Israel Cidade.</p>
+        <br class="clear">
+    </div>
 
-<div align=center>This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div></body>
+</footer>
+
+<script type="text/javascript" src="js/vendor/jquery.js"></script>
+<script type="text/javascript" src="js/plugin/owl.carousel.min.js"></script>
+<script type="text/javascript" src="js/plugin/fancybox/jquery.fancybox.js"></script>
+<script type="text/javascript" src="js/functions.min.js"></script>
+<!--[if lt IE 9]>
+    <script src="js/plugin/html5shiv.js"></script>
+<![endif]-->
+</body>
 </html>
