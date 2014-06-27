@@ -1,0 +1,116 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600);
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
+
+html { line-height: 1; }
+
+ol, ul { list-style: none; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
+
+q, blockquote { quotes: none; }
+q:before, q:after, blockquote:before, blockquote:after { content: ""; content: none; }
+
+a img { border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary { display: block; }
+
+/* -+-+-+-+-+- TOOLS -+-+-+-+-+- */
+.center { max-width: 1024px; margin: 0 auto; }
+
+.clear { clear: both; }
+
+.f-left { float: left; }
+
+.f-right { float: right; }
+
+/* ------ */
+/* GLOBAL */
+/* ------ */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+body { background: #eeeeee; color: #555555; font-weight: 400; font-size: 14px; font-size: 0.875rem; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; line-height: 1.4em; position: relative; }
+
+a { color: inherit; text-decoration: none; }
+
+/* ----- */
+/* LOGIN */
+/* ----- */
+.login { background-color: #0466a9; }
+
+#logo { width: 211px; height: 201px; background: transparent url(../img/admin/logo.png) no-repeat center center; margin: 50px auto 10px; }
+
+#login { width: 360px; padding: 20px; background-color: #FFF; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; margin: 0 auto; }
+
+#login h1 { font-size: 22px; font-size: 1.375rem; font-weight: 300; margin-bottom: 10px; }
+
+#login label { display: block; }
+
+#login label input { width: 100%; padding: 5px; border: 1px solid #cccccc; font-size: 13px; font-size: 0.8125rem; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
+
+#entrar { display: block; float: right; margin-top: 10px; padding: 5px 30px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #0466a9; background-color: transparent; color: #0466a9; font-size: 14px; font-size: 0.875rem; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; text-transform: uppercase; text-align: center; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; cursor: pointer; }
+#entrar:hover { background-color: #0466a9; color: #FFF; }
+
+/* ------ */
+/* HEADER */
+/* ------ */
+header { height: 50px; background-color: #0466a9; }
+
+#logo-inner { display: block; float: left; margin-left: 10px; width: 70px; height: 67px; background: transparent url(../img/admin/logo-small.png) no-repeat center center; }
+
+header nav { float: left; margin-left: 30px; }
+
+header nav a { display: block; float: left; height: 40px; line-height: 40px; padding: 0 15px; margin: 10px 5px 0 0; color: #FFF; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; -moz-border-radius: 5px 5px 0 0; -webkit-border-radius: 5px; border-radius: 5px 5px 0 0; }
+
+header nav a:hover, header nav a.selected { color: #0466a9; background-color: #FFF; }
+
+#logout { display: block; float: right; margin: 10px 10px 0 0; font-size: 12px; font-size: 0.75rem; height: 30px; line-height: 30px; padding: 0 10px; background-color: #FFF; color: #ff3333; font-weight: 600; text-transform: uppercase; border-radius: 10px; }
+
+/* ---- */
+/* CARS */
+/* ---- */
+main { width: 500px; margin: 50px auto 0; }
+
+.add { display: block; float: right; margin-bottom: 10px; padding: 5px 30px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #0466a9; background-color: transparent; color: #0466a9; font-size: 12px; font-size: 0.75rem; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; text-transform: uppercase; text-align: center; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; cursor: pointer; }
+.add:hover { background-color: #0466a9; color: #FFF; }
+
+#registers li { background-color: #FFF; padding: 10px; margin-bottom: 5px; }
+
+#registers li:hover { background-color: #F9F9F9; }
+
+#registers li .car-image { width: 75px; height: 50px; float: left; }
+
+#registers li .car-info { float: left; margin-left: 10px; }
+
+#registers li .car-info h2 { font-size: 22px; font-size: 1.375rem; margin-top: 5px; }
+
+#registers li .car-info p { text-transform: uppercase; color: #0466a9; margin-top: 5px; }
+
+#registers li .car-controls { float: right; }
+
+#registers li .car-controls .btn-edit { display: block; padding: 0 10px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #0466a9; background-color: transparent; color: #0466a9; font-size: 10px; font-size: 0.625rem; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; text-transform: uppercase; text-align: center; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; cursor: pointer; }
+#registers li .car-controls .btn-edit:hover { background-color: #0466a9; color: #FFF; }
+
+#registers li .car-controls .btn-delete { display: block; margin-top: 5px; padding: 0 10px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #ff3333; background-color: transparent; color: #ff3333; font-size: 10px; font-size: 0.625rem; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; text-transform: uppercase; text-align: center; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; cursor: pointer; }
+#registers li .car-controls .btn-delete:hover { background-color: #ff3333; color: #FFF; }
+
+.ativo { color: #00cc66; font-size: 30px; font-size: 1.875rem; }
+
+.inativo { color: #ff3333; font-size: 30px; font-size: 1.875rem; }
+
+/* -------- */
+/* Register */
+/* -------- */
+main > h1 { font-size: 26px; font-size: 1.625rem; font-weight: 300; margin: 10px 0; }
+
+main form h2 { text-transform: uppercase; color: #0466a9; margin: 20px 0 10px; }
+
+main label { display: block; margin-bottom: 10px; }
+
+main input, main select, main textarea { display: block; width: 100%; height: 30px; padding: 0 5px; border: 1px solid #cccccc; margin-top: 5px; }
+
+main textarea { height: 100px; }
+
+.save { display: block; float: right; margin-top: 10px; padding: 5px 30px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #0466a9; background-color: transparent; color: #0466a9; font-size: 12px; font-size: 0.75rem; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; text-transform: uppercase; text-align: center; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; cursor: pointer; }
+.save:hover { background-color: #0466a9; color: #FFF; }
