@@ -42,7 +42,8 @@
 		
 		#funcao imprime conteudo
 		function Imprime($Conteudo){
-			if($this->Pagina == 'admin' || $this->Pagina == 'veiculo'){
+			if($this->Pagina == 'admin' || $this->Pagina == 'veiculo' || $this->Pagina == 'lista-veiculos' 
+				|| $this->Pagina == 'lista-marcas' || $this->Pagina == 'marca' || $this->Pagina == 'lista-usuarios'){
 				$SaidaHtml = $this->CarregaHtml('modelo-admin');
 			}else{
 				$SaidaHtml = $this->CarregaHtml('modelo');	
