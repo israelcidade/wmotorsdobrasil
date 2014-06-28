@@ -1,3 +1,3 @@
 <?php
-	echo 'volta';
+	echo $_POST['id'];
 ?>

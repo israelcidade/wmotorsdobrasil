@@ -1,10 +1,11 @@
-function deletamarca(){
-    alert('teste1');
-    
-    $.post('http://localhost/wmotorsdobrasil/lib/ajax/deletamarca.php',
-        {},
-            function(retorno){
-            alert('teste');
-        }
-    );
+function deletamarca(id){
+    var url = 'http://localhost/wmotorsdobrasil/lib/ajax/deletamarca.php';
+    if (confirm("Deletar?") == true) { 
+        $.post(url,
+            {id: id},
+                function(retorno){
+                alert("Marca Deletada com Sucesso.")
+            }
+        );
+    }
 }
