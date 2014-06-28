@@ -1,6 +1,9 @@
 <li>
 	<div class="car-image"><img src="http://lorempixel.com/75/50/transport/" alt="Astra Hatch 2013"></div>
 	<div class="car-info"><h2><%MARCA%></h2></div>
-	<div class="car-controls"><a href="<%URLPADRAO%>marca/editar/<%ID%>" class="btn-edit">Editar</a><a href="<%URLPADRAO%>.marca/deletar/<%ID%>" class="btn-delete">Deletar</a></div>
+	<div class="car-controls">
+		<a href="<%URLPADRAO%>marca/editar/<%ID%>" class="btn-edit">Editar</a>
+		<div onClick="deletamarca()" class="btn-delete">Deletar</div>
+	</div>
 	<br class="clear">
 </li>
