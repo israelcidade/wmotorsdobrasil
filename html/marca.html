@@ -2,10 +2,12 @@
 
 	<h1>Cadastro de marcas</h1>
 
-	<form action="#">
+	<form action="" method="post" enctype="multipart/form-data">
+
+		<input type ="hidden" name="acao" value="acao">
 
 		<h2>Informações gerais</h2>
-		<label>
+		<!-- <label>
 			Tipo<br>
 			<select name="tipo">
 				<option value="carro">Carro</option>
@@ -13,21 +15,21 @@
 				<option value="caminhao">Caminhão</option>
 			</select>
 		</label>
-
+		-->
 		<label>
 			Marca<br>
-			<input type="text" placeholder="Nome da marca" name="nome">
+			<input type="text" placeholder="Nome da marca" name="marca" value="<%MARCA%>">
 		</label>
 
 		<h2>Logotipo</h2>
-
+		<%IMG%>
 		<label>
-			<input type="file" name="imagem1">
+			<input type="file" name="foto">
 		</label>
 
-	</form>
+		<input type="submit" class="save" name="submit" value="<%BOTAO%>">
 
-	<a href="#" class="save">Salvar</a>
+	</form>
 
 	<br class="clear">
 
