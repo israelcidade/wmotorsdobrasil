@@ -4,7 +4,12 @@ function deletamarca(id){
         $.post(url,
             {id: id},
                 function(retorno){
-                alert("Marca Deletada com Sucesso.")
+                if(retorno == true){
+                    alert("Marca Deletada com Sucesso.");
+                    window.location.reload();
+                }else{
+                    alert("Falha ao excluir");
+                }
             }
         );
     }
