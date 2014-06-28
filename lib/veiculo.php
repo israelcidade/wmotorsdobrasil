@@ -48,8 +48,8 @@
 
 		#Trabalha com Post
 		if( isset($_POST["acao"]) && $_POST["acao"] != '' ){
-			$marca = strip_tags(trim(addslashes($_POST["marcas"])));
-			$categoria = strip_tags(trim(addslashes($_POST["categoria"])));
+			$marca = strip_tags(trim(addslashes($_POST["marca"])));
+			$categoria = strip_tags(trim(addslashes($_POST["tipo"])));
 			$modelo = strip_tags(trim(addslashes($_POST["modelo"])));
 			$anofab = strip_tags(trim(addslashes($_POST["anofab"])));
 			$anomod = strip_tags(trim(addslashes($_POST["anomod"])));
