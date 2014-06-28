@@ -38,7 +38,7 @@
 		}
 
 		function MontaSelectMarcas($marca){
-			$marcas = '<select name="marcas">';
+			$marcas = '<select name="marca">';
 			$marcas .= '<option value="0">Selecione uma Marca</option>';
 			$Sql = "Select idmarca , marca from c_marcas";
 			$result = parent::Execute($Sql);
@@ -55,7 +55,7 @@
 		}
 
 		function MontaSelectCategorias($categoria){
-			$categorias = '<select name="categoria">';
+			$categorias = '<select name="tipo">';
 			$categorias .= '<option value="0">Selecione uma Categoria</option>';
 			$Sql = "Select idcategoria , categoria from fixo_categorias";
 			$result = parent::Execute($Sql);

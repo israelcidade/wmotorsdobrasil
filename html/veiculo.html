@@ -2,30 +2,22 @@
 
 	<h1>Cadastro de veículos</h1>
 
-	<form action="#">
-
+	<form action="" method="POST">
+		<input type ="hidden" name="acao" value="acao">
 		<h2>Informações gerais</h2>
 		<label>
 			Tipo<br>
-			<select name="tipo">
-				<option value="carro">Carro</option>
-				<option value="moto">Moto</option>
-				<option value="caminhao">Caminhão</option>
-			</select>
+			<%CATEGORIAS%>
 		</label>
 
 		<label>
 			Marca<br>
-			<select name="marca">
-				<option value="volkswagen">Volkswagen</option>
-				<option value="ford">Ford</option>
-				<option value="fiat">Fiat</option>
-			</select>
+			<%MARCAS%>
 		</label>
 
 		<label>
 			Nome<br>
-			<input type="text" placeholder="Nome do carro" name="nome">
+			<input type="text" placeholder="Nome do carro" name="modelo">
 		</label>
 
 		<label>
