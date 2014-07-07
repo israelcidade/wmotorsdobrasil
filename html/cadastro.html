@@ -6,26 +6,22 @@
 
 		<p>Preencha o formulário com seus dados, efetue o pagamento e pronto, você já poderá pesquisar pelos carros cadastrados.</p>
 
-		<form action="#" id="cadastro">
-
+		<form action="" id="cadastro" method="post">
+			<input type="hidden" name="acao" value="cadastrar">
 			<input type="text" name="nome" placeholder="Nome Completo" class="i-left">
 			<input type="text" name="nascimento" placeholder="Nascimento" class="i-right">
 			<input type="text" name="rg" placeholder="RG" class="i-half i-first">
 			<input type="text" name="cpf" placeholder="CPF" class="i-half">
-			<input type="text" name="endereco" placeholder="Endereço" class="i-left">
-			<input type="text" name="cep" placeholder="CEP" class="i-right">
+			
+			<form action="" method="post">
+			<input type="hidden" name="acao" value="buscar-cep">
+			<input type="text" name="cep" placeholder="CEP" class="i-left" value="<%CEP%>">
+			<button type="submit" class="button">Buscar Cep</button>
+			</form>
 
-			<select name="estado" class="i-half i-first">
-				<option value="pr">Paraná</option>
-				<option value="sp">São Paulo</option>
-				<option value="sc">Santa Catarina</option>
-			</select>
-			<select name="cidade" class="i-half">
-				<option value="londrina">Londrina</option>
-				<option value="curitiba">Curitiba</option>
-				<option value="maringa">Maringá</option>
-			</select>
-
+			<input type="text" name="endereco" placeholder="Endereço" class="i-right" value="<%ENDERECO%>">
+			<input type="text" name="estado" placeholder="Estado" class="i-half i-first" value="<%ESTADO%>">
+			<input type="text" name="cidade" placeholder="Cidade" class="i-half" value="<%CIDADE%>">
 			<input type="password" name="senha" placeholder="Senha" class="i-half i-first">
 			<input type="password" name="confsenha" placeholder="Confirme a senha" class="i-half">
 

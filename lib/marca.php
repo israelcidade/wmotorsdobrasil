@@ -17,7 +17,6 @@
 		if($this->PaginaAux[0] == 'editar'){
 			$idmarca = $this->PaginaAux[1];
 			$botao = 'Atualizar';	
-
 			$result = $banco->BuscaMarca($idmarca);
 			$num_rows = $banco->Linha($result);
 
