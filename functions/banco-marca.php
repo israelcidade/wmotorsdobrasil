@@ -15,6 +15,7 @@
 					$Linha = $Auxilio;
 					$Linha = str_replace('<%ID%>',$rs['idmarca'],$Linha);
 					$Linha = str_replace('<%MARCA%>',$rs['marca'],$Linha);
+					$Linha = str_replace('<%FOTO%>',$rs['foto'],$Linha);
 					$Marcas .= $Linha;
 				}
 			}else{
