@@ -16,8 +16,7 @@
 		#Trabalha com Editar
 		if($this->PaginaAux[0] == 'editar'){
 			$idmarca = $this->PaginaAux[1];
-			$botao = 'Atualizar';
-			$botaodeletar = "<a href='".UrlPadrao."marca/deletar/".$idmarca."' onClick=\"return confirm('Tem certeza que deseja deletar ?')\" >Deletar</a>";	
+			$botao = 'Atualizar';	
 
 			$result = $banco->BuscaMarca($idmarca);
 			$num_rows = $banco->Linha($result);
@@ -26,15 +25,8 @@
 				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 				$marca = $rs['marca'];
 				$foto = $rs['foto'];
-				$img = '<img src="'.UrlPadrao.$foto.'" alt="'.$nome.'">';
+				$img = '<img src="'.UrlPadrao.$foto.'" alt="'.$marca.'">';
 			}
-		}
-
-		#trabalha com Deeltar
-		if($this->PaginaAux[0] == 'deletar'){
-			$idmarca = $this->PaginaAux[1];
-			$banco->DeletaMarca($idmarca);
-			$banco->RedirecionaPara('lista-marcas');
 		}
 
 		#Trabalha com Post
