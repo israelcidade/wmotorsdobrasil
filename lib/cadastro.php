@@ -12,8 +12,9 @@
 		$usuario['cpf'] = strip_tags(trim(addslashes($_POST["cpf"])));
 		$usuario['cep'] = strip_tags(trim(addslashes($_POST["cep"])));
 		$usuario['endereco'] = strip_tags(trim(addslashes($_POST["endereco"])));
-		$usuario['estado'] = strip_tags(trim(addslashes($_POST["estado"])));
+		$usuario['bairro'] = strip_tags(trim(addslashes($_POST["bairro"])));
 		$usuario['cidade'] = strip_tags(trim(addslashes($_POST["cidade"])));
+		$usuario['estado'] = strip_tags(trim(addslashes($_POST["estado"])));
 		$usuario['senha'] = strip_tags(trim(addslashes($_POST["senha"])));
 		$usuario['confsenha'] = strip_tags(trim(addslashes($_POST["confsenha"])));
 
@@ -32,7 +33,8 @@
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('cadastro');
 	$Conteudo = str_replace('<%CEP%>', $cep, $Conteudo);
-	$Conteudo = str_replace('<%ENDERECO%>',$arr['tipo_logradouro'].' '.$arr['logradouro'].'-'.$arr['bairro'], $Conteudo);
+	$Conteudo = str_replace('<%ENDERECO%>',$arr['tipo_logradouro'].' '.$arr['logradouro'], $Conteudo);
+	$Conteudo = str_replace('<%BAIRRO%>', $arr['bairro'], $Conteudo);
 	$Conteudo = str_replace('<%ESTADO%>', $arr['uf'], $Conteudo);
 	$Conteudo = str_replace('<%CIDADE%>', $arr['cidade'], $Conteudo);
 ?>

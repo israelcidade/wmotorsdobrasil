@@ -13,13 +13,14 @@
 			<input type="text" name="rg" placeholder="RG" class="i-half i-first">
 			<input type="text" name="cpf" placeholder="CPF" class="i-half">
 			
-			<form action="" method="post">
-			<input type="hidden" name="acao" value="buscar-cep">
-			<input type="text" name="cep" placeholder="CEP" class="i-left" value="<%CEP%>">
-			<button type="submit" class="button">Buscar Cep</button>
-			</form>
+			
 
-			<input type="text" name="endereco" placeholder="Endereço" class="i-right" value="<%ENDERECO%>">
+			<input type="text" name="cep" placeholder="CEP" class="i-half i-left" value="<%CEP%>">
+			<button type="submit" class="button">Buscar Cep</button>
+		
+
+			<input type="text" name="endereco" placeholder="Endereço" class="i-left" value="<%ENDERECO%>">
+			<input type="text" name="bairro" placeholder="Bairro" class="i-right" value="<%BAIRRO%>">
 			<input type="text" name="estado" placeholder="Estado" class="i-half i-first" value="<%ESTADO%>">
 			<input type="text" name="cidade" placeholder="Cidade" class="i-half" value="<%CIDADE%>">
 			<input type="password" name="senha" placeholder="Senha" class="i-half i-first">
