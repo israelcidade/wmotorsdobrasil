@@ -23,4 +23,7 @@
 	define('EMAIL_USER', "israelcbj@gmail.com");
 	define('EMAIL_PASS', "m4r4n4t4");
 	define('EMAIL_RECEB', "israelcbj@gmail.com");
+
+	//Define mensagens de erro
+	define('ERRO_ZERO_MARCAS','Nenhuma Marca Cadastrada!');
 ?>

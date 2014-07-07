@@ -16,6 +16,7 @@
 		#Imprime Valores
 		$Conteudo = $banco->CarregaHtml('lista-marcas');
 		$Conteudo = str_replace('<%MARCAS%>',$Marcas,$Conteudo);
+		
 	}else{
 		$banco->RedirecionaPara('inicio/acesso');
 	}

@@ -2,7 +2,6 @@
 	class bancomarca extends banco{
 		#Funcao que lista os Folders
 		function ListaMarcas($Auxilio){
-			$Banco_Vazio = "Banco esta Vazio";
 			#Query Busca Folders
 			$Sql = "SELECT * FROM c_marcas";
 			$result = parent::Execute($Sql);
@@ -19,7 +18,7 @@
 					$Marcas .= $Linha;
 				}
 			}else{
-				$mensagem = $Banco_Vazio;
+				return $msg = ERRO_ZERO_MARCAS;
 			}
 			return $Marcas;
 		}
