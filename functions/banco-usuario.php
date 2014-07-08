@@ -15,7 +15,19 @@
 				{
 					$Linha = $Auxilio;
 					$Linha = str_replace('<%ID%>',$rs['idusuario'],$Linha);
-					$Linha = str_replace('<%NOME%>',$rs['user'],$Linha);
+					$Linha = str_replace('<%NOME%>',$rs['nome'],$Linha);
+					$Linha = str_replace('<%CPF%>',$rs['cpf'],$Linha);
+					if($rs['status'] == '0'){
+						$Linha = str_replace('<%STATUS%>','inativo',$Linha);
+						$Linha = str_replace('<%BOTAO%>','btn-edit',$Linha);
+						$Linha = str_replace('<%BOTAOVALUE%>','Ativar',$Linha);
+						
+					}else{
+						$Linha = str_replace('<%STATUS%>','ativo',$Linha);
+						$Linha = str_replace('<%BOTAO%>','btn-delete',$Linha);
+						$Linha = str_replace('<%BOTAOVALUE%>','Desativar',$Linha);
+					}
+					
 					$Usuarios .= $Linha;
 				}
 			}else{
