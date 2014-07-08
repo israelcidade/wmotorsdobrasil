@@ -19,9 +19,9 @@
 		}
 
 		#abre a sessao
-		function IniciaSessao($usuario){
+		function IniciaSessao($cpf){
 			session_start('login');
-			$_SESSION['cpf'] = $usuario;
+			$_SESSION['cpf'] = $cpf;
 		}
 
 		#fecha sessao
