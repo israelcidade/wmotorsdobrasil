@@ -43,10 +43,12 @@
 				$flag = '1';
 			}
 			$Sql = "Update c_usuarios set status = '".$flag."' where cpf='".$cpf."' ";
-			$result = parent::Execute($Sql);
-			$num_rows = parent::Linha($result);
-			return 'ok';
+			if($result = parent::Execute($Sql)){
+				return true;
+			}else{
+				return false;
+			}
+			
 		}
-
 	}
 ?>
