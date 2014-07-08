@@ -6,6 +6,8 @@
 
 		<p>Preencha o formulário com seus dados, efetue o pagamento e pronto, você já poderá pesquisar pelos carros cadastrados.</p>
 
+		<%MSG%><br>
+
 		<form action="" id="cadastro" method="post">
 			<input type="hidden" name="acao" value="cadastrar">
 			<input type="text" name="nome" placeholder="Nome Completo" class="i-left">
@@ -14,7 +16,7 @@
 			<input type="text" name="cpf" placeholder="CPF" class="i-half">
 	
 			<input type="text" name="cep" placeholder="CEP" class="i-half i-left" value="<%CEP%>">
-			<a href="#" onClick="buscacep()">Buscar Cep</a>
+			<a href="javascript:void(0);" onClick="buscacep()">Buscar Cep</a>
 		
 			<input type="text" name="endereco" placeholder="Endereco" class="i-left" value="<%ENDERECO%>">
 			<input type="text" name="bairro" placeholder="Bairro" class="i-right" value="<%BAIRRO%>">

@@ -7,7 +7,7 @@
 
 	if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'cadastrar'){
 		$usuario['nome'] = strip_tags(trim(addslashes($_POST["nome"])));
-		$usuario['nacimento'] = strip_tags(trim(addslashes($_POST["nascimento"])));
+		$usuario['nascimento'] = strip_tags(trim(addslashes($_POST["nascimento"])));
 		$usuario['rg'] = strip_tags(trim(addslashes($_POST["rg"])));
 		$usuario['cpf'] = strip_tags(trim(addslashes($_POST["cpf"])));
 		$usuario['cep'] = strip_tags(trim(addslashes($_POST["cep"])));
@@ -20,7 +20,7 @@
 
 		$msg = $banco->CadastraUsuario($usuario);
 		if($msg == 'ok'){
-			$banco->RedirecinaPara('inicio');
+			$banco->RedirecionaPara('inicio');
 		}
 
 	}
@@ -32,6 +32,7 @@
 	
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('cadastro');
+	$Conteudo = str_replace('<%MSG%>', $msg, $Conteudo);
 	$Conteudo = str_replace('<%CEP%>', $cep, $Conteudo);
 	$Conteudo = str_replace('<%ENDERECO%>',$arr['tipo_logradouro'].' '.$arr['logradouro'], $Conteudo);
 	$Conteudo = str_replace('<%BAIRRO%>', $arr['bairro'], $Conteudo);
