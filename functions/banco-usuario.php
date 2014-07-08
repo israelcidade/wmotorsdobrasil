@@ -36,5 +36,17 @@
 			return $Usuarios;
 		}
 
+		function MudaStatus($status,$cpf){
+			if($status == 'ativo'){
+				$flag = '0';
+			}else{
+				$flag = '1';
+			}
+			$Sql = "Update c_usuarios set status = '".$flag."' where cpf='".$cpf."' ";
+			$result = parent::Execute($Sql);
+			$num_rows = parent::Linha($result);
+			return 'ok';
+		}
+
 	}
 ?>

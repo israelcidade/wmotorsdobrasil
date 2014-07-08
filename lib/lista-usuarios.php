@@ -7,6 +7,11 @@
 
 	if($banco->VerificaSessao()){
 
+		if($this->PaginaAux[0] == 'status'){
+			$mgs = $banco->MudaStatus($this->PaginaAux[1],$this->PaginaAux[2]);
+			$banco->RedirecionaPara('lista-usuarios');
+		}
+
 		#Carrega o html de Auxilio
 		$Auxilio = $banco->CarregaHtml('itens/lista-usuarios-itens');
 
