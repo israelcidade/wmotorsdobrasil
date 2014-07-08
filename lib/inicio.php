@@ -17,13 +17,13 @@
 
 	#Trabalha com Post
 	if( isset($_POST["acao"]) && $_POST["acao"] != '' ){
-		$usuario = strip_tags(trim(addslashes($_POST["usuario"])));
+		$cpf = strip_tags(trim(addslashes($_POST["cpf"])));
 		$senha = strip_tags(trim(addslashes($_POST["senha"])));
 
-		$flag = $banco->BuscaUsuario($usuario,$senha);
+		$flag = $banco->BuscaUsuario($cpf,$senha);
 
 		if($flag){
-			$banco->IniciaSessao($usuario);
+			$banco->IniciaSessao($cpf);
 			$banco->RedirecionaPara('lista-veiculos');
 		}
 	}

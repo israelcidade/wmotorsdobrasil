@@ -21,7 +21,7 @@
 		#abre a sessao
 		function IniciaSessao($usuario){
 			session_start('login');
-			$_SESSION['usuario'] = $usuario;
+			$_SESSION['cpf'] = $usuario;
 		}
 
 		#fecha sessao
@@ -33,7 +33,7 @@
 
 		function VerificaSessao(){
 			session_start('login');
-			if( isset($_SESSION['usuario']) ){
+			if( isset($_SESSION['cpf']) ){
 				return true;
 			}else{
 				return false;
