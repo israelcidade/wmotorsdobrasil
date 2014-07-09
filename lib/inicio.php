@@ -28,17 +28,20 @@
 		}
 	}
 
-	if($banco->VerificaSessao()){
-		$deslogar = "<a href='".UrlPadrao."inicio/deslogar/' onClick=\"return confirm('Tem certeza que deseja deslogar ?')\" >Deslogar</a>";
-	}
-
 	if($this->PaginaAux[0] == 'acesso'){
 		$msg = "Acesso Negado";
 	}
+
+	$UltimoVeiculo = $banco->BuscaUltimoVeiculo();
 
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('inicio');
 	$Conteudo = str_replace('<%BOTAO%>', $botao, $Conteudo);
 	$Conteudo = str_replace('<%SAIR%>', $deslogar, $Conteudo);
 	$Conteudo = str_replace('<%MSG%>', $msg, $Conteudo);
+	$Conteudo = str_replace('<%MARCA%>',$UltimoVeiculo['marca'],$Conteudo);
+	$Conteudo = str_replace('<%MODELO%>',$UltimoVeiculo['modelo'],$Conteudo);
+	$Conteudo = str_replace('<%ANOFAB%>',$UltimoVeiculo['anofab'],$Conteudo);
+	$Conteudo = str_replace('<%ANOMOD%>',$UltimoVeiculo['anomod'],$Conteudo);
+	$Conteudo = str_replace('<%PADRAO%>',$UltimoVeiculo['padrao'],$Conteudo);
 ?>
