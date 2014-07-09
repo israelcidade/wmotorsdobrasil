@@ -12,7 +12,11 @@
 				$categoria = '3';
 			}
 
-			$Sql = "Select * from c_veiculos where categoria = '".$categoria."' ";
+			$Sql = "SELECT V.*, M.marca as nomemarca
+					FROM c_veiculos V 
+					INNER JOIN c_marcas M ON v.marca = m.idmarca
+					AND v.categoria = '".$categoria."'
+					";
 			$result = parent::Execute($Sql);
 			$num_rows = parent::Linha($result);
 
@@ -22,8 +26,10 @@
 				{
 					$Linha = $Auxilio;
 					$Linha = str_replace('<%ID%>',$rs['idveiculo'],$Linha);
-					$Linha = str_replace('<%MARCA%>',$rs['nomedamarca'],$Linha);
+					$Linha = str_replace('<%MARCA%>',$rs['nomemarca'],$Linha);
 					$Linha = str_replace('<%MODELO%>', $rs['modelo'], $Linha);
+					$Linha = str_replace('<%ANOFAB%>', $rs['anofab'], $Linha);
+					$Linha = str_replace('<%ANOMOD%>', $rs['anomod'], $Linha);
 					$Resultado .= $Linha;
 				}
 			}else{
