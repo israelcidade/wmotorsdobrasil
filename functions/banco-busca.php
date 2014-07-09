@@ -3,10 +3,16 @@
 		#Funcao que lista os Folders
 
 		function ListaResultado($Auxilio,$categoria){
-			$Sql = "Select V.*,C.* 
-					FROM c_veiculos V
-					INNER JOIN fixo_categorias C ON C.categoria = '".$categoria."'";
-					
+
+			if($categoria == 'carro'){
+				$categoria = '4';
+			}elseif($categoria == 'moto'){
+				$categoria = '2';
+			}elseif($categoria == 'caminhao'){
+				$categoria = '3';
+			}
+
+			$Sql = "Select * from c_veiculos where categoria = '".$categoria."' ";
 			$result = parent::Execute($Sql);
 			$num_rows = parent::Linha($result);
 
