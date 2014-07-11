@@ -39,6 +39,33 @@
 				return false;
 			}
 		}
+
+		function MontaMenu(){
+			$Sql = "Select * from fixo_menu";
+			$result = $this->Execute($Sql);
+			$num_rows = $this->Linha($result);
+			$class = '';
+			while( $rs = mysql_fetch_array($result , MYSQL_ASSOC) ){
+				$Linha = $this->CarregaHtml('itens/menu');
+
+
+				if($this->Pagina == '' && $rs['nome'] == 'Inicial'){
+					$Linha = str_replace('<%CLASS%>',"class = 'active'",$Linha);
+				}elseif($this->Pagina == $rs['link']){
+					$Linha = str_replace('<%CLASS%>',"class = 'active'",$Linha);
+				}else{
+					$Linha = str_replace('<%CLASS%>','',$Linha);
+				}
+
+
+				$Linha = str_replace('<%LINK%>',$rs['link'],$Linha);
+				$Linha = str_replace('<%TITLE%>',$rs['title'],$Linha);
+				$Linha = str_replace('<%NOME%>',$rs['nome'],$Linha);
+				$Linha = str_replace('<%URLPADRAO%>',UrlPadrao,$Linha);
+				$Menu .= $Linha;
+			}
+			return $Menu;
+		}
 		
 		#funcao imprime conteudo
 		function Imprime($Conteudo){
@@ -48,8 +75,12 @@
 			}else{
 				$SaidaHtml = $this->CarregaHtml('modelo');	
 			}
+
+			$Menu = $this->MontaMenu();
+
 			$SaidaHtml = str_replace('<%CONTEUDO%>',$Conteudo,$SaidaHtml);
 			$SaidaHtml = str_replace('<%URLPADRAO%>',UrlPadrao,$SaidaHtml);
+			$SaidaHtml = str_replace('<%MENU%>',$Menu,$SaidaHtml);
 			echo $SaidaHtml;
 		}
 		
