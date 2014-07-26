@@ -18,7 +18,7 @@
 					$Marcas .= $Linha;
 				}
 			}else{
-				return $msg = ERRO_ZERO_MARCAS;
+				return $msg = $this->MontaMsg('atencao',ERRO_ZERO_MARCAS);
 			}
 			return $Marcas;
 		}
