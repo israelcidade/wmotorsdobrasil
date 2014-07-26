@@ -114,3 +114,10 @@ main textarea { height: 100px; }
 
 .save { display: block; float: right; margin-top: 10px; padding: 5px 30px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #0466a9; background-color: transparent; color: #0466a9; font-size: 12px; font-size: 0.75rem; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; text-transform: uppercase; text-align: center; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; cursor: pointer; }
 .save:hover { background-color: #0466a9; color: #FFF; }
+
+/* ======================= */
+/* FEITO POR ISRAEL
+*/
+
+.alert-danger{color:#a94442;background-color:#f2dede;border-color:#ebccd1}
+.alert{padding:15px;margin-bottom:20px;border:1px solid transparent;border-radius:4px}

@@ -8,6 +8,7 @@
 	$Sql = "Delete from c_marcas where idmarca = '".$id."' ";
 
 	if($result = $banco->Execute($Sql)){
+		$flag = $banco->DeletaFotoAntiga($id);
 		echo true;
 	}else{
 		echo false;

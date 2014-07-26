@@ -13,6 +13,14 @@
 
 	if($banco->VerificaSessao()){
 
+		#Trabalha com deletar
+		if($this->PaginaAux[0] == 'deletar'){
+			$result = $banco->DeletaMarca($this->PaginaAux[1]);
+			if($result){
+				$banco->RedirecionaPara('lista-marcas');
+			}
+		}
+
 		#Trabalha com Editar
 		if($this->PaginaAux[0] == 'editar'){
 			$idmarca = $this->PaginaAux[1];

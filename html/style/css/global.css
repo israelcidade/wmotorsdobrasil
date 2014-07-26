@@ -225,11 +225,3 @@ footer .center .f-left { min-width: 500px; }
 
 #contato button { padding: 5px 30px; border: 1px solid #0466a9; background-color: transparent; color: #0466a9; font-size: 16px; font-size: 1rem; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; text-transform: uppercase; text-align: center; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; cursor: pointer; float: right; }
 #contato button:hover { background-color: #0466a9; color: #FFF; }
-
-
-/* ======================= */
-/* FEITO POR ISRAEL
-*/
-
-.alert-danger{color:#a94442;background-color:#f2dede;border-color:#ebccd1}
-.alert{padding:15px;margin-bottom:20px;border:1px solid transparent;border-radius:4px}

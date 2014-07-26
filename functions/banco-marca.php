@@ -31,15 +31,20 @@
 
 		function DeletaMarca($id){
 			$flag = $this->DeletaFotoAntiga($id);
-			$Sql = "Delete from c_marcas where idmarca = ".$id;
-			$result = $this->Execute($Sql);
+			if($flag){
+				$Sql = "Delete from c_marcas where idmarca = ".$id;
+				$result = $this->Execute($Sql);
+				return true;
+			}else{
+				return false;
+			}		
 		}
 
 		#Funcao que deleta a antiga foto
 		function DeletaFotoAntiga($id)
 		{
 			$Sql = "SELECT foto FROM c_marcas where idmarca = '".$id."'";
-			if($result = parent::Execute($Sql)){
+			if($result = $this->Execute($Sql)){
 				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 				$caminho_foto = $rs['foto'];
 				unlink($caminho_foto);
