@@ -3,7 +3,7 @@
 
 	<h1>Cadastro de veículos</h1>
 
-	<form action="" method="POST">
+	<form action="" method="POST" enctype="multipart/form-data">
 
 		<div class="col-half">
 
@@ -44,9 +44,11 @@
 			<fieldset>
 				<legend><i class="fa fa-star"></i> Principal</legend>
 
-				<div class="f-left"><input type="file" name="imagem1" class="jfilestyle" data-buttonText="Escolher imagem" data-icon="false" data-input="false"></div>
-				<input type="text" name="imagem1tit" placeholder="Título da imagem" class="input-titulo">
-				<textarea name="imagem1desc" placeholder="Descrição da Imagem"></textarea>
+				<div class="f-left">
+					<input type="file" name="fotoprincipal" class="jfilestyle" data-buttonText="Escolher imagem" data-icon="false" data-input="false">
+				</div>
+				<input type="text" name="foto-principal-nome" placeholder="Título da imagem" class="input-titulo">
+				<textarea name="foto-principal-descricao" placeholder="Descrição da Imagem"></textarea>
 			</fieldset>
 
 			<fieldset>

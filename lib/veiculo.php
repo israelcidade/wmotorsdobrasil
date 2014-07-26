@@ -48,22 +48,7 @@
 
 		#Trabalha com Post
 		if( isset($_POST["acao"]) && $_POST["acao"] != '' ){
-			$marca = strip_tags(trim(addslashes($_POST["marca"])));
-			$categoria = strip_tags(trim(addslashes($_POST["tipo"])));
-			$modelo = strip_tags(trim(addslashes($_POST["modelo"])));
-			$anofab = strip_tags(trim(addslashes($_POST["anofab"])));
-			$anomod = strip_tags(trim(addslashes($_POST["anomod"])));
-			$padrao = strip_tags(trim(addslashes($_POST["padrao"])));
-			$titulo = strip_tags(trim(addslashes($_POST["titulo"])));
 			
-			if($botao == 'Atualizar'){
-				$SqlBanco = "Update c_veiculos SET categoria = '".$categoria."',marca = '".$marca."', modelo = '".$modelo."',anofab = '".$anofab."',anomod = '".$anomod."',padrao = '".$padrao."',titulo = '".$titulo."' where idveiculo = '".$idveiculo."' ";
-			}else{
-				$SqlBanco = "Insert Into c_veiculos (categoria,marca, modelo, anofab, anomod, padrao, titulo) VALUES ('".$categoria."','".$marca."','".$modelo."','".$anofab."','".$anomod."','".$padrao."','".$titulo."')";
-			}
-
-			$banco->Execute($SqlBanco);
-			$banco->RedirecionaPara('lista-veiculos/add');
 		}
 
 		#Monta o Select das Marcas
