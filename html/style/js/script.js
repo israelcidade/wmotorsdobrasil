@@ -21,10 +21,17 @@ $(document).ready(function(){
 	marcas.owlCarousel({
 		items:1,
 		singleItem:true,
-		autoPlay:true
+		autoPlay:true,
+		autoPlay:2000
 	});
 
 	// GALERIA DE IMAGENS
+
+	$('#galeria-favoritos').owlCarousel({
+		items:1,
+		singleItem:true,
+		autoPlay:true
+	});
 
 	$('.galeria').fancybox();
 
