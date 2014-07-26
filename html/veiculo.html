@@ -1,52 +1,123 @@
-<main>
+<br class="clear">
+<div class="center form-cadastro">
 
 	<h1>Cadastro de veículos</h1>
 
 	<form action="" method="POST">
-		<input type ="hidden" name="acao" value="acao">
-		<h2>Informações gerais</h2>
-		<label>
-			Tipo<br>
-			<%CATEGORIAS%>
-		</label>
 
-		<label>
-			Marca<br>
-			<%MARCAS%>
-		</label>
+		<div class="col-half">
 
-		<label>
-			Nome<br>
-			<input type="text" placeholder="Nome do carro" name="modelo" value="<%MODELO%>">
-		</label>
+			<input type ="hidden" name="acao" value="acao">
+			<h2>Informações gerais</h2>
+			<label>
+				Tipo<br>
+				<%CATEGORIAS%>
+			</label>
 
-		<label>
-			Ano de fabricação<br>
-			<input type="text" placeholder="XXXX" name="anofab" value="<%ANOFAB%>">
-		</label>
+			<label>
+				Marca<br>
+				<%MARCAS%>
+			</label>
 
-		<label>
-			Ano modelo<br>
-			<input type="text" placeholder="XXXX" name="anomod" value="<%ANOMOD%>">
-		</label>
+			<label>
+				Nome<br>
+				<input type="text" placeholder="Nome do carro" name="modelo" value="<%MODELO%>">
+			</label>
 
-		<label>
-			Iniciais do Chassis<br>
-			<input type="text" placeholder="XXXXXXXXXX" name="padrao" value="<%PADRAO%>">
-		</label>
+			<label>
+				Ano de fabricação<br>
+				<input type="text" placeholder="XXXX" name="anofab" value="<%ANOFAB%>">
+			</label>
 
-		<h2>Imagens</h2>
-		<ul>
-			<li>
-				<input type="file" name="imagem1">
-				<input type="text" name="imagem1tit" placeholder="Título da imagem">
+			<label>
+				Ano modelo<br>
+				<input type="text" placeholder="XXXX" name="anomod" value="<%ANOMOD%>">
+			</label>
+
+			<label>
+				Iniciais do Chassis<br>
+				<input type="text" placeholder="XXXXXXXXXX" name="padrao" value="<%PADRAO%>">
+			</label>
+
+			<h2>Imagens</h2>
+
+			<fieldset>
+				<legend><i class="fa fa-star"></i> Principal</legend>
+
+				<div class="f-left"><input type="file" name="imagem1" class="jfilestyle" data-buttonText="Escolher imagem" data-icon="false" data-input="false"></div>
+				<input type="text" name="imagem1tit" placeholder="Título da imagem" class="input-titulo">
 				<textarea name="imagem1desc" placeholder="Descrição da Imagem"></textarea>
-			</li>
-		</ul>
+			</fieldset>
 
-	<input type="submit" class="save" name="submit" value="<%BOTAO%>">
+			<fieldset>
+				<legend>Chassis</legend>
+
+				<p>Imagem 1</p>
+				<div class="f-left"><input type="file" name="imagem2" class="jfilestyle" data-buttonText="Escolher imagem" data-icon="false" data-input="false"></div>
+				<input type="text" name="imagem2tit" placeholder="Título da imagem" class="input-titulo">
+				<textarea name="imagem2desc" placeholder="Descrição da Imagem"></textarea>
+
+				<p>Imagem 2</p>
+				<div class="f-left"><input type="file" name="imagem3" class="jfilestyle" data-buttonText="Escolher imagem" data-icon="false" data-input="false"></div>
+				<input type="text" name="imagem3tit" placeholder="Título da imagem" class="input-titulo">
+				<textarea name="imagem3desc" placeholder="Descrição da Imagem"></textarea>
+
+				<p>Imagem 3</p>
+				<div class="f-left"><input type="file" name="imagem4" class="jfilestyle" data-buttonText="Escolher imagem" data-icon="false" data-input="false"></div>
+				<input type="text" name="imagem4tit" placeholder="Título da imagem" class="input-titulo">
+				<textarea name="imagem4desc" placeholder="Descrição da Imagem"></textarea>
+			</fieldset>
+
+		</div>
+
+		<div class="col-half col-right">
+
+			<fieldset>
+				<legend>Motor</legend>
+
+				<p>Imagem 1</p>
+				<div class="f-left"><input type="file" name="imagem5" class="jfilestyle" data-buttonText="Escolher imagem" data-icon="false" data-input="false"></div>
+				<input type="text" name="imagem5tit" placeholder="Título da imagem" class="input-titulo">
+				<textarea name="imagem5desc" placeholder="Descrição da Imagem"></textarea>
+
+				<p>Imagem 2</p>
+				<div class="f-left"><input type="file" name="imagem6" class="jfilestyle" data-buttonText="Escolher imagem" data-icon="false" data-input="false"></div>
+				<input type="text" name="imagem6tit" placeholder="Título da imagem" class="input-titulo">
+				<textarea name="imagem6desc" placeholder="Descrição da Imagem"></textarea>
+
+				<p>Imagem 3</p>
+				<div class="f-left"><input type="file" name="imagem7" class="jfilestyle" data-buttonText="Escolher imagem" data-icon="false" data-input="false"></div>
+				<input type="text" name="imagem7tit" placeholder="Título da imagem" class="input-titulo">
+				<textarea name="imagem7desc" placeholder="Descrição da Imagem"></textarea>
+			</fieldset>
+
+			<fieldset>
+				<legend>Câmbio</legend>
+
+				<p>Imagem 1</p>
+				<div class="f-left"><input type="file" name="imagem8" class="jfilestyle" data-buttonText="Escolher imagem" data-icon="false" data-input="false"></div>
+				<input type="text" name="imagem8tit" placeholder="Título da imagem" class="input-titulo">
+				<textarea name="imagem8desc" placeholder="Descrição da Imagem"></textarea>
+
+				<p>Imagem 2</p>
+				<div class="f-left"><input type="file" name="imagem9" class="jfilestyle" data-buttonText="Escolher imagem" data-icon="false" data-input="false"></div>
+				<input type="text" name="imagem9tit" placeholder="Título da imagem" class="input-titulo">
+				<textarea name="imagem9desc" placeholder="Descrição da Imagem"></textarea>
+
+				<p>Imagem 3</p>
+				<div class="f-left"><input type="file" name="imagem10" class="jfilestyle" data-buttonText="Escolher imagem" data-icon="false" data-input="false"></div>
+				<input type="text" name="imagem10tit" placeholder="Título da imagem" class="input-titulo">
+				<textarea name="imagem10desc" placeholder="Descrição da Imagem"></textarea>
+			</fieldset>
+
+			<input type="submit" class="save" name="submit" value="<%BOTAO%>">
+
+		</div>
+
+		<br class="clear">
+
 	</form>
 
 	<br class="clear">
 
-</main> 
+</div>
