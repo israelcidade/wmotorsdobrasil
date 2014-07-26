@@ -26,6 +26,7 @@
 
 	//Define mensagens de erro
 	define('ERRO_ZERO_MARCAS','Nenhuma Marca Cadastrada!');
+	define('MSG_ERRO_MARCA_CADASTRADA','Marca ja cadastrada!');
 	define('MSG_ERRO_SENHA_DIFERENTE','Senhas diferentes');
 	define('MSG_ERRO_CPF_EXISTENTE','Ja possuimos um cadastro com esse cpf');
 	define('MSG_ERRO_BANCO','Falha ao conectar no banco de dados, tente novamente mais tarde!');

@@ -148,6 +148,20 @@
 			$num_rows = mysql_num_rows($result);
 			return $num_rows;
 		}
+
+		function MontaMsg($tipo,$msg){
+			if($tipo == 'erro'){
+				$flag = "<div class='alert alert-danger' role='alert'>
+      			<strong>Erro!</strong> ".$msg." </div>";
+			}elseif($tipo == 'ok'){
+				$flag = "<div class='alert alert-success' role='alert'>
+      			<strong>OK!</strong> ".$msg." </div>";
+			}elseif($tipo == 'atencao'){
+				$flag = "<div class='alert alert-warning' role='alert'>
+      			<strong>Aviso!</strong> ".$msg." </div>";
+			}
+			return $flag;
+		}
 		
 		#Funcao que carrega as páginas
 		function CarregaPaginas(){

@@ -63,7 +63,7 @@
 			}
 
 			$banco->Execute($SqlBanco);
-			$banco->RedirecionaPara('lista-veiculos');
+			$banco->RedirecionaPara('lista-veiculos/add');
 		}
 
 		#Monta o Select das Marcas

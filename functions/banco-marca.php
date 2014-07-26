@@ -58,5 +58,12 @@
 			return $rs['Auto_increment'];
 		}
 
+		function BuscaMarcaPorNome($marca){
+			$Sql = "Select * from c_marcas where marca = '".$marca."'";
+			$result = parent::Execute($Sql);
+			$num_rows = parent::Linha($result);
+			return $num_rows;
+		}
+
 	}
 ?>
