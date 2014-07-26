@@ -7,7 +7,7 @@
 	define('DB_Host' , "localhost");
 	define('DB_Database' , "wmotorsdobrasil");
 	define('DB_User' , "root");
-	define('DB_Pass' , "");
+	define('DB_Pass' , "root");
 	
 	#Definições FPDF
 	define('DPI', 96);

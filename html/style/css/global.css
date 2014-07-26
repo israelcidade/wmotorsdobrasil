@@ -105,7 +105,9 @@ nav a:hover, nav a.active { background: #FFF; color: #0466a9; }
 */
 #marcas { background: #eeeeee; }
 
-#galeria-marcas { display: block; width: 1000px; height: 60px; margin: 0 auto 10px; padding: 10px 0; border-top: 1px solid #cccccc; }
+#marcas .center{ border-top: 1px solid #cccccc; }
+
+#galeria-marcas { display: block; width: 150px; height: 60px; margin: 0 0 10px; padding: 10px 0; }
 
 #galeria-marcas li img { display: block; }
 

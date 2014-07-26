@@ -19,7 +19,8 @@ $(document).ready(function(){
 
 	var marcas = $('#galeria-marcas');
 	marcas.owlCarousel({
-		items:6,
+		items:1,
+		singleItem:true,
 		autoPlay:true
 	});
 
