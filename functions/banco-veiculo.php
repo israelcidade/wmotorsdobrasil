@@ -70,5 +70,10 @@
 			$categorias .= '</select>';
 			return $categorias;	
 		}
+
+		function InsereVeiculos($veiculo){
+			var_dump($veiculo);
+			die;
+		}
 	}
 ?>

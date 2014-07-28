@@ -6,6 +6,7 @@
 	$banco = new bancoveiculo();
 
 	#Declara Variaveis
+
 	$botao = 'Salvar';
 	$botaodeletar = '';
 	$categoria = '';
@@ -48,7 +49,11 @@
 
 		#Trabalha com Post
 		if( isset($_POST["acao"]) && $_POST["acao"] != '' ){
+			foreach ($_POST as $key => $value) {
+				$arr[$key] = $_POST[$key];
+			}
 			
+			$result = $banco->InsereVeiculo($arr);
 		}
 
 		#Monta o Select das Marcas
