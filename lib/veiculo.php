@@ -66,6 +66,12 @@
 
 		#Monta Imagens do Chassi
 		$ImagemChassi = $banco->MontaImagemChassi($idveiculo);
+		
+		#Monta Imagens do Motor
+		$ImagemMotor = $banco->MontaImagemMotor($idveiculo);
+
+		#Monta Imagens do Cambio
+		$ImagemCambio = $banco->MontaImagemcambio($idveiculo);
 
 		#Monta o Select das Marcas
 		$Marcas = $banco->MontaSelectMarcas($marca);
@@ -75,8 +81,14 @@
 
 		#Imprimi valores
 		$Conteudo = $banco->CarregaHtml('veiculo');
+
+		//Monta Imagens
 		$Conteudo = str_replace('<%IMAGEMPRINCIPAL%>',$ImagemPrincipal,$Conteudo);
 		$Conteudo = str_replace('<%IMAGEMCHASSI%>',$ImagemChassi,$Conteudo);
+		$Conteudo = str_replace('<%IMAGEMMOTOR%>',$ImagemMotor,$Conteudo);
+		$Conteudo = str_replace('<%IMAGEMCAMBIO%>',$ImagemCambio,$Conteudo);
+
+		//Resto
 		$Conteudo = str_replace('<%BOTAO%>',$botao,$Conteudo);
 		$Conteudo = str_replace('<%BOTAODELETAR%>',$botaodeletar,$Conteudo);
 		$Conteudo = str_replace('<%CATEGORIAS%>',$Categorias,$Conteudo);
