@@ -93,14 +93,26 @@
 				);
 			}
 			
-			for ($i=0; $i <= 9 ; $i++) { 
+			for ($i=0; $i <= 9 ; $i++) {
+
+				$Sql = "Select * from c_fotos where idveiculo = '".$idveiculo."' AND referencia = '".$i."'";
+				$result = $this->Execute($Sql);
+				$num_rows = $this->Linha($result);
+				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 
 				if($fotos[$i]['name'] != ''){
 					preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $fotos[$i]["name"], $ext);
 					$caminho_foto = "arq/veiculos/".$idveiculo.'/'.md5(uniqid(time())).'.'.$ext[1];
 					move_uploaded_file($fotos[$i]["tmp_name"], $caminho_foto);
-					$SqlBanco = "Insert Into c_fotos (idveiculo, referencia, caminho, titulo, descricao) 
-					VALUES ('".$idveiculo."','".$i."','".$caminho_foto."','".$arr['imagem-title']."','".$arr['imagem-desc']."')";
+
+					if($num_rows){
+						unlink($rs['caminho']);
+						$SqlBanco = "Update c_fotos set caminho = '".$caminho_foto."' where idveiculo = '".$idveiculo."' AND referencia = '".$i."'";
+					}else{
+						$SqlBanco = "Insert Into c_fotos (idveiculo, referencia, caminho, titulo, descricao) 
+						VALUES ('".$idveiculo."','".$i."','".$caminho_foto."','".$arr['imagem-title']."','".$arr['imagem-desc']."')";
+					}
+
 					$this->Execute($SqlBanco);
 				}
 
@@ -124,13 +136,11 @@
 			
 
 			if($rs['caminho'] != ''){
-				$Auxilio = str_replace('<%FOTO%>','<img src="'.UrlPadrao.'<%FOTO%>">',$Auxilio);
+				$Auxilio = str_replace('<%FOTO%>','<img src="'.UrlPadrao.$rs['caminho'].'">',$Auxilio);
 			}else{
 				$Auxilio = str_replace('<%FOTO%>','',$Auxilio);
 			}
 
-			$Auxilio = str_replace('<%LEGEND%>','Principal',$Auxilio);
-			$Auxilio = str_replace('<%FOTO%>',$rs['caminho'],$Auxilio);
 			$Auxilio = str_replace('<%NUMERACAO%>','',$Auxilio);
 			return $Auxilio;
 		}
@@ -147,13 +157,12 @@
 				$Linha = $Auxilio;
 
 				if($rs['caminho'] != ''){
-					$Auxilio = str_replace('<%FOTO%>','<img src="'.UrlPadrao.'<%FOTO%>">',$Auxilio);
+					$Linha = str_replace('<%FOTO%>','<img src="'.UrlPadrao.$rs['caminho'].'">',$Linha);
 				}else{
-					$Auxilio = str_replace('<%FOTO%>','',$Auxilio);
+					$Linha = str_replace('<%FOTO%>','',$Linha);
 				}
 
-				$Linha = str_replace('<%FOTO%>',$rs['caminho'],$Auxilio);
-				$Linha = str_replace('<%NUMERACAO%>','Imagem '.$j,$Auxilio);
+				$Linha = str_replace('<%NUMERACAO%>','Imagem '.$j,$Linha);
 				$Fotos .= $Linha;
 
 				$j = $j + 1;
@@ -174,13 +183,13 @@
 				$Linha = $Auxilio;
 
 				if($rs['caminho'] != ''){
-					$Auxilio = str_replace('<%FOTO%>','<img src="'.UrlPadrao.'<%FOTO%>">',$Auxilio);
+					$Linha = str_replace('<%FOTO%>','<img src="'.UrlPadrao.$rs['caminho'].'">',$Linha);
 				}else{
-					$Auxilio = str_replace('<%FOTO%>','',$Auxilio);
+					$Linha = str_replace('<%FOTO%>','',$Linha);
 				}
 
-				$Linha = str_replace('<%FOTO%>',$rs['caminho'],$Auxilio);
-				$Linha = str_replace('<%NUMERACAO%>','Imagem '.$j,$Auxilio);
+				
+				$Linha = str_replace('<%NUMERACAO%>','Imagem '.$j,$Linha);
 				$Fotos .= $Linha;
 
 				$j = $j + 1;
@@ -201,18 +210,17 @@
 				$Linha = $Auxilio;
 
 				if($rs['caminho'] != ''){
-					$Auxilio = str_replace('<%FOTO%>','<img src="'.UrlPadrao.'<%FOTO%>">',$Auxilio);
+					$Linha = str_replace('<%FOTO%>','<img src="'.UrlPadrao.$rs['caminho'].'">',$Linha);
 				}else{
-					$Auxilio = str_replace('<%FOTO%>','',$Auxilio);
+					$Linha = str_replace('<%FOTO%>','',$Linha);
 				}
 
-				$Linha = str_replace('<%FOTO%>',$rs['caminho'],$Auxilio);
-				$Linha = str_replace('<%NUMERACAO%>','Imagem '.$j,$Auxilio);
+				$Linha = str_replace('<%NUMERACAO%>','Imagem '.$j,$Linha);
 				$Fotos .= $Linha;
 
 				$j = $j + 1;
 			}
-
+			
 			return $Fotos;
 		}
 	}
