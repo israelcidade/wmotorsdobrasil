@@ -55,7 +55,7 @@
 		}
 
 		function MontaSelectCategorias($categoria){
-			$categorias = '<select name="tipo">';
+			$categorias = '<select name="categoria">';
 			$categorias .= '<option value="0">Selecione uma Categoria</option>';
 			$Sql = "Select idcategoria , categoria from fixo_categorias";
 			$result = parent::Execute($Sql);
@@ -71,9 +71,57 @@
 			return $categorias;	
 		}
 
-		function InsereVeiculos($veiculo){
-			var_dump($veiculo);
-			die;
+		function InsereVeiculo($arr){
+			$Sql = "Insert into c_veiculos (categoria,marca,modelo,anofab,anomod,padrao) 
+			VALUES ('".$arr['categoria']."','".$arr['marca']."','".$arr['modelo']."','".$arr['anofab']."','".$arr['anomod']."','".$arr['padrao']."')";
+			if($this->Execute($Sql)){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
+		function InsereImagens($arrImagens){
+			$idveiculo = $this->BuscaMaxId();
+			
+			for ($i=0; $i <= 9 ; $i++) { 
+				$fotos[] = array(
+					'name' => $arrImagens['name'][$i], 
+					'type' => $arrImagens['type'][$i], 
+					'tmp_name' => $arrImagens['tmp_name'][$i], 
+					'error' => $arrImagens['error'][$i]
+				);
+			}
+			
+			for ($i=0; $i <= 9 ; $i++) { 
+
+				if($fotos[$i]['name'] != ''){
+					preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $fotos[$i]["name"], $ext);
+					$caminho_foto = "arq/veiculos/".$idveiculo.'/'.md5(uniqid(time())).'.'.$ext[1];
+					move_uploaded_file($fotos[$i]["tmp_name"], $caminho_foto);
+					$SqlBanco = "Insert Into c_fotos (idveiculo, referencia, caminho, titulo, descricao) 
+					VALUES ('".$idveiculo."','".$i."','".$caminho_foto."','".$arr['imagem-title']."','".$arr['imagem-desc']."')";
+					$this->Execute($SqlBanco);
+				}
+
+			}
+		}
+
+		function BuscaMaxId()
+		{
+			$Sql = "SHOW TABLE STATUS LIKE 'c_veiculos'";
+			$result = parent::Execute($Sql);
+			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+			return $rs['Auto_increment']-1;
 		}
 	}
+	/*if($arrImagens[$i][$j] != ''){
+						
+						preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $arrImagens[$i][$j]["name"], $ext);
+						$caminho_foto = "arq/veiculos/".$idveiculo.'/'.md5(uniqid(time())).$ext[1];
+						move_uploaded_file($arrImagens[$i][$j]"tmp_name"], $caminho_foto);
+						$SqlBanco = "Insert Into c_fotos (idveiculo, referencia, caminho, titulo, descricao) 
+						VALUES ('".$idveiculo."','".$i."','".$caminho_foto."','".$arr['imagem-title']."','".$arr['imagem-desc']."')";
+						$this->Execute($SqlBanco);
+					}*/
 ?>
