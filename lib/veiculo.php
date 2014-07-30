@@ -61,6 +61,9 @@
 		//}
 		}
 
+		#Monta Imagem Principal
+		$ImagemPrincipal = $banco->MontaImagemPrincipal($idveiculo);
+
 		#Monta o Select das Marcas
 		$Marcas = $banco->MontaSelectMarcas($marca);
 
@@ -69,6 +72,7 @@
 
 		#Imprimi valores
 		$Conteudo = $banco->CarregaHtml('veiculo');
+		$Conteudo = str_replace('<%IMAGEMPRINCIPAL%>',$ImagemPrincipal,$Conteudo);
 		$Conteudo = str_replace('<%BOTAO%>',$botao,$Conteudo);
 		$Conteudo = str_replace('<%BOTAODELETAR%>',$botaodeletar,$Conteudo);
 		$Conteudo = str_replace('<%CATEGORIAS%>',$Categorias,$Conteudo);

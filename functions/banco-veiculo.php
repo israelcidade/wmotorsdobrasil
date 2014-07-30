@@ -114,14 +114,24 @@
 			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 			return $rs['Auto_increment']-1;
 		}
+
+		function MontaImagemPrincipal($idveiculo){
+			$Sql = "Select * from c_fotos where idveiculo = '".$idveiculo."' AND referencia = 0";
+			$result = $this->Execute($Sql);
+			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+
+			$Auxilio = $this->CarregaHtml('itens/imagem-veiculo-itens');
+
+			if($rs['caminho'] != ''){
+				$Auxilio = str_replace('<%FOTO%>','<img src="'.UrlPadrao.'<%FOTO%>">',$Auxilio);
+			}else{
+				$Auxilio = str_replace('<%FOTO%>','',$Auxilio);
+			}
+
+			$Auxilio = str_replace('<%LEGEND%>','Principal',$Auxilio);
+			$Auxilio = str_replace('<%FOTO%>',$rs['caminho'],$Auxilio);
+			$Auxilio = str_replace('<%URLPADRAO%>',UrlPadrao,$Auxilio);
+			return $Auxilio;
+		}
 	}
-	/*if($arrImagens[$i][$j] != ''){
-						
-						preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $arrImagens[$i][$j]["name"], $ext);
-						$caminho_foto = "arq/veiculos/".$idveiculo.'/'.md5(uniqid(time())).$ext[1];
-						move_uploaded_file($arrImagens[$i][$j]"tmp_name"], $caminho_foto);
-						$SqlBanco = "Insert Into c_fotos (idveiculo, referencia, caminho, titulo, descricao) 
-						VALUES ('".$idveiculo."','".$i."','".$caminho_foto."','".$arr['imagem-title']."','".$arr['imagem-desc']."')";
-						$this->Execute($SqlBanco);
-					}*/
 ?>
