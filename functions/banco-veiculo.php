@@ -188,5 +188,32 @@
 
 			return $Fotos;
 		}
+
+		function MontaImagemCambio($idveiculo){
+			$Auxilio = $this->CarregaHtml('itens/imagem-veiculo-itens');
+			$j = 1;
+			for ($i=7; $i <= 9; $i++) {
+				
+				$Sql = "Select * from c_fotos where idveiculo = '".$idveiculo."' AND referencia = '".$i."'";
+				$result = $this->Execute($Sql);
+				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+
+				$Linha = $Auxilio;
+
+				if($rs['caminho'] != ''){
+					$Auxilio = str_replace('<%FOTO%>','<img src="'.UrlPadrao.'<%FOTO%>">',$Auxilio);
+				}else{
+					$Auxilio = str_replace('<%FOTO%>','',$Auxilio);
+				}
+
+				$Linha = str_replace('<%FOTO%>',$rs['caminho'],$Auxilio);
+				$Linha = str_replace('<%NUMERACAO%>','Imagem '.$j,$Auxilio);
+				$Fotos .= $Linha;
+
+				$j = $j + 1;
+			}
+
+			return $Fotos;
+		}
 	}
 ?>
