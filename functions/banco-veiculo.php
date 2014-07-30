@@ -121,6 +121,7 @@
 			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 
 			$Auxilio = $this->CarregaHtml('itens/imagem-veiculo-itens');
+			
 
 			if($rs['caminho'] != ''){
 				$Auxilio = str_replace('<%FOTO%>','<img src="'.UrlPadrao.'<%FOTO%>">',$Auxilio);
@@ -130,8 +131,35 @@
 
 			$Auxilio = str_replace('<%LEGEND%>','Principal',$Auxilio);
 			$Auxilio = str_replace('<%FOTO%>',$rs['caminho'],$Auxilio);
-			$Auxilio = str_replace('<%URLPADRAO%>',UrlPadrao,$Auxilio);
+			$Auxilio = str_replace('<%NUMERACAO%>','',$Auxilio);
 			return $Auxilio;
+		}
+
+		function MontaImagemChassi($idveiculo){
+			$Auxilio = $this->CarregaHtml('itens/imagem-veiculo-itens');
+			$j = 1;
+			for ($i=1; $i <= 3; $i++) {
+				
+				$Sql = "Select * from c_fotos where idveiculo = '".$idveiculo."' AND referencia = '".$i."'";
+				$result = $this->Execute($Sql);
+				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+
+				$Linha = $Auxilio;
+
+				if($rs['caminho'] != ''){
+					$Auxilio = str_replace('<%FOTO%>','<img src="'.UrlPadrao.'<%FOTO%>">',$Auxilio);
+				}else{
+					$Auxilio = str_replace('<%FOTO%>','',$Auxilio);
+				}
+
+				$Auxilio = str_replace('<%FOTO%>',$rs['caminho'],$Auxilio);
+				$Auxilio = str_replace('<%NUMERACAO%>','Imagem '.$j,$Auxilio);
+
+				$Fotos .= $Linha;
+				$j = $j + 1;
+			}
+
+			return $Fotos;
 		}
 	}
 ?>
