@@ -52,13 +52,12 @@
 			foreach ($_POST as $key => $value) {
 				$arr[$key] = $_POST[$key];
 			}
-			
 		
-		//$result = $banco->InsereVeiculo($arr);
+			$result = $banco->InsereVeiculo($arr);
 
-		//if($result){
-			$resultImagens = $banco->InsereImagens($_FILES['foto']);
-		//}
+			if($result){
+				$resultImagens = $banco->InsereImagens($_FILES['foto'],$arr);
+			}
 		}
 
 		#Monta Imagem Principal

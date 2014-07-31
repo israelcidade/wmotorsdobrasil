@@ -34,6 +34,8 @@
 
 		function DeletaVeiculo($id){
 			$Sql = "Delete from c_veiculos where idveiculo = ".$id;
+			//Criar funcao que deleta a pasta!
+			unlink('arq/veiculos/'.$id);
 			$result = $this->Execute($Sql);
 		}
 
@@ -75,13 +77,15 @@
 			$Sql = "Insert into c_veiculos (categoria,marca,modelo,anofab,anomod,padrao) 
 			VALUES ('".$arr['categoria']."','".$arr['marca']."','".$arr['modelo']."','".$arr['anofab']."','".$arr['anomod']."','".$arr['padrao']."')";
 			if($this->Execute($Sql)){
+				$idveiculo = $this->BuscaMaxId();
+				mkdir('arq/veiculos/'.$idveiculo);
 				return true;
 			}else{
 				return false;
 			}
 		}
 
-		function InsereImagens($arrImagens){
+		function InsereImagens($arrImagens,$arr){
 			$idveiculo = $this->BuscaMaxId();
 			
 			for ($i=0; $i <= 9 ; $i++) { 
@@ -89,7 +93,9 @@
 					'name' => $arrImagens['name'][$i], 
 					'type' => $arrImagens['type'][$i], 
 					'tmp_name' => $arrImagens['tmp_name'][$i], 
-					'error' => $arrImagens['error'][$i]
+					'error' => $arrImagens['error'][$i],
+					'imagem-title' => $arr['imagem-title'][$i],
+					'imagem-desc' => $arr['imagem-desc'][$i]
 				);
 			}
 			
@@ -100,6 +106,16 @@
 				$num_rows = $this->Linha($result);
 				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 
+				if($rs['referencia'] != ''){
+					$Sql2 = "Update c_fotos set 
+						titulo = '".$fotos[$i]["imagem-title"]."', 
+						descricao = '".$fotos[$i]["imagem-desc"]."' 
+						where idveiculo = '".$idveiculo."' 
+						AND referencia = '".$i."'";
+						
+						$this->Execute($Sql2);
+				}
+
 				if($fotos[$i]['name'] != ''){
 					preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $fotos[$i]["name"], $ext);
 					$caminho_foto = "arq/veiculos/".$idveiculo.'/'.md5(uniqid(time())).'.'.$ext[1];
@@ -107,10 +123,22 @@
 
 					if($num_rows){
 						unlink($rs['caminho']);
-						$SqlBanco = "Update c_fotos set caminho = '".$caminho_foto."' where idveiculo = '".$idveiculo."' AND referencia = '".$i."'";
+						$SqlBanco = "Update c_fotos set 
+						caminho = '".$caminho_foto."', 
+						titulo = '".$fotos[$i]["imagem-title"]."', 
+						descricao = '".$fotos[$i]["imagem-desc"]."' 
+						where idveiculo = '".$idveiculo."' 
+						AND referencia = '".$i."'";
+						
 					}else{
-						$SqlBanco = "Insert Into c_fotos (idveiculo, referencia, caminho, titulo, descricao) 
-						VALUES ('".$idveiculo."','".$i."','".$caminho_foto."','".$arr['imagem-title']."','".$arr['imagem-desc']."')";
+						$SqlBanco = "Insert Into c_fotos 
+						(idveiculo, referencia, caminho, titulo, descricao) 
+						VALUES 
+						('".$idveiculo."','".$i."',
+							'".$caminho_foto."',
+							'".$fotos[$i]["imagem-title"]."',
+							'".$fotos[$i]["imagem-desc"]."'
+						)";
 					}
 
 					$this->Execute($SqlBanco);
@@ -142,6 +170,8 @@
 			}
 
 			$Auxilio = str_replace('<%NUMERACAO%>','',$Auxilio);
+			$Auxilio = str_replace('<%TITULO%>',$rs['titulo'],$Auxilio);
+			$Auxilio = str_replace('<%DESCRICAO%>',$rs['descricao'],$Auxilio);
 			return $Auxilio;
 		}
 
@@ -163,6 +193,8 @@
 				}
 
 				$Linha = str_replace('<%NUMERACAO%>','Imagem '.$j,$Linha);
+				$Linha = str_replace('<%TITULO%>',$rs['titulo'],$Linha);
+				$Linha = str_replace('<%DESCRICAO%>',$rs['descricao'],$Linha);
 				$Fotos .= $Linha;
 
 				$j = $j + 1;
@@ -190,6 +222,8 @@
 
 				
 				$Linha = str_replace('<%NUMERACAO%>','Imagem '.$j,$Linha);
+				$Linha = str_replace('<%TITULO%>',$rs['titulo'],$Linha);
+				$Linha = str_replace('<%DESCRICAO%>',$rs['descricao'],$Linha);
 				$Fotos .= $Linha;
 
 				$j = $j + 1;
@@ -216,6 +250,8 @@
 				}
 
 				$Linha = str_replace('<%NUMERACAO%>','Imagem '.$j,$Linha);
+				$Linha = str_replace('<%TITULO%>',$rs['titulo'],$Linha);
+				$Linha = str_replace('<%DESCRICAO%>',$rs['descricao'],$Linha);
 				$Fotos .= $Linha;
 
 				$j = $j + 1;
