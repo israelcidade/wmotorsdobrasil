@@ -52,11 +52,23 @@
 
 		function DeletaVeiculo($id){
 			$Sql = "Delete from c_veiculos where idveiculo = ".$id;
-			//Criar funcao que deleta a pasta!
-			rmdir('arq/veiculos/'.$id);
 			$result = $this->Execute($Sql);
+			//Criar funcao que deleta a pasta!
+			$pasta = "arq/veiculos/".$id;
+			$this->removeDirectory($pasta);
 		}
 
+		function removeDirectory($dir) {
+			$abreDir = opendir($dir);
+
+			while (false !== ($file = readdir($abreDir))) {
+				if ($file==".." || $file ==".") continue;
+				if (is_dir($cFile=($dir."/".$file))) removeDirectory($cFile);
+				elseif (is_file($cFile)) unlink($cFile);
+			}
+			closedir($abreDir);
+			rmdir($dir);
+		}
 		function MontaSelectMarcas($marca){
 			$marcas = '<select name="marca">';
 			$marcas .= '<option value="0">Selecione uma Marca</option>';
