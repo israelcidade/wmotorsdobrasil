@@ -56,6 +56,7 @@
 
 			if($result){
 				$resultImagens = $banco->InsereImagens($_FILES['foto'],$arr);
+				$banco->RedirecionaPara('lista-veiculos');
 			}
 		}
 

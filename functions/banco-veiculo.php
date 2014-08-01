@@ -99,9 +99,9 @@
 			$SqlUpdate = "Update c_veiculos set 
 						categoria = '".$arr['categoria']."', 
 						marca = '".$arr['marca']."', 
-						modelo = '".$arr['modelo']."' 
-						anofab = '".$arr['anofab']."' ,
-						anomod = '".$arr['anomod']."' ,
+						modelo = '".$arr['modelo']."',
+						anofab = '".$arr['anofab']."',
+						anomod = '".$arr['anomod']."',
 						padrao = '".$arr['padrao']."' 
 						where idveiculo = '".$idveiculo."'";
 
