@@ -36,7 +36,6 @@
 				$anofab = $rs['anofab'];
 				$anomod = $rs['anomod'];
 				$padrao = $rs['padrao'];
-				$titulo = $rs['titulo'];
 			}
 		}
 
@@ -53,7 +52,7 @@
 				$arr[$key] = $_POST[$key];
 			}
 		
-			$result = $banco->InsereVeiculo($arr);
+			$result = $banco->InsereVeiculo($arr,$botao,$idveiculo);
 
 			if($result){
 				$resultImagens = $banco->InsereImagens($_FILES['foto'],$arr);

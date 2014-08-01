@@ -91,15 +91,28 @@
 			return $categorias;	
 		}
 
-		function InsereVeiculo($arr){
-			$Sql = "Insert into c_veiculos (categoria,marca,modelo,anofab,anomod,padrao) 
+		function InsereVeiculo($arr,$botao,$idveiculo){
+			$SqlInsert = "Insert into c_veiculos 
+			(categoria,marca,modelo,anofab,anomod,padrao) 
 			VALUES ('".$arr['categoria']."','".$arr['marca']."','".$arr['modelo']."','".$arr['anofab']."','".$arr['anomod']."','".$arr['padrao']."')";
-			if($this->Execute($Sql)){
+			
+			$SqlUpdate = "Update c_veiculos set 
+						categoria = '".$arr['categoria']."', 
+						marca = '".$arr['marca']."', 
+						modelo = '".$arr['modelo']."' 
+						anofab = '".$arr['anofab']."' ,
+						anomod = '".$arr['anomod']."' ,
+						padrao = '".$arr['padrao']."' 
+						where idveiculo = '".$idveiculo."'";
+
+			if($botao == 'Atualizar'){
+				$result = $this->Execute($SqlUpdate);
+				return true;
+			}else{
+				$result = $this->Execute($SqlInsert);
 				$idveiculo = $this->BuscaMaxId();
 				mkdir('arq/veiculos/'.$idveiculo);
 				return true;
-			}else{
-				return false;
 			}
 		}
 
