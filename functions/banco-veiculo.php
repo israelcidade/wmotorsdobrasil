@@ -4,9 +4,11 @@
 		function ListaVeiculos($Auxilio){
 			$Banco_Vazio = "Banco esta Vazio";
 			#Query Busca Folders
-			$Sql = "Select V.*,M.marca as nomedamarca 
+			$Sql = "Select V.*,M.marca as nomedamarca
 					FROM c_veiculos V
-					INNER JOIN c_marcas M ON V.marca = M.idmarca";
+					INNER JOIN c_marcas M ON V.marca = M.idmarca
+					";
+
 			$result = parent::Execute($Sql);
 			$num_rows = parent::Linha($result);
 
@@ -14,16 +16,32 @@
 			if ($num_rows){
 				while( $rs = mysql_fetch_array($result , MYSQL_ASSOC) )
 				{
+					$caminho = $this->BuscaImagemVeiculo($rs['idveiculo']);
+					
 					$Linha = $Auxilio;
 					$Linha = str_replace('<%ID%>',$rs['idveiculo'],$Linha);
 					$Linha = str_replace('<%MARCA%>',$rs['nomedamarca'],$Linha);
-					$Linha = str_replace('<%MODELO%>', $rs['modelo'], $Linha);
+					$Linha = str_replace('<%MODELO%>',$rs['modelo'],$Linha);
+					$Linha = str_replace('<%FOTO%>',UrlPadrao.$caminho,$Linha);
 					$Veiculos .= $Linha;
 				}
 			}else{
 				$mensagem = $Banco_Vazio;
 			}
 			return $Veiculos;
+		}
+
+		function BuscaImagemVeiculo($id){
+			$Sql = "Select caminho from c_fotos where idveiculo = '".$id."' AND referencia = 0";
+			$result = $this->Execute($Sql);
+			$num_rows = $this->Linha($result);
+			if($num_rows){
+				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+				return $rs['caminho'];
+			}else{
+				$caminho = 'html/style/images/semimagem.jpg';
+				return $caminho;
+			}
 		}
 
 		function BuscaVeiculo($id){
@@ -35,7 +53,7 @@
 		function DeletaVeiculo($id){
 			$Sql = "Delete from c_veiculos where idveiculo = ".$id;
 			//Criar funcao que deleta a pasta!
-			unlink('arq/veiculos/'.$id);
+			rmdir('arq/veiculos/'.$id);
 			$result = $this->Execute($Sql);
 		}
 
