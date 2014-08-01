@@ -26,7 +26,7 @@
 					$Veiculos .= $Linha;
 				}
 			}else{
-				$mensagem = $Banco_Vazio;
+				return $msg = $this->MontaMsg('atencao',ERRO_ZERO_VEICULOS);
 			}
 			return $Veiculos;
 		}
