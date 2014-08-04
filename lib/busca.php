@@ -26,16 +26,12 @@
 
 		#Chama funcao Lista Manual passando o Auxilio
 		$Busca = $banco->ListaResultadoCompleto($Auxilio,$aux);
-
-		
 	}
 
 	if($this->PaginaAux[0] == 'categoria'){
 		$valor = $this->PaginaAux[1];
 		$flag = 'categoria';
 	}
-
-	
 
 	#Imprime Valores
 	$Conteudo = $banco->CarregaHtml('busca');

@@ -81,6 +81,23 @@
 		function ListaResultadoCompleto($Auxilio,$aux){
 			var_dump($aux);
 			die;
+			if($aux['categoria']){
+				$categoria = "AND v.categoria = '".$aux['categoria']."' ";
+			}elseif($aux['marca']){
+				$marca = "AND v.marca = '".$aux['marca']."'";
+			}elseif($aux['modelo']){
+				$marca = "AND v.modelo = '".$aux['modelo']."'";
+			}
+			$Sql = "SELECT V.*, M.marca as nomemarca
+					FROM c_veiculos V 
+					INNER JOIN c_marcas M ON v.marca = m.idmarca
+					".$categoria."
+					".$marca."
+					".$modelo."
+					";
+					echo $Sql;die;
+				
+
 
 			$result = parent::Execute($Sql);
 			$num_rows = parent::Linha($result);
