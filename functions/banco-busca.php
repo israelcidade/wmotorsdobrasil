@@ -23,8 +23,6 @@
 				";
 			}
 			
-
-			
 			$result = parent::Execute($Sql);
 			$num_rows = parent::Linha($result);
 
@@ -78,6 +76,31 @@
 			}
 			$categorias .= '</select>';
 			return $categorias;	
+		}
+
+		function ListaResultadoCompleto($Auxilio,$aux){
+			var_dump($aux);
+			die;
+
+			$result = parent::Execute($Sql);
+			$num_rows = parent::Linha($result);
+
+			#Monta no Html a Listagem
+			if ($num_rows){
+				while( $rs = mysql_fetch_array($result , MYSQL_ASSOC) )
+				{
+					$Linha = $Auxilio;
+					$Linha = str_replace('<%ID%>',$rs['idveiculo'],$Linha);
+					$Linha = str_replace('<%MARCA%>',$rs['nomemarca'],$Linha);
+					$Linha = str_replace('<%MODELO%>', $rs['modelo'], $Linha);
+					$Linha = str_replace('<%ANOFAB%>', $rs['anofab'], $Linha);
+					$Linha = str_replace('<%ANOMOD%>', $rs['anomod'], $Linha);
+					$Resultado .= $Linha;
+				}
+			}else{
+				return $msg = $this->MontaMsg('atencao',ERRO_ZERO_VEICULOS_ENCONTRADOS);
+			}
+			return $Resultado;
 		}
 	}
 ?>

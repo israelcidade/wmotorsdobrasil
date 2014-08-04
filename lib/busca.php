@@ -8,10 +8,25 @@
 	if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'busca-chassi'){
 		$valor = strip_tags(trim(addslashes($_POST["chassi"])));
 		$flag = 'chassi';
+
+		#Carrega o html de Auxilio
+		$Auxilio = $banco->CarregaHtml('itens/lista-busca-itens');
+
+		#Chama funcao Lista Manual passando o Auxilio
+		$Busca = $banco->ListaResultado($Auxilio,$flag,$valor);
 	}
 
 	if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'busca-completa'){
-		$valor = strip_tags(trim(addslashes($_POST["chassi"])));
+		foreach ($_POST as $key => $value) {
+			$aux[$key] = $value[$key];
+		}
+
+		#Carrega o html de Auxilio
+		$Auxilio = $banco->CarregaHtml('itens/lista-busca-itens');
+
+		#Chama funcao Lista Manual passando o Auxilio
+		$Busca = $banco->ListaResultadoCompleto($Auxilio,$aux);
+
 		
 	}
 
@@ -20,11 +35,7 @@
 		$flag = 'categoria';
 	}
 
-	#Carrega o html de Auxilio
-	$Auxilio = $banco->CarregaHtml('itens/lista-busca-itens');
-
-	#Chama funcao Lista Manual passando o Auxilio
-	$Busca = $banco->ListaResultado($Auxilio,$flag,$valor);
+	
 
 	#Imprime Valores
 	$Conteudo = $banco->CarregaHtml('busca');
