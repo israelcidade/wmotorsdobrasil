@@ -79,14 +79,17 @@
 		}
 
 		function ListaResultadoCompleto($Auxilio,$aux){
-			var_dump($aux);
-			die;
+			
 			if($aux['categoria']){
 				$categoria = "AND v.categoria = '".$aux['categoria']."' ";
 			}elseif($aux['marca']){
 				$marca = "AND v.marca = '".$aux['marca']."'";
 			}elseif($aux['modelo']){
 				$marca = "AND v.modelo = '".$aux['modelo']."'";
+			}elseif($aux['ano_fab']){
+				$fabri = "AND v.anofab = '".$aux['ano_fab']."'";
+			}elseif($aux['ano_mod']){
+				$mod = "AND v.anomod = '".$aux['ano_mod']."'";
 			}
 			$Sql = "SELECT V.*, M.marca as nomemarca
 					FROM c_veiculos V 
@@ -94,11 +97,10 @@
 					".$categoria."
 					".$marca."
 					".$modelo."
+					".$fabri."
+					".$mod."
 					";
-					echo $Sql;die;
 				
-
-
 			$result = parent::Execute($Sql);
 			$num_rows = parent::Linha($result);
 

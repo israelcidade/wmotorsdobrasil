@@ -18,7 +18,7 @@
 
 	if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'busca-completa'){
 		foreach ($_POST as $key => $value) {
-			$aux[$key] = $value[$key];
+			$aux[$key] = $_POST[$key];
 		}
 
 		#Carrega o html de Auxilio
