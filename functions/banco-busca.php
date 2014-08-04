@@ -45,5 +45,39 @@
 			}
 			return $Resultado;
 		}
+
+		function MontaSelectMarcas($marca){
+			$marcas = '<select name="marca">';
+			$marcas .= '<option value="0">Selecione uma Marca</option>';
+			$Sql = "Select idmarca , marca from c_marcas";
+			$result = parent::Execute($Sql);
+			while($aux = mysql_fetch_array($result, MYSQL_ASSOC))
+			{
+				$selected = '';
+				if($marca == $aux['idmarca']){
+					$selected = 'selected';
+				}
+				$marcas .= '<option value="'.$aux['idmarca'].'" '.$selected.'>'.$aux['marca'].'</option>';
+			}
+			$marcas .= '</select>';
+			return $marcas;	
+		}
+
+		function MontaSelectCategorias($categoria){
+			$categorias = '<select name="categoria">';
+			$categorias .= '<option value="0">Selecione uma Categoria</option>';
+			$Sql = "Select idcategoria , categoria from fixo_categorias";
+			$result = parent::Execute($Sql);
+			while($aux = mysql_fetch_array($result, MYSQL_ASSOC))
+			{
+				$selected = '';
+				if($categoria == $aux['idcategoria']){
+					$selected = 'selected';
+				}
+				$categorias .= '<option value="'.$aux['idcategoria'].'" '.$selected.'>'.$aux['categoria'].'</option>';
+			}
+			$categorias .= '</select>';
+			return $categorias;	
+		}
 	}
 ?>

@@ -66,6 +66,19 @@
 			}
 			return $Menu;
 		}
+
+		function MontaBusca(){
+			$Busca = $this->CarregaHtml('itens/busca');
+			//Marca e Tipo
+			$Marcas = $this->MontaSelectMarcas();
+			$Tipo = $this->MontaSelectCategorias();
+			$Modelos = $this->MontaSelectModelos();
+
+			$Busca = str_replace('<%MARCAS%>',$Marcas,$Busca);
+			$Busca = str_replace('<%TIPO%>',$Tipo,$Busca);
+			$Busca = str_replace('<%MODELOS%>',$Modelos,$Busca);
+			return $Busca;
+		}
 		
 		#funcao imprime conteudo
 		function Imprime($Conteudo){
@@ -77,10 +90,12 @@
 			}
 
 			$Menu = $this->MontaMenu();
+			$Busca = $this->MontaBusca();
 
 			$SaidaHtml = str_replace('<%CONTEUDO%>',$Conteudo,$SaidaHtml);
 			$SaidaHtml = str_replace('<%URLPADRAO%>',UrlPadrao,$SaidaHtml);
 			$SaidaHtml = str_replace('<%MENU%>',$Menu,$SaidaHtml);
+			$SaidaHtml = str_replace('<%BUSCA%>',$Busca,$SaidaHtml);
 			echo $SaidaHtml;
 		}
 		
@@ -94,6 +109,7 @@
 			$SaidaHtml = str_replace('<%CONTEUDO%>',$Html,$SaidaHtml);
 			$SaidaHtml = str_replace('<%URLPADRAO%>',UrlPadrao,$SaidaHtml);
 			echo $SaidaHtml;
+			die;
 		}
 		
 		#funcao que monta o conteudo
@@ -188,6 +204,53 @@
 					}
 				}
 			}
+		}
+
+		function MontaSelectMarcas($marca){
+			$marcas = '<select name="marca" style="width:130px;">';
+			$marcas .= '<option value="0">Marca</option>';
+			$Sql = "Select idmarca , marca from c_marcas";
+			$result = $this->Execute($Sql);
+			while($aux = mysql_fetch_array($result, MYSQL_ASSOC))
+			{
+				$selected = '';
+				if($marca == $aux['idmarca']){
+					$selected = 'selected';
+				}
+				$marcas .= '<option value="'.$aux['idmarca'].'" '.$selected.'>'.$aux['marca'].'</option>';
+			}
+			$marcas .= '</select>';
+			return $marcas;	
+		}
+
+		function MontaSelectCategorias($categoria){
+			$categorias = '<select name="categoria" style="width:120px;">';
+			$categorias .= '<option value="0">Tipo</option>';
+			$Sql = "Select idcategoria , categoria from fixo_categorias";
+			$result = $this->Execute($Sql);
+			while($aux = mysql_fetch_array($result, MYSQL_ASSOC))
+			{
+				$selected = '';
+				if($categoria == $aux['idcategoria']){
+					$selected = 'selected';
+				}
+				$categorias .= '<option value="'.$aux['idcategoria'].'" '.$selected.'>'.$aux['categoria'].'</option>';
+			}
+			$categorias .= '</select>';
+			return $categorias;	
+		}
+
+		function MontaSelectModelos(){
+			$modelos = '<select name="modelo" style="width:120px;">';
+			$modelos .= '<option value="0">Nome</option>';
+			$Sql = "Select modelo from c_veiculos";
+			$result = $this->Execute($Sql);
+			while($aux = mysql_fetch_array($result, MYSQL_ASSOC))
+			{
+				$modelos .= '<option value="'.$aux['modelo'].'" '.$selected.'>'.$aux['modelo'].'</option>';
+			}
+			$modelos .= '</select>';
+			return $modelos;	
 		}
 	}
 ?>

@@ -1,0 +1,19 @@
+<h2>Busca por veículos</h2>
+
+    <form action="busca" method="post" >
+        
+    <input type="hidden" name="acao" value="busca-completa">
+
+    <%TIPO%>
+
+    <%MARCAS%>
+
+    <%MODELOS%>
+
+    <input type="text" name="ano_fab" placeholder="Fabricação" maxlength="4" style="width:60px;">
+
+    <input type="text" name="ano_mod" placeholder="Modelo" maxlength="4" style="width:60px;">
+
+    <button type="submit">Buscar</button>
+
+</form>

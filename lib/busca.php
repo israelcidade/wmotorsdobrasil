@@ -10,6 +10,11 @@
 		$flag = 'chassi';
 	}
 
+	if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'busca-completa'){
+		$valor = strip_tags(trim(addslashes($_POST["chassi"])));
+		
+	}
+
 	if($this->PaginaAux[0] == 'categoria'){
 		$valor = $this->PaginaAux[1];
 		$flag = 'categoria';

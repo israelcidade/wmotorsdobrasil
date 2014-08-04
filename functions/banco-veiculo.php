@@ -69,6 +69,7 @@
 			closedir($abreDir);
 			rmdir($dir);
 		}
+		
 		function MontaSelectMarcas($marca){
 			$marcas = '<select name="marca">';
 			$marcas .= '<option value="0">Selecione uma Marca</option>';
