@@ -129,8 +129,8 @@
 			}
 		}
 
-		function InsereImagens($arrImagens,$arr){
-			$idveiculo = $this->BuscaMaxId();
+		function InsereImagens($arrImagens,$arr,$idveiculo){
+			
 			
 			for ($i=0; $i <= 9 ; $i++) { 
 				$fotos[] = array(

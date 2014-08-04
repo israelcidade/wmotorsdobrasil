@@ -25,11 +25,13 @@
 		if($flag){
 			$banco->IniciaSessao($cpf);
 			$banco->RedirecionaPara('lista-veiculos');
+		}else{
+			$banco->RedirecionaPara('inicio');
 		}
 	}
 
 	if($this->PaginaAux[0] == 'acesso'){
-		$msg = "Acesso Negado";
+		$msg = $banco->MontaMsg('erro',MSG_ERRO_ACESSO);
 	}
 
 	$UltimoVeiculo = $banco->BuscaUltimoVeiculo();

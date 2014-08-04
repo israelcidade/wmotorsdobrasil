@@ -11,11 +11,14 @@
 				}elseif($valor == 'caminhao'){
 					$valor = '3';
 				}
-				$Sql = "SELECT V.*, M.marca as nomemarca
-					FROM c_veiculos V 
-					INNER JOIN c_marcas M ON v.marca = m.idmarca
-					AND v.categoria = '".$valor."'
+				$Sql = "select V.*, M.marca as nomemarca,F.*
+					from c_veiculos V 
+					inner join c_marcas M ON V.marca = M.idmarca
+					inner join c_fotos F ON V.idveiculo = F.idfoto
+					AND V.categoria = '".$valor."'
+					AND F.referencia = 0
 				";
+				
 			}elseif($flag == 'chassi'){
 				$Sql = "SELECT V.*, M.marca as nomemarca
 					FROM c_veiculos V 
@@ -36,6 +39,8 @@
 					$Linha = str_replace('<%MODELO%>', $rs['modelo'], $Linha);
 					$Linha = str_replace('<%ANOFAB%>', $rs['anofab'], $Linha);
 					$Linha = str_replace('<%ANOMOD%>', $rs['anomod'], $Linha);
+					$Linha = str_replace('<%URLPADRAO%>',UrlPadrao, $Linha);
+					$Linha = str_replace('<%CAMINHO%>', $rs['caminho'], $Linha);
 					$Resultado .= $Linha;
 				}
 			}else{

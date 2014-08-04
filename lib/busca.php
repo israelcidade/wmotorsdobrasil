@@ -31,6 +31,8 @@
 	if($this->PaginaAux[0] == 'categoria'){
 		$valor = $this->PaginaAux[1];
 		$flag = 'categoria';
+		$Auxilio = $banco->CarregaHtml('itens/lista-busca-itens');
+		$Busca = $banco->ListaResultado($Auxilio,$flag,$valor);
 	}
 
 	#Imprime Valores

@@ -55,7 +55,10 @@
 			$result = $banco->InsereVeiculo($arr,$botao,$idveiculo);
 
 			if($result){
-				$resultImagens = $banco->InsereImagens($_FILES['foto'],$arr);
+				if($botao == 'Salvar'){
+					$idveiculo = $banco->BuscaMaxId();
+				}
+				$resultImagens = $banco->InsereImagens($_FILES['foto'],$arr,$idveiculo);
 				$banco->RedirecionaPara('lista-veiculos');
 			}
 		}
