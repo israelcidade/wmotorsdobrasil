@@ -82,14 +82,18 @@
 			
 			if($aux['categoria']){
 				$categoria = "AND v.categoria = '".$aux['categoria']."' ";
-			}elseif($aux['marca']){
+			}
+			if($aux['marca']){
 				$marca = "AND v.marca = '".$aux['marca']."'";
-			}elseif($aux['modelo']){
+			}
+			if($aux['modelo']){
 				$marca = "AND v.modelo = '".$aux['modelo']."'";
-			}elseif($aux['ano_fab']){
-				$fabri = "AND v.anofab = '".$aux['ano_fab']."'";
-			}elseif($aux['ano_mod']){
-				$mod = "AND v.anomod = '".$aux['ano_mod']."'";
+			}
+			if($aux['anofab']){
+				$fabri = "AND v.anofab = '".$aux['anofab']."'";
+			}
+			if($aux['anomod']){
+				$mod = "AND v.anomod = '".$aux['anomod']."'";
 			}
 			$Sql = "SELECT V.*, M.marca as nomemarca
 					FROM c_veiculos V 
