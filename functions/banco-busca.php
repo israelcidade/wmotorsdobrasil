@@ -20,10 +20,14 @@
 				";
 				
 			}elseif($flag == 'chassi'){
-				$Sql = "SELECT V.*, M.marca as nomemarca
-					FROM c_veiculos V 
-					INNER JOIN c_marcas M where V.padrao = '".$valor."'
+				$Sql = "select V.*, M.marca as nomemarca,F.*
+					from c_veiculos V 
+					inner join c_marcas M ON V.marca = M.idmarca
+					inner join c_fotos F ON V.idveiculo = F.idfoto
+					where V.padrao = '".$valor."'
+					AND F.referencia = 0
 				";
+				
 			}
 			
 			$result = parent::Execute($Sql);
