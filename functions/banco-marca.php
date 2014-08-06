@@ -30,14 +30,38 @@
 		}
 
 		function DeletaMarca($id){
-			$flag = $this->DeletaFotoAntiga($id);
-			if($flag){
-				$Sql = "Delete from c_marcas where idmarca = ".$id;
-				$result = $this->Execute($Sql);
+			$Sql = "Select * from c_veiculos where marca = '".$id."'";
+			$result = $this->Execute($Sql);
+			$num_rows = $this->Linha($result);
+			if($num_rows){
+				while( $rs = mysql_fetch_array($result , MYSQL_ASSOC) ){
+					//Criar funcao que deleta a pasta!
+					$pasta = "arq/veiculos/".$rs['idveiculo'];
+					$this->removeDirectory($pasta);
+				}
+			}
+			$Sql = "Delete from c_marcas where idmarca = ".$id;
+			$result = $this->Execute($Sql);	
+
+			if($result){
+				$this->DeletaFotoAntiga($id);
 				return true;
 			}else{
 				return false;
-			}		
+			}
+			
+		}
+
+		function removeDirectory($dir) {
+			$abreDir = opendir($dir);
+
+			while (false !== ($file = readdir($abreDir))) {
+				if ($file==".." || $file ==".") continue;
+				if (is_dir($cFile=($dir."/".$file))) removeDirectory($cFile);
+				elseif (is_file($cFile)) unlink($cFile);
+			}
+			closedir($abreDir);
+			rmdir($dir);
 		}
 
 		#Funcao que deleta a antiga foto
