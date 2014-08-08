@@ -9,11 +9,8 @@
 		$valor = strip_tags(trim(addslashes($_POST["chassi"])));
 		$flag = 'chassi';
 
-		#Carrega o html de Auxilio
-		$Auxilio = $banco->CarregaHtml('itens/lista-busca-itens');
-
 		#Chama funcao Lista Manual passando o Auxilio
-		$Busca = $banco->ListaResultado($Auxilio,$flag,$valor);
+		$Busca = $banco->ListaResultado($flag,$valor);
 	}
 
 	if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'busca-completa'){
@@ -28,11 +25,10 @@
 		$Busca = $banco->ListaResultadoCompleto($Auxilio,$aux);
 	}
 
-	if($this->PaginaAux[0] == 'categoria'){
+	if($this->PaginaAux[0]){
+		$flag = $this->PaginaAux[0];
 		$valor = $this->PaginaAux[1];
-		$flag = 'categoria';
-		$Auxilio = $banco->CarregaHtml('itens/lista-busca-itens');
-		$Busca = $banco->ListaResultado($Auxilio,$flag,$valor);
+		$Busca = $banco->ListaResultado($flag,$valor);
 	}
 
 	#Imprime Valores

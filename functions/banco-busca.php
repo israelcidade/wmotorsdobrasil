@@ -2,7 +2,7 @@
 	class bancobusca extends banco{
 		#Funcao que lista os Folders
 
-		function ListaResultado($Auxilio,$flag,$valor){
+		function ListaResultado($flag,$valor){
 			if($flag == 'categoria'){
 				if($valor == 'carro'){
 					$valor = '4';
@@ -18,18 +18,27 @@
 					WHERE V.categoria = '".$valor."'
 					AND F.referencia = 0
 				";
-				
 			}elseif($flag == 'chassi'){
 				$Sql = "select V.*, M.marca as nomemarca,F.*
 					from c_veiculos V 
 					inner join c_marcas M ON V.marca = M.idmarca
-					inner join c_fotos F ON V.idveiculo = F.idfoto
+					inner join c_fotos F ON V.idveiculo = F.idveiculo
 					where V.padrao = '".$valor."'
+					AND F.referencia = 0
+				";
+				
+			}elseif($flag == 'marca'){
+				$Sql = "select V.*, M.marca as nomemarca,F.*
+					from c_veiculos V 
+					inner join c_marcas M ON V.marca = M.idmarca
+					inner join c_fotos F ON V.idveiculo = F.idveiculo
+					where V.marca = '".$valor."'
 					AND F.referencia = 0
 				";
 				
 			}
 			
+			$Auxilio = $this->CarregaHtml('itens/lista-busca-itens');
 			$result = parent::Execute($Sql);
 			$num_rows = parent::Linha($result);
 

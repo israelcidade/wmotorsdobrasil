@@ -14,6 +14,7 @@
 	#Carrega imagens de 1 ate 9
 	$ImagensVeiculo = $banco->BuscaImagensVeiculo($this->PaginaAux[0]);
 
+	#Carrega Textos das Imagens
 	$Textos = $banco->BuscaTextosVeiculos($this->PaginaAux[0]);
 
 	#Imprimi valores
