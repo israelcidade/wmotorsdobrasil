@@ -33,18 +33,44 @@
 			$result = $this->Execute($Sql);
 			$num_rows = $this->Linha($result);
 			if ($num_rows){
+				$count = 1;
 				while( $rs = mysql_fetch_array($result , MYSQL_ASSOC) )
 				{
 					if($rs['referencia'] != 0){
 						$Linha = $Auxilio;
-						$Linha = str_replace('<%ID%>',$rs['idveiculo'],$Linha);
+						$Linha = str_replace('<%COUNT%>',$count,$Linha);
+						$Linha = str_replace('<%IDVEICULO%>',$rs['idveiculo'],$Linha);
 						$Linha = str_replace('<%CAMINHO%>',$rs['caminho'],$Linha);
 						$Linha = str_replace('<%URLPADRAO%>',UrlPadrao,$Linha);
-						$Veiculos .= $Linha; 
+						$Linha = str_replace('<%DESCRICAO%>',$rs['descricao'],$Linha);
+						$Veiculos .= $Linha;
+						$count = $count + 1;
 					}
 				}
 			}
 			return $Veiculos;		
+		}
+
+		function BuscaTextosVeiculos($id){
+			$Auxilio = $this->CarregaHtml('itens/lista-textos-veiculo-unico-itens');
+			$Sql = "Select * from c_fotos where idveiculo = '".$id."'";
+			$result = $this->Execute($Sql);
+			$num_rows = $this->Linha($result);
+			if ($num_rows){
+				$count = 0;
+				while( $rs = mysql_fetch_array($result , MYSQL_ASSOC) )
+				{
+					$Linha = $Auxilio;
+					$Linha = str_replace('<%COUNT%>',$count,$Linha);
+					$Linha = str_replace('<%IDVEICULO%>',$rs['idveiculo'],$Linha);
+					$Linha = str_replace('<%URLPADRAO%>',UrlPadrao,$Linha);
+					$Linha = str_replace('<%TITULO%>',$rs['titulo'],$Linha);
+					$Linha = str_replace('<%DESCRICAO%>',$rs['descricao'],$Linha);
+					$Veiculos .= $Linha;
+					$count = $count + 1;
+				}
+			}
+			return $Veiculos;
 		}
 	}
 ?>

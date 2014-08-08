@@ -35,4 +35,19 @@ $(document).ready(function(){
 
 	$('.galeria').fancybox();
 
+	// TEXTOS DAS IMAGENS
+
+	$('.conteudo-carro:first').show();
+
+	$('#small-pics li a').click(function(e){
+		e.preventDefault();
+
+		var id = $(this).attr('data-id');
+		var conteudo = '#desc'+id;
+
+		$('.conteudo-carro').hide();
+		$(conteudo).show();
+
+	});
+
 });

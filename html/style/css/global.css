@@ -109,7 +109,9 @@ nav a:hover, nav a.active { background: #FFF; color: #0466a9; }
 
 #galeria-marcas { display: block; width: 150px; height: 60px; margin: 0 0 10px; padding: 10px 0; }
 
-#galeria-marcas li img { display: block; }
+#galeria-marcas li{ height:60px; }
+
+#galeria-marcas li img { display: block; width:100%; }
 
 /* ======================= */
 /* CARROS FAVORITOS
@@ -219,6 +221,34 @@ footer .center .f-left { min-width: 500px; }
 
 #contato button { padding: 5px 30px; border: 1px solid #0466a9; background-color: transparent; color: #0466a9; font-size: 16px; font-size: 1rem; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; text-transform: uppercase; text-align: center; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; cursor: pointer; float: right; }
 #contato button:hover { background-color: #0466a9; color: #FFF; }
+
+/* ======================= */
+/* CARRO ÚNICO
+*/
+#ultimo-carro img { display: block; }
+
+#ultimo-carro h2 { display: block; margin: 10px 0; border-bottom: 5px solid #0466a9; font-size: 25px; font-size: 1.5625rem; text-transform: uppercase; padding: 5px 0; }
+
+#ultimo-carro h2 i { color: #ff9900; font-size: 40px; font-size: 2.5rem; margin-right: 5px; }
+
+.main-pic { width: 500px; height: 300px; float: left; margin-right: 25px; overflow:hidden; }
+.main-pic img{ display:block; width:100%; }
+
+#small-pics { width: 475px; float: left; }
+
+#small-pics h3 { display: block; margin-bottom: 10px; padding-bottom: 10px; font-size: 22px; font-size: 1.375rem; text-transform: uppercase; font-weight: 300; border-bottom: 3px double #cccccc; }
+
+#small-pics h3 span { text-transform: none; color: #0466a9; font-size: 14px; font-size: 0.875rem; font-weight: 400; }
+
+#small-pics li { float: left; margin: 0 10px 10px 0; width:125px; height:75px; overflow:hidden; }
+#small-pics li img{ display:block; width:100%; }
+
+#small-pics h4{ line-height:63px; margin-bottom:10px; }
+
+#ultimo-carro h4 { font-size: 20px; font-size: 1.25rem; margin: 20px 0 10px; }
+
+.conteudo-carro{ display:none; }
+
 
 /* ======================= */
 /* FEITO POR ISRAEL

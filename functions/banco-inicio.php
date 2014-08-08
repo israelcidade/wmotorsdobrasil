@@ -27,5 +27,20 @@
 			return $VeiculoUnico;
 		}
 
+		function BuscaMarcas(){
+			$Sql = "Select * from c_marcas";
+			$result = $this->Execute($Sql);
+			$num_rows = $this->Linha($result);
+			$Auxilio = $this->CarregaHtml('itens/lista-marcas-inicio-itens');
+			if($num_rows){
+				while($rs = mysql_fetch_array($result , MYSQL_ASSOC)){
+					$Linha = $Auxilio;
+					$Linha = str_replace('<%CAMINHO%>', $rs['foto'], $Linha);
+					$Linha = str_replace('<%URLPADRAO%>', UrlPadrao, $Linha);
+					$Marcas .= $Linha;
+				}
+			}
+			return $Marcas;	
+		}
 	}
 ?>

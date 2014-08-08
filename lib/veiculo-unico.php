@@ -14,6 +14,8 @@
 	#Carrega imagens de 1 ate 9
 	$ImagensVeiculo = $banco->BuscaImagensVeiculo($this->PaginaAux[0]);
 
+	$Textos = $banco->BuscaTextosVeiculos($this->PaginaAux[0]);
+
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('veiculo-unico');
 	$Conteudo = str_replace('<%IDVEICULO%>',$VeiculoUnico['idveiculo'],$Conteudo);
@@ -25,5 +27,6 @@
 	$Conteudo = str_replace('<%URLPADRAO%>',UrlPadrao,$Conteudo);
 	$Conteudo = str_replace('<%CAMINHO%>',$VeiculoUnico['caminho'],$Conteudo);
 	$Conteudo = str_replace('<%IMAGENSVEICULO%>',$ImagensVeiculo,$Conteudo);
+	$Conteudo = str_replace('<%TEXTOS%>',$Textos,$Conteudo);
 	
 ?>

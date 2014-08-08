@@ -14,8 +14,8 @@
 				$Sql = "select V.*, M.marca as nomemarca,F.*
 					from c_veiculos V 
 					inner join c_marcas M ON V.marca = M.idmarca
-					inner join c_fotos F ON V.idveiculo = F.idfoto
-					AND V.categoria = '".$valor."'
+					inner join c_fotos F ON V.idveiculo = F.idveiculo
+					WHERE V.categoria = '".$valor."'
 					AND F.referencia = 0
 				";
 				

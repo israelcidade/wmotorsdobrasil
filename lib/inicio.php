@@ -36,6 +36,8 @@
 
 	$UltimoVeiculo = $banco->BuscaUltimoVeiculo();
 
+	$Marcas = $banco->BuscaMarcas();
+
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('inicio');
 	$Conteudo = str_replace('<%BOTAO%>', $botao, $Conteudo);
@@ -46,4 +48,5 @@
 	$Conteudo = str_replace('<%ANOFAB%>',$UltimoVeiculo['anofab'],$Conteudo);
 	$Conteudo = str_replace('<%ANOMOD%>',$UltimoVeiculo['anomod'],$Conteudo);
 	$Conteudo = str_replace('<%PADRAO%>',$UltimoVeiculo['padrao'],$Conteudo);
+	$Conteudo = str_replace('<%MARCAS%>',$Marcas,$Conteudo);
 ?>
