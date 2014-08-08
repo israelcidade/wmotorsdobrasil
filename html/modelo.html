@@ -47,8 +47,9 @@
         <div id="logo">WMotors do Brasil</div>
         
         <section class="main-search">
-            <form action="#">
-                <input type="text" name="search" placeholder="Buscar">
+            <form action="busca" method="post">
+                <input type ="hidden" name="acao" value="global">
+                <input type="text" name="busca" placeholder="Buscar">
                 <button id="search"><i class="fa fa-search"></i></button>
             </form>
         </section>

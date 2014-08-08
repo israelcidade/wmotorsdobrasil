@@ -96,7 +96,7 @@
 			return $categorias;	
 		}
 
-		function ListaResultadoCompleto($Auxilio,$aux){
+		function ListaResultadoCompleto($aux){
 			
 			if($aux['categoria']){
 				$categoria = "AND v.categoria = '".$aux['categoria']."' ";
@@ -113,16 +113,19 @@
 			if($aux['anomod']){
 				$mod = "AND v.anomod = '".$aux['anomod']."'";
 			}
-			$Sql = "SELECT V.*, M.marca as nomemarca
+			$Sql = "SELECT V.*, M.marca as nomemarca, F.*
 					FROM c_veiculos V 
 					INNER JOIN c_marcas M ON v.marca = m.idmarca
+					INNER JOIN c_fotos F on v.idveiculo = f.idveiculo
+					Where f.referencia = 0
 					".$categoria."
 					".$marca."
 					".$modelo."
 					".$fabri."
 					".$mod."
 					";
-				
+			
+			$Auxilio = $this->CarregaHtml('itens/lista-busca-itens');
 			$result = parent::Execute($Sql);
 			$num_rows = parent::Linha($result);
 
@@ -136,6 +139,7 @@
 					$Linha = str_replace('<%MODELO%>', $rs['modelo'], $Linha);
 					$Linha = str_replace('<%ANOFAB%>', $rs['anofab'], $Linha);
 					$Linha = str_replace('<%ANOMOD%>', $rs['anomod'], $Linha);
+					$Linha = str_replace('<%CAMINHO%>', $rs['caminho'], $Linha);
 					$Resultado .= $Linha;
 				}
 			}else{

@@ -13,16 +13,21 @@
 		$Busca = $banco->ListaResultado($flag,$valor);
 	}
 
+	if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'global'){
+		$valor = strip_tags(trim(addslashes($_POST["busca"])));
+		$flag = 'global';
+
+		#Chama funcao Lista Manual passando o Auxilio
+		$Busca = $banco->ListaResultado($flag,$valor);
+	}
+
 	if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'busca-completa'){
 		foreach ($_POST as $key => $value) {
 			$aux[$key] = $_POST[$key];
 		}
 
-		#Carrega o html de Auxilio
-		$Auxilio = $banco->CarregaHtml('itens/lista-busca-itens');
-
 		#Chama funcao Lista Manual passando o Auxilio
-		$Busca = $banco->ListaResultadoCompleto($Auxilio,$aux);
+		$Busca = $banco->ListaResultadoCompleto($aux);
 	}
 
 	if($this->PaginaAux[0]){
