@@ -35,6 +35,7 @@
 			if($num_rows){
 				while($rs = mysql_fetch_array($result , MYSQL_ASSOC)){
 					$Linha = $Auxilio;
+					$Linha = str_replace('<%IDMARCA%>', $rs['idmarca'], $Linha);
 					$Linha = str_replace('<%CAMINHO%>', $rs['foto'], $Linha);
 					$Linha = str_replace('<%URLPADRAO%>', UrlPadrao, $Linha);
 					$Marcas .= $Linha;
