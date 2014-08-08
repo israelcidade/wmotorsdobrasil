@@ -15,8 +15,8 @@
 			<input type="text" name="rg" placeholder="RG" class="i-half i-first">
 			<input type="text" name="cpf" placeholder="CPF" class="i-half">
 	
-			<input type="text" name="cep" placeholder="CEP" class="i-half i-left" value="<%CEP%>">
-			<a href="javascript:void(0);" onClick="buscacep()">Buscar Cep</a>
+			<input type="text" name="cep" placeholder="CEP" onBlur="buscacep()" class="i-half i-left" value="<%CEP%>">
+			<!-- <a href="javascript:void(0);" onClick="buscacep()">Buscar Cep</a> -->
 		
 			<input type="text" name="endereco" placeholder="Endereco" class="i-left" value="<%ENDERECO%>">
 			<input type="text" name="bairro" placeholder="Bairro" class="i-right" value="<%BAIRRO%>">
