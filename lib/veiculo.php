@@ -59,6 +59,7 @@
 					$idveiculo = $banco->BuscaMaxId();
 				}
 				$resultImagens = $banco->InsereImagens($_FILES['foto'],$arr,$idveiculo);
+				//$resultMarcaDagua = $banco->MarcaDagua($idveiculo);
 				$banco->RedirecionaPara('lista-veiculos');
 			}
 		}

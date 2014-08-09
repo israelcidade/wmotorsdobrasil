@@ -252,5 +252,24 @@
 			$modelos .= '</select>';
 			return $modelos;	
 		}
+
+		function MarcaDagua($foto,$idveiculo,$ext){
+			$caminho_foto = "arq/veiculos/".$idveiculo.'/';
+			include_once('app/easyphpthumbnail/PHP5/easyphpthumbnail.class.php');
+			$thumb = new easyphpthumbnail;
+			$exifdata = $thumb -> read_exif($foto);
+			$thumb -> Chmodlevel = '0777';
+			$thumb -> Thumblocation = $caminho_foto;
+			$thumb -> Thumbprefix = '';
+			$thumb -> Thumbfilename = (md5(uniqid(time())).'.'.$ext[1]);
+			$thumb -> Thumbsize = 0;
+			$thumb -> Clipcorner = array(0);
+			$thumb -> Watermarkpng = 'html/style/images/marca.png';
+			$thumb -> Watermarkposition = '98% 98%';
+			$thumb -> Watermarktransparency = 20;  
+			$thumb -> Createthumb($foto,'file');
+			$thumb -> insert_exif($caminho_foto.$thumb->Thumbfilename, $exifdata);
+			return $caminho_foto.$thumb->Thumbfilename;
+		}
 	}
 ?>

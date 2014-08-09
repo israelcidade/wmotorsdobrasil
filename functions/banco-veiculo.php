@@ -131,7 +131,6 @@
 
 		function InsereImagens($arrImagens,$arr,$idveiculo){
 			
-			
 			for ($i=0; $i <= 9 ; $i++) { 
 				$fotos[] = array(
 					'name' => $arrImagens['name'][$i], 
@@ -156,14 +155,12 @@
 						descricao = '".$fotos[$i]["imagem-desc"]."' 
 						where idveiculo = '".$idveiculo."' 
 						AND referencia = '".$i."'";
-						
 						$this->Execute($Sql2);
 				}
 
 				if($fotos[$i]['name'] != ''){
 					preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $fotos[$i]["name"], $ext);
-					$caminho_foto = "arq/veiculos/".$idveiculo.'/'.md5(uniqid(time())).'.'.$ext[1];
-					move_uploaded_file($fotos[$i]["tmp_name"], $caminho_foto);
+					$caminho_foto = $this->MarcaDagua($fotos[$i]["tmp_name"],$idveiculo,$ext);
 
 					if($num_rows){
 						unlink($rs['caminho']);
