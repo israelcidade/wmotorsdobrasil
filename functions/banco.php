@@ -24,6 +24,12 @@
 			$_SESSION['cpf'] = $cpf;
 		}
 
+		function IniciaSessaoAdmin($user){
+			session_start('login');
+			$_SESSION['user'] = $user;
+			$_SESSION['admin'] = '1';
+		}
+
 		#fecha sessao
 		function FechaSessao(){
 			session_start('login');

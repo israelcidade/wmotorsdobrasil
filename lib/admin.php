@@ -15,7 +15,7 @@
 		$flag = $banco->BuscaUsuario($user,$senha);
 
 		if($flag){
-			$banco->IniciaSessao($user);
+			$banco->IniciaSessaoAdmin($user);
 			$banco->RedirecionaPara('lista-veiculos');
 		}else{
 			$banco->RedirecionaPara('admin');
