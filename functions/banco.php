@@ -265,7 +265,7 @@
 			$thumb -> Thumbsize = 0;
 			$thumb -> Clipcorner = array(0);
 			$thumb -> Watermarkpng = 'html/style/images/marca.png';
-			$thumb -> Watermarkposition = '98% 98%';
+			$thumb -> Watermarkposition = '50% 50%';
 			$thumb -> Watermarktransparency = 20;  
 			$thumb -> Createthumb($foto,'file');
 			$thumb -> insert_exif($caminho_foto.$thumb->Thumbfilename, $exifdata);
