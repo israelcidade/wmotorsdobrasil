@@ -33,7 +33,7 @@
 
 		function VerificaSessao(){
 			session_start('login');
-			if( isset($_SESSION['cpf']) ){
+			if(isset($_SESSION['cpf']) ){
 				return true;
 			}else{
 				return false;
@@ -82,9 +82,11 @@
 		
 		#funcao imprime conteudo
 		function Imprime($Conteudo){
-			if($this->Pagina == 'admin' || $this->Pagina == 'veiculo' || $this->Pagina == 'lista-veiculos' 
+			if($this->Pagina == 'veiculo' || $this->Pagina == 'lista-veiculos' 
 				|| $this->Pagina == 'lista-marcas' || $this->Pagina == 'marca' || $this->Pagina == 'lista-usuarios'){
 				$SaidaHtml = $this->CarregaHtml('modelo-admin');
+			}elseif($this->Pagina == 'admin'){
+				$SaidaHtml = $this->CarregaHtml('modelo-login-admin');
 			}else{
 				$SaidaHtml = $this->CarregaHtml('modelo');	
 			}
