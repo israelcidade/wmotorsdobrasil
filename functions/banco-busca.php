@@ -119,7 +119,7 @@
 				$marca = "AND v.marca = '".$aux['marca']."'";
 			}
 			if($aux['modelo']){
-				$marca = "AND v.modelo = '".$aux['modelo']."'";
+				$modelo = "AND v.modelo = '".$aux['modelo']."'";
 			}
 			if($aux['anofab']){
 				$fabri = "AND v.anofab = '".$aux['anofab']."'";

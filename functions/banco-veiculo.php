@@ -106,8 +106,8 @@
 
 		function InsereVeiculo($arr,$botao,$idveiculo){
 			$SqlInsert = "Insert into c_veiculos 
-			(categoria,marca,modelo,anofab,anomod,padrao) 
-			VALUES ('".$arr['categoria']."','".$arr['marca']."','".$arr['modelo']."','".$arr['anofab']."','".$arr['anomod']."','".$arr['padrao']."')";
+			(categoria,marca,modelo,anofab,anomod,padrao,destaque) 
+			VALUES ('".$arr['categoria']."','".$arr['marca']."','".$arr['modelo']."','".$arr['anofab']."','".$arr['anomod']."','".$arr['padrao']."','".$arr['destaque']."')";
 			
 			$SqlUpdate = "Update c_veiculos set 
 						categoria = '".$arr['categoria']."', 
@@ -115,7 +115,8 @@
 						modelo = '".$arr['modelo']."',
 						anofab = '".$arr['anofab']."',
 						anomod = '".$arr['anomod']."',
-						padrao = '".$arr['padrao']."' 
+						padrao = '".$arr['padrao']."',
+						destaque = '".$arr['destaque']."'
 						where idveiculo = '".$idveiculo."'";
 
 			if($botao == 'Atualizar'){

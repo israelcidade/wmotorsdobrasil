@@ -30,12 +30,17 @@
 
 			if($num_rows){
 				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
-				$marca = $rs['marca'];
+				$marca     = $rs['marca'];
 				$categoria = $rs['categoria'];
-				$modelo = $rs['modelo'];
-				$anofab = $rs['anofab'];
-				$anomod = $rs['anomod'];
-				$padrao = $rs['padrao'];
+				$modelo    = $rs['modelo'];
+				$anofab    = $rs['anofab'];
+				$anomod    = $rs['anomod'];
+				$padrao    = $rs['padrao'];
+				if($rs['destaque'] == 1){
+					$cheked = 'checked';
+				}else{
+					$cheked = '';
+				}
 			}
 		}
 
@@ -51,7 +56,7 @@
 			foreach ($_POST as $key => $value) {
 				$arr[$key] = $_POST[$key];
 			}
-		
+			
 			$result = $banco->InsereVeiculo($arr,$botao,$idveiculo);
 
 			if($result){
@@ -100,6 +105,7 @@
 		$Conteudo = str_replace('<%ANOFAB%>',$anofab,$Conteudo);
 		$Conteudo = str_replace('<%ANOMOD%>',$anomod,$Conteudo);
 		$Conteudo = str_replace('<%PADRAO%>',$padrao,$Conteudo);
+		$Conteudo = str_replace('<%CHEKED%>',$cheked,$Conteudo);
 		$Conteudo = str_replace('<%TITULO%>',$titulo,$Conteudo);
 	}else{
 		$banco->RedirecionaPara('inicio/acesso');
