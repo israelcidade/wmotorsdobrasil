@@ -46,6 +46,15 @@
 			}
 		}
 
+		function VerificaSessaoAdmin(){
+			session_start('login');
+			if(isset($_SESSION['admin']) ){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
 		function MontaMenu(){
 			$Sql = "Select * from fixo_menu";
 			$result = $this->Execute($Sql);

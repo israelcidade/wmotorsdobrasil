@@ -5,7 +5,7 @@
 	#Instancia objeto que vai tratar o banco de dados dessa pagina
 	$banco = new bancoveiculo();
 
-	if($banco->VerificaSessao()){
+	if($banco->VerificaSessaoAdmin()){
 
 		#Carrega o html de Auxilio
 		$Auxilio = $banco->CarregaHtml('itens/lista-veiculos-itens');

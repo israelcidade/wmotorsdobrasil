@@ -5,9 +5,6 @@
 	#Instancia o objeto
 	$banco = new bancoadmin();
 
-	//if($banco->VerificaSessao()){
-		#Imprimi valores
-
 	if( isset($_POST["acao"]) && $_POST["acao"] != ''){
 		$user = strip_tags(trim(addslashes($_POST["user"])));
 		$senha = strip_tags(trim(addslashes($_POST["senha"])));
@@ -22,7 +19,4 @@
 		}
 	}
 	$Conteudo = $banco->CarregaHtml('admin');
-	//}else{
-	//	$banco->RedirecionaPara('');
-	//}
 ?>

@@ -5,7 +5,7 @@
 	#Instancia objeto que vai tratar o banco de dados dessa pagina
 	$banco = new bancousuario();
 
-	if($banco->VerificaSessao()){
+	if($banco->VerificaSessaoAdmin()){
 
 		if($this->PaginaAux[0] == 'status'){
 			$mgs = $banco->MudaStatus($this->PaginaAux[1],$this->PaginaAux[2]);
