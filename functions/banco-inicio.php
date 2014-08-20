@@ -8,23 +8,29 @@
 			return $num_rows;
 		}
 
-		function buscaUltimoVeiculo(){
-			$Sql = "Select V.*,M.marca as nomedamarca 
+		function CarrosEmDestaque(){
+			$Sql = "Select V.*,M.marca as nomedamarca,F.*
 					FROM c_veiculos V
-					INNER JOIN c_marcas M
-					Order by V.idveiculo DESC LIMIT 1 
+					INNER JOIN c_marcas M ON V.marca = M.idmarca
+					INNER JOIN c_fotos F ON V.idveiculo = F.idveiculo
+					AND F.referencia = 0 
+					AND V.destaque = 1
+					Order by V.idveiculo 
 					";
 			$result = parent::Execute($Sql);
 			$num_rows = parent::Linha($result);
+			$Auxilio = $this->CarregaHtml('itens/lista-carros-em-destaque-itens');
 			if($num_rows){
-				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
-				$VeiculoUnico['marca'] = $rs['nomedamarca'];
-				$VeiculoUnico['modelo'] = $rs['modelo'];
-				$VeiculoUnico['anofab'] = $rs['anofab'];
-				$VeiculoUnico['anomod'] = $rs['anomod'];
-				$VeiculoUnico['padrao'] = $rs['padrao'];
+				while($rs = mysql_fetch_array($result , MYSQL_ASSOC)){
+					$Linha = $Auxilio;
+					$Linha = str_replace('<%IDVEICULO%>', $rs['idveiculo'], $Linha);
+					$Linha = str_replace('<%URLPADRAO%>', UrlPadrao , $Linha);
+					$Linha = str_replace('<%CAMINHO%>', $rs['caminho'], $Linha);
+					$Carros .= $Linha;
+				}
 			}
-			return $VeiculoUnico;
+			
+			return $Carros;
 		}
 
 		function BuscaMarcas(){
