@@ -26,7 +26,7 @@
 
 		function IniciaSessaoAdmin($user){
 			session_start('login');
-			$_SESSION['user'] = $user;
+			$_SESSION['cpf'] = $user;
 			$_SESSION['admin'] = '1';
 		}
 

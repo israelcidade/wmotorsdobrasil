@@ -24,7 +24,7 @@
 
 		if($flag){
 			$banco->IniciaSessao($cpf);
-			$banco->RedirecionaPara('lista-veiculos');
+			$banco->RedirecionaPara('sobre');
 		}else{
 			$banco->RedirecionaPara('inicio');
 		}
