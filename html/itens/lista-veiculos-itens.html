@@ -1,6 +1,10 @@
 <li>
 	<div class="car-image"><img src="<%FOTO%>" alt="<%MARCA%> <%MODELO%>"></div>
 	<div class="car-info"><h2><%MODELO%></h2><p><%MARCA%></p></div>
-	<div class="car-controls"><a href="<%URLPADRAO%>veiculo/editar/<%ID%>" class="btn-edit">Editar</a><a href="<%URLPADRAO%>veiculo/deletar/<%ID%>" class="btn-delete">Deletar</a></div>
+	<div class="car-controls">
+		<a href="<%URLPADRAO%>veiculo/editar/<%ID%>" class="btn-edit">Editar</a>
+		<a href="<%URLPADRAO%>veiculo/deletar/<%ID%>" 
+			onClick="return confirm('Tem certeza que deseja deletar ?')" class="btn-delete">Deletar</a>
+	</div>
 	<br class="clear">
 </li>
