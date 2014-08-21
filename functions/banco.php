@@ -109,11 +109,36 @@
 			$Menu = $this->MontaMenu();
 			$Busca = $this->MontaBusca();
 
+			if($this->VerificaSessao()){
+				$Login = $this->MontaLoginLogado();	
+			}else{
+				$Login = $this->MontaLogin();
+			}
+			
+
 			$SaidaHtml = str_replace('<%CONTEUDO%>',$Conteudo,$SaidaHtml);
 			$SaidaHtml = str_replace('<%URLPADRAO%>',UrlPadrao,$SaidaHtml);
 			$SaidaHtml = str_replace('<%MENU%>',$Menu,$SaidaHtml);
 			$SaidaHtml = str_replace('<%BUSCA%>',$Busca,$SaidaHtml);
+			$SaidaHtml = str_replace('<%LOGIN%>',$Login,$SaidaHtml);
 			echo $SaidaHtml;
+		}
+
+		function MontaLogin(){
+			$Login = $this->CarregaHtml('itens/login');
+			return $Login;
+		}
+
+		function MontaLoginLogado(){
+			$Sql = "Select * from c_usuarios where cpf = '".$_SESSION['cpf']."'";
+			$result = $this->Execute($Sql);
+			$num_rows = $this->Linha($result);
+			$rs = mysql_fetch_array($result, MYSQL_ASSOC);
+			$Auxilio = $this->CarregaHtml('itens/login-logado');
+			$Auxilio = str_replace('<%NOME%>',$rs['nome'],$Auxilio);
+			$Auxilio = str_replace('<%URLPADRAO%>',UrlPadrao,$Auxilio);
+			$Auxilio = str_replace('<%CPF%>',$rs['cpf'],$Auxilio);
+			return $Auxilio;
 		}
 		
 		#funcao que chama manutencao
