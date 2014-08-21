@@ -3,7 +3,7 @@
 	<div class="car-info"><h2><%MARCA%></h2></div>
 	<div class="car-controls">
 		<a href="<%URLPADRAO%>marca/editar/<%ID%>" class="btn-edit">Editar</a>
-		<a href="<%URLPADRAO%>marca/deletar/<%ID%>" class="btn-delete">Deletar</a>
+		<a href="<%URLPADRAO%>marca/deletar/<%ID%>" onClick="return confirm('Tem certeza que deseja deletar ?')"class="btn-delete">Deletar</a>
 	</div>
 	<br class="clear">
 </li>
