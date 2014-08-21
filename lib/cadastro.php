@@ -15,8 +15,8 @@
 		$usuario['bairro'] = strip_tags(trim(addslashes($_POST["bairro"])));
 		$usuario['cidade'] = strip_tags(trim(addslashes($_POST["cidade"])));
 		$usuario['estado'] = strip_tags(trim(addslashes($_POST["estado"])));
-		$usuario['senha'] = strip_tags(trim(addslashes($_POST["senha"])));
-		$usuario['confsenha'] = strip_tags(trim(addslashes($_POST["confsenha"])));
+		$usuario['senha'] = md5(strip_tags(trim(addslashes($_POST["senha"]))));
+		$usuario['confsenha'] = md5(strip_tags(trim(addslashes($_POST["confsenha"]))));
 
 		$msg = $banco->CadastraUsuario($usuario);
 		if($msg == 'ok'){

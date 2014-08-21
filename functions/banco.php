@@ -97,9 +97,14 @@
 		
 		#funcao imprime conteudo
 		function Imprime($Conteudo){
-			if($this->Pagina == 'veiculo' || $this->Pagina == 'lista-veiculos' 
-				|| $this->Pagina == 'lista-marcas' || $this->Pagina == 'marca' || $this->Pagina == 'lista-usuarios'){
+			if( $this->Pagina == 'veiculo' || 
+				$this->Pagina == 'lista-veiculos' || 
+				$this->Pagina == 'lista-marcas' || 
+				$this->Pagina == 'marca' || 
+				$this->Pagina == 'lista-usuarios'){
+
 				$SaidaHtml = $this->CarregaHtml('modelo-admin');
+			
 			}elseif($this->Pagina == 'admin'){
 				$SaidaHtml = $this->CarregaHtml('modelo-login-admin');
 			}else{
