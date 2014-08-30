@@ -34,13 +34,13 @@
 					)
 			";
 	
-	foreach ($cadastro as $value) {
+	/*foreach ($cadastro as $value) {
 		if($value == ''){
 			echo 'error-campos';
 		}
-	}
+	}*/
 	$result = $banco->Execute($Sql);
-	$num_rows = $banco->Linha($result);
-
-	echo 'ok';
+	if($result){
+		echo 'ok';
+	}
 ?>

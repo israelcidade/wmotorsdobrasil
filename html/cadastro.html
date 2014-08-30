@@ -8,7 +8,6 @@
 
 		<%MSG%><br>
 
-		<form action="" id="cadastro" method="post">
 			<input type="hidden" name="acao" value="cadastrar">
 			<input type="text" name="nome" placeholder="Nome Completo" class="i-left">
 			<input type="text" name="nascimento" placeholder="Nascimento" class="i-right">
@@ -21,15 +20,14 @@
 			<input type="text" name="cidade" placeholder="Cidade" class="i-half" value="<%CIDADE%>">
 			<input type="password" name="senha01" placeholder="Senha" class="i-half i-first">
 			<input type="password" name="senha02" placeholder="Confirme a senha" class="i-half">
-			<!-- <button type="submit" class="button">Cadastrar</button> -->
-		</form>
+		
 	</div>
 
 	<!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
-		<form action="https://pagseguro.uol.com.br/v2/pre-approvals/request.html" method="post">
+		<form method="post" action="https://pagseguro.uol.com.br/v2/pre-approvals/request.html">
 		<!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
 		<input type="hidden" name="code" value="F9D14932CBCBFA9AA4FD6F901869448B" />
-		<input onClick="Salva()" type="image" src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/assinaturas/209x48-assinar-assina.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+		<div onClick="Salva()">  <img src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/assinaturas/209x48-assinar-assina.gif"> </div>
 		</form>
 	<!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
 	
@@ -51,16 +49,17 @@
                       $("input[name=bairro]").val()+'|'+
                       $("input[name=cidade]").val()+'|'+
                       $("input[name=estado]").val()
-                      
                     ;
-        
+       
 		$.post("<%URLPADRAO%>lib/ajax/salva.php",
             {array: array},
             function(retorno){
-               if(retorno == 'ok'){
+            alert(retorno);
+               if(retorno == 'teste'){
                		alert('Cadastrado Realizado com Sucesso!');
-               }else if(retorno == 'erro-campos'){
-               		alert('Por Favor, preencha todos os campos');
+               		$("form").submit();
+               }else{
+               		alert('Erro!');
                }
             }
         );
