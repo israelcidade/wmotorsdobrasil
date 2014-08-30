@@ -33,12 +33,7 @@
 					'".$cadastro['estado']."'
 					)
 			";
-	
-	/*foreach ($cadastro as $value) {
-		if($value == ''){
-			echo 'error-campos';
-		}
-	}*/
+
 	$result = $banco->Execute($Sql);
 	if($result){
 		echo 'ok';

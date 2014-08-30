@@ -50,18 +50,32 @@
                       $("input[name=cidade]").val()+'|'+
                       $("input[name=estado]").val()
                     ;
-       
-		$.post("<%URLPADRAO%>lib/ajax/salva.php",
-            {array: array},
-            function(retorno){
-            alert(retorno);
-               if(retorno == 'teste'){
-               		alert('Cadastrado Realizado com Sucesso!');
-               		$("form").submit();
-               }else{
-               		alert('Erro!');
-               }
-            }
-        );
+
+        if( $("input[name=senha01]").val() == '' ||
+        	$("input[name=senha02]").val() == '' ||
+        	$("input[name=nome]").val() == '' ||
+        	$("input[name=nascimento]").val() == '' ||
+        	$("input[name=rg]").val() == '' ||
+        	$("input[name=cpf-cadastro]").val() == '' ||
+        	$("input[name=cep]").val() == '' ||
+        	$("input[name=endereco]").val() == '' ||
+        	$("input[name=bairro]").val() == '' ||
+        	$("input[name=cidade]").val() == '' ||
+        	$("input[name=estado]").val() == ''
+        ){
+        	alert('Por Favor, Preencha todos os Campos!');
+        }else{
+        	$.post("<%URLPADRAO%>lib/ajax/salva.php",
+	            {array: array},
+	            function(retorno){
+	               if(retorno == 'ok'){
+	               		alert('Cadastrado Realizado com Sucesso!');
+	               		$("form").submit();
+	               }else if(retorno == 'errorcampos'){
+	               		alert('Por Favor, Preencha Todos os Campos!');
+	               }
+	            }
+        	);
+   		}	
 	}
 </script>
