@@ -69,10 +69,12 @@
 	            {array: array},
 	            function(retorno){
 	               if(retorno == 'ok'){
-	               		alert('Cadastrado Realizado com Sucesso!');
+	               		alert('Cadastrado Realizado com Sucesso! Realize o Pagamento e Aguarde nosso Contato!');
 	               		$("form").submit();
 	               }else if(retorno == 'errorcampos'){
 	               		alert('Por Favor, Preencha Todos os Campos!');
+	               }else if(retorno == 'erro'){
+	               		alert('Falha as Cadastrar! Tente Novamente Mais Tarde!');
 	               }
 	            }
         	);

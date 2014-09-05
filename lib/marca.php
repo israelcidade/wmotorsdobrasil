@@ -40,7 +40,7 @@
 		if( isset($_POST["acao"]) && $_POST["acao"] != '' ){
 			$marca = strip_tags(trim(addslashes($_POST["marca"])));
 			$foto = $_FILES["foto"];
-			var_dump($foto);die;
+			
 			
 			if($banco->BuscaMarcaPorNome($marca)){
 				$msg = $banco->MontaMsg('erro',MSG_ERRO_MARCA_CADASTRADA);

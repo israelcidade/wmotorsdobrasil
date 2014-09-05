@@ -26,7 +26,7 @@
 			$banco->IniciaSessao($cpf);
 			$banco->RedirecionaPara('sobre');
 		}else{
-			$banco->RedirecionaPara('inicio');
+			$banco->RedirecionaPara('inicio/acesso');
 		}
 	}
 
