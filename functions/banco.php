@@ -353,5 +353,16 @@
 			// Enviando o e-mail para o usuário
             $mail->Send();
         }
+
+        function BuscaCpf($cpf){
+        	$Sql = "Select * from c_usuarios where cpf = '".$cpf."'";
+        	$result = $this->Execute($Sql);
+        	$num_rows = $this->Linha($result);
+        	if($num_rows){
+        		return true;
+        	}else{
+        		return false;
+        	}
+        }
 	}
 ?>
