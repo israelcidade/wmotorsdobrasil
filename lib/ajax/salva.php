@@ -36,19 +36,23 @@
 			";
 
 	
-	//Busca no banco o cpf cadastrado
-	if($banco->BuscaCpf($cadastro['cpf'])){
-		echo 'cpf-cadastrado';
-	}else{
-		$result = $banco->Execute($Sql);
-		if($result){
-	            if($banco->EnviaEmailCadastro()){
-	            	echo 'ok';
-	            }else{
-	            	echo 'erro-email';
-	            }
+	if($banco->validaCPF($cadastro['cpf'])){
+		//Busca no banco o cpf cadastrado
+		if($banco->BuscaCpf($cadastro['cpf'])){
+			echo 'cpf-cadastrado';
 		}else{
-			echo 'erro';
+			$result = $banco->Execute($Sql);
+			if($result){
+		            if($banco->EnviaEmailCadastro()){
+		            	echo 'ok';
+		            }else{
+		            	echo 'erro-email';
+		            }
+			}else{
+				echo 'erro';
+			}
 		}
-	}	
+	}else{
+		echo 'erro-cpf';
+	}
 ?>
