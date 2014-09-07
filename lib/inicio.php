@@ -34,6 +34,10 @@
 		$msg = $banco->MontaMsg('erro',MSG_ERRO_ACESSO);
 	}
 
+	if($this->PaginaAux[0] == 'acesso-negado'){
+		$msg = $banco->MontaMsg('erro',MSG_ERRO_ACESSO_NEGADO);
+	}
+
 	$CarrosEmDestaque = $banco->CarrosEmDestaque();
 
 	$Marcas = $banco->BuscaMarcas();
