@@ -321,8 +321,8 @@
 
 		function EnviaEmailCadastro(){
             #Carrega classe MAILER
-			include_once("./app/PHPMailer/class.phpmailer.php");
-			include("./app/PHPMailer/class.smtp.php");
+			include_once("../../app/PHPMailer/class.phpmailer.php");
+			include("../../app/PHPMailer/class.smtp.php");
 
 			$mail = new PHPMailer();
 			// Charset para evitar erros de caracteres
@@ -351,7 +351,11 @@
 			$mail->AddAddress(EMAIL_RECEB);
             
 			// Enviando o e-mail para o usuário
-            $mail->Send();
+            if($mail->Send()){
+            	return true;
+            }else{
+            	return false;
+            }
         }
 
         function BuscaCpf($cpf){
