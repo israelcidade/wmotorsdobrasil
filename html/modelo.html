@@ -47,7 +47,7 @@
         <div id="logo">WMotors do Brasil</div>
         
         <section class="main-search">
-            <form action="busca" method="post">
+            <form action="<%URLPADRAO%>busca" method="post">
                 <input type ="hidden" name="acao" value="global">
                 <input type="text" name="busca" placeholder="Buscar">
                 <button id="search"><i class="fa fa-search"></i></button>
@@ -87,7 +87,7 @@
 
             <h2>Busca por chassis</h2>
 
-            <form action="busca" method="post">
+            <form action="<%URLPADRAO%>busca" method="post">
                 <input type="hidden" name="acao" value="busca-chassi">
                 <input type="text" name="chassi" placeholder="AB12345678" style="width:120px;" maxlength="10">
 

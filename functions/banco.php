@@ -131,6 +131,7 @@
 
 		function MontaLogin(){
 			$Login = $this->CarregaHtml('itens/login');
+			$Login = str_replace('<%URLPADRAO%>',UrlPadrao,$Login);
 			return $Login;
 		}
 
