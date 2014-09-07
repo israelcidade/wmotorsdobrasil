@@ -5,7 +5,6 @@
 	#Instancia o objeto
 	$banco = new bancobusca();
 
-	if($banco->VerificaSessao()){
 		if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'busca-chassi'){
 			$valor = strip_tags(trim(addslashes($_POST["chassi"])));
 			$flag = 'chassi';
@@ -41,7 +40,5 @@
 		#Imprime Valores
 		$Conteudo = $banco->CarregaHtml('busca');
 		$Conteudo = str_replace('<%BUSCA%>',$Busca,$Conteudo);
-	}else{
-		$banco->RedirecionaPara('inicio/acesso-negado');
-	}
+	
 ?>
