@@ -140,6 +140,11 @@ nav a:hover, nav a.active { background: #FFF; color: #0466a9; }
 .links, .parceiros { width: 48%; float: left; }
 
 .links { margin-right: 4%; }
+.parceiros{ display:none; }
+
+#apoio a.sinesp{ background:#BBCFDA url(../images/sinesp.jpg) no-repeat center center; }
+
+#apoio a.fipe{background:#003169 url(../images/fipe.jpg) no-repeat center center; }
 
 /* ======================= */
 /* RODAPÉ
@@ -240,10 +245,10 @@ footer .center .f-left { min-width: 500px; }
 
 #small-pics h3 span { text-transform: none; color: #0466a9; font-size: 14px; font-size: 0.875rem; font-weight: 400; }
 
-#small-pics li { float: left; margin: 0 10px 10px 0; width:125px; height:75px; overflow:hidden; }
+#small-pics li { float: left; margin: 0 10px 10px 0; width:125px; height:90px; overflow:hidden; }
 #small-pics li img{ display:block; width:100%; }
 
-#small-pics h4{ line-height:63px; margin-bottom:10px; }
+#small-pics h4{ line-height:75px; margin-bottom:10px; }
 
 #ultimo-carro h4 { font-size: 20px; font-size: 1.25rem; margin: 20px 0 10px; }
 

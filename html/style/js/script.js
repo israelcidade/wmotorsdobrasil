@@ -5,7 +5,7 @@ $(document).ready(function(){
 	banners.owlCarousel({
 		items:1,
 		singleItem:true,
-		autoPlay:true
+		autoPlay:6000
 	});
 
 	// LOGIN
@@ -21,8 +21,7 @@ $(document).ready(function(){
 	marcas.owlCarousel({
 		items:1,
 		singleItem:true,
-		autoPlay:true,
-		autoPlay:2000
+		autoPlay:3000
 	});
 
 	// GALERIA DE IMAGENS
