@@ -54,13 +54,19 @@
 					AND F.referencia = 0
 					Group by V.idveiculo";
 				}elseif($casas == 2){
+					$where = "where V.modelo LIKE '%".$aux[0]."%'";
 					if(is_numeric($aux[1])){
-						echo 'numero';
+						$where .= "	OR V.anofab LIKE '%".$aux[1]."%'
+								   	OR V.anomod LIKE '%".$aux[1]."%'
+								  	AND F.referencia = 0
+									Group by V.idveiculo
+								  ";
 					}
 				}
 			}
 			
 			$Sql .= $where;
+			
 			$Auxilio = $this->CarregaHtml('itens/lista-busca-itens');
 			$result = parent::Execute($Sql);
 			$num_rows = parent::Linha($result);
