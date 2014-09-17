@@ -38,20 +38,29 @@
 				
 			}elseif($flag == 'global'){
 				$Sql = "Select V.*, M.marca as nomemarca,F.*
-					from c_veiculos V 
-					inner join c_marcas M ON V.marca = M.idmarca
-					inner join c_fotos F ON V.idveiculo = F.idveiculo
-					where M.marca LIKE '%".$valor."%'
+						from c_veiculos V 
+						inner join c_marcas M ON V.marca = M.idmarca
+						inner join c_fotos F ON V.idveiculo = F.idveiculo ";
+
+				$aux = explode(' ', $valor);
+				$casas = count($aux);
+				
+				if($casas == 1){
+					$where = "where M.marca LIKE '%".$valor."%'
 					OR V.modelo LIKE '%".$valor."%'
 					OR V.anofab LIKE '%".$valor."%'
 					OR V.anomod LIKE '%".$valor."%'
 					OR V.padrao LIKE '%".$valor."%'
 					AND F.referencia = 0
-					Group by V.idveiculo
-				";
+					Group by V.idveiculo";
+				}elseif($casas == 2){
+					if(is_numeric($aux[1])){
+						echo 'numero';
+					}
+				}
 			}
 			
-			
+			$Sql .= $where;
 			$Auxilio = $this->CarregaHtml('itens/lista-busca-itens');
 			$result = parent::Execute($Sql);
 			$num_rows = parent::Linha($result);
