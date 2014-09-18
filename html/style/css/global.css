@@ -66,9 +66,9 @@ header .center { position: relative; }
 
 #login-box button { display: block; float: left; padding: 5px 7px; margin-left: 5px; border: 0; background-color: #0466a9; color: #FFF; font-size: 14px; font-size: 0.875rem; cursor: pointer; }
 
-h1 { display: block; float: left; font-size: 20px; font-size: 1.25rem; font-weight: 600; color: #FFF; margin: 46px 0 0 180px; }
+h1 { display: block; float: left; font-size: 20px; font-size: 1.25rem; font-weight: 600; color: #FFF; margin: 37px 0 0 180px; }
 
-nav { float: right; margin-top: 39px; color: #FFF; }
+nav { float: right; margin-top: 30px; color: #FFF; }
 
 nav a { display: block; float: left; padding: 10px; margin-left: 5px; background: #0466a9; color: #FFF; font-size: 16px; font-size: 1rem; -moz-transition: all 300ms linear; -o-transition: all 300ms linear; -webkit-transition: all 300ms linear; transition: all 300ms linear; }
 
@@ -181,7 +181,7 @@ footer .center .f-left { min-width: 500px; }
 
 #galeria li:nth-child(6n) { margin-right: 0; }
 
-#galeria li a .box-image { width: 150px; height: 150px; margin-bottom: 5px; }
+#galeria li a .box-image { width: 150px; margin-bottom: 10px; }
 
 #galeria li a .box-image img { display: block; }
 
@@ -198,7 +198,11 @@ footer .center .f-left { min-width: 500px; }
 /* ======================= */
 /* CADASTRO
 */
+.col-cadastro{ width:396px; margin:0 auto; float:none; }
 .col-left p { margin: 10px 0 20px; }
+
+.col-cadastro fieldset{ border:1px solid #CCC; padding:10px; margin-bottom:20px; }
+.col-cadastro fieldset legend{ padding:0 10px; text-transform:uppercase; }
 
 #cadastro input, #cadastro select { display: block; height: 30px; border: 1px solid #cccccc; margin-bottom: 10px; font-size: 18px; font-size: 1.125rem; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; color: #888888; padding: 0 5px; box-sizing: border-box; }
 
@@ -206,12 +210,14 @@ footer .center .f-left { min-width: 500px; }
 
 .i-right { width: 140px; float: right; }
 
-.i-half { width: 180px; float: left; }
+.i-half { width: 177px; float: left; }
 
 .i-first { margin-right: 20px; }
 
 #cadastro button { padding: 5px 30px; border: 1px solid #0466a9; background-color: transparent; color: #0466a9; font-size: 16px; font-size: 1rem; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; text-transform: uppercase; text-align: center; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; cursor: pointer; float: right; }
 #cadastro button:hover { background-color: #0466a9; color: #FFF; }
+
+#botao-pagseguro{ cursor:pointer; float:right; margin-right:-3px; }
 
 /* ======================= */
 /* CONTATO
@@ -236,7 +242,8 @@ footer .center .f-left { min-width: 500px; }
 
 #ultimo-carro h2 i { color: #ff9900; font-size: 40px; font-size: 2.5rem; margin-right: 5px; }
 
-.main-pic { width: 500px; height: 300px; float: left; margin-right: 25px; overflow:hidden; }
+.main-pic { width: 500px; height: 335px; float: left; margin-right: 25px; overflow:hidden; }
+
 .main-pic img{ display:block; width:100%; }
 
 #small-pics { width: 475px; float: left; }
@@ -246,6 +253,7 @@ footer .center .f-left { min-width: 500px; }
 #small-pics h3 span { text-transform: none; color: #0466a9; font-size: 14px; font-size: 0.875rem; font-weight: 400; }
 
 #small-pics li { float: left; margin: 0 10px 10px 0; width:125px; height:90px; overflow:hidden; }
+
 #small-pics li img{ display:block; width:100%; }
 
 #small-pics h4{ line-height:75px; margin-bottom:10px; }
@@ -253,6 +261,17 @@ footer .center .f-left { min-width: 500px; }
 #ultimo-carro h4 { font-size: 20px; font-size: 1.25rem; margin: 20px 0 10px; }
 
 .conteudo-carro{ display:none; }
+
+/* ======================= */
+/* USUÁRIO LOGADO
+*/
+#logged-in{ float:right; padding-top:20px; text-align:right; color:#FFF; }
+#logged-in .info-user{ float:left; }
+#logged-in .actions{ float:right; margin-left:10px; }
+#logged-in h2{ font-size:16px; }
+#logged-in h3{ font-size:14px; font-weight:bold; }
+#sair{ display::block; float:right; color:#F33; font-size:12px; }
+#minha-conta{ display::block; float:right; font-size:32px; }
 
 
 /* ======================= */

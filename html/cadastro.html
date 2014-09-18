@@ -1,35 +1,50 @@
 <section class="center">
 
-	<h2 class="page-title"><i class="fa fa-user"></i> Cadastro</h2>
+	<div class="col-left col-cadastro">
 
-	<div class="col-left">
+		<h2 class="page-title"><i class="fa fa-user"></i> Cadastro</h2>
 
 		<p>Preencha o formulário com seus dados, efetue o pagamento e pronto, você já poderá pesquisar pelos carros cadastrados.</p>
 
 		<%MSG%><br>
 
+		<div id="cadastro">
+			
 			<input type="hidden" name="acao" value="cadastrar">
-			<input type="text" name="nome" placeholder="Nome Completo" class="i-left">
-			<input type="text" name="nascimento" placeholder="Nascimento" class="i-right">
-			<input type="text" name="rg" placeholder="RG" class="i-half i-first">
-			<input type="text" name="cpf-cadastro" placeholder="CPF" class="i-half">
-			<input type="text" name="cep" placeholder="CEP" onBlur="buscacep()" class="i-half i-left" value="<%CEP%>">
-			<input type="text" name="endereco" placeholder="Endereco" class="i-left" value="<%ENDERECO%>">
-			<input type="text" name="bairro" placeholder="Bairro" class="i-right" value="<%BAIRRO%>">
-			<input type="text" name="estado" placeholder="Estado" class="i-half i-first" value="<%ESTADO%>">
-			<input type="text" name="cidade" placeholder="Cidade" class="i-half" value="<%CIDADE%>">
-			<input type="password" name="senha01" placeholder="Senha" class="i-half i-first">
-			<input type="password" name="senha02" placeholder="Confirme a senha" class="i-half">
+			
+			<fieldset>
+				<legend>Dados Pessoais</legend>
+				<input type="text" name="nome" placeholder="Nome Completo" class="i-left">
+				<input type="text" name="nascimento" placeholder="Nascimento" class="i-right" id="i-nascimento">
+				<input type="text" name="rg" placeholder="RG" class="i-half i-first" id="i-rg">
+				<input type="text" name="cpf-cadastro" placeholder="CPF" class="i-half" id="i-cpf">
+			</fieldset>
+
+			<fieldset>
+				<legend>Endereço</legend>
+				<input type="text" name="cep" placeholder="CEP" onBlur="buscacep()" class="i-half i-left" value="<%CEP%>" id="i-cep">
+				<input type="text" name="endereco" placeholder="Endereço" class="i-left" value="<%ENDERECO%>">
+				<input type="text" name="bairro" placeholder="Bairro" class="i-right" value="<%BAIRRO%>">
+				<input type="text" name="estado" placeholder="Estado" class="i-half i-first" value="<%ESTADO%>">
+				<input type="text" name="cidade" placeholder="Cidade" class="i-half" value="<%CIDADE%>">
+			</fieldset>
+
+			<fieldset>
+				<legend>Dados de acesso</legend>
+				<input type="password" name="senha01" placeholder="Senha" class="i-half i-first">
+				<input type="password" name="senha02" placeholder="Confirme a senha" class="i-half">
+			</fieldset>
+
+			<div id="btn-cadastro">
+				<form method="post" action="https://pagseguro.uol.com.br/v2/pre-approvals/request.html">
+					<input type="hidden" name="code" value="F9D14932CBCBFA9AA4FD6F901869448B" />
+					<div onClick="Salva()" id="botao-pagseguro">  <img src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/assinaturas/209x48-assinar-assina.gif"> </div>
+				</form>
+			</div>
+
+		</div>
 		
 	</div>
-
-	<!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
-		<form method="post" action="https://pagseguro.uol.com.br/v2/pre-approvals/request.html">
-		<!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
-		<input type="hidden" name="code" value="F9D14932CBCBFA9AA4FD6F901869448B" />
-		<div onClick="Salva()">  <img src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/assinaturas/209x48-assinar-assina.gif"> </div>
-		</form>
-	<!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
 	
 	<br class="clear">
 
