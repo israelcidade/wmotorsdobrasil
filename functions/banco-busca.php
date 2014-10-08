@@ -62,6 +62,14 @@
 									Group by V.idveiculo
 								  ";
 					}
+				}elseif($casas > 2){
+					$where = "where M.marca LIKE '%".$valor."%'
+					OR V.modelo LIKE '%".$valor."%'
+					OR V.anofab LIKE '%".$valor."%'
+					OR V.anomod LIKE '%".$valor."%'
+					OR V.padrao LIKE '%".$valor."%'
+					AND F.referencia = 0
+					Group by V.idveiculo";
 				}
 			}
 			

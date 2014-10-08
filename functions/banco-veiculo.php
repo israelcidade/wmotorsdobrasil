@@ -105,6 +105,11 @@
 		}
 
 		function InsereVeiculo($arr,$botao,$idveiculo){
+
+			if($arr['destaque'] == ''){
+				$arr['destaque'] = 0;
+			}
+			
 			$SqlInsert = "Insert into c_veiculos 
 			(categoria,marca,modelo,anofab,anomod,padrao,destaque) 
 			VALUES ('".$arr['categoria']."','".$arr['marca']."','".$arr['modelo']."','".$arr['anofab']."','".$arr['anomod']."','".$arr['padrao']."','".$arr['destaque']."')";
