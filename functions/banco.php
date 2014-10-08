@@ -40,7 +40,15 @@
 		function VerificaSessao(){
 			session_start('login');
 			if(isset($_SESSION['cpf']) ){
-				return true;
+				$Sql = "Select status from c_usuarios where cpf = '".$_SESSION['cpf']."'";
+				$result = $this->Execute($Sql);
+				$num_rows = $this->Linha($result);
+				$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+				if($rs['status'] == '1'){
+					return true;
+				}else{
+					return false;
+				}
 			}else{
 				return false;
 			}
