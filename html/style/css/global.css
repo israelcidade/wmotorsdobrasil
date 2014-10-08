@@ -206,6 +206,8 @@ footer .center .f-left { min-width: 500px; }
 
 #cadastro input, #cadastro select { display: block; height: 30px; border: 1px solid #cccccc; margin-bottom: 10px; font-size: 18px; font-size: 1.125rem; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; color: #888888; padding: 0 5px; box-sizing: border-box; }
 
+.i-full { width: 100%; float: none; }
+
 .i-left { width: 220px; float: left; }
 
 .i-right { width: 140px; float: right; }
