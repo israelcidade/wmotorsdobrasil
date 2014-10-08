@@ -12,19 +12,21 @@
 		'senha' 			=>   md5($aux[0]),
 		'nome' 				=>   $aux[1],
 		'nascimento' 		=>   $aux[2],
-		'rg' 				=>   $aux[3],
-		'cpf' 				=>   $aux[4],
-		'cep' 				=>   $aux[5],
-		'endereco' 			=>   $aux[6],
-		'bairro' 			=>   $aux[7],
-		'cidade' 			=>   $aux[8],
-		'estado' 			=>   $aux[9]
+		'email' 			=>   $aux[3],
+		'rg' 				=>   $aux[4],
+		'cpf' 				=>   $aux[5],
+		'cep' 				=>   $aux[6],
+		'endereco' 			=>   $aux[7],
+		'bairro' 			=>   $aux[8],
+		'cidade' 			=>   $aux[9],
+		'estado' 			=>   $aux[10]
 		);
 
-	$Sql = "Insert into c_usuarios (senha,nome,nascimento,rg,cpf,cep,endereco,bairro,cidade,estado) 
+	$Sql = "Insert into c_usuarios (senha,nome,nascimento,email,rg,cpf,cep,endereco,bairro,cidade,estado) 
 			VALUES ('".$cadastro['senha']."',
 					'".$cadastro['nome']."',
 					'".$cadastro['nascimento']."',
+					'".$cadastro['email']."',
 					'".$cadastro['rg']."',
 					'".$cadastro['cpf']."',
 					'".$cadastro['cep']."',

@@ -8,6 +8,7 @@
 	if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'cadastrar'){
 		$usuario['nome'] = strip_tags(trim(addslashes($_POST["nome"])));
 		$usuario['nascimento'] = strip_tags(trim(addslashes($_POST["nascimento"])));
+		$usuario['email'] = strip_tags(trim(addslashes($_POST["email"])));
 		$usuario['rg'] = strip_tags(trim(addslashes($_POST["rg"])));
 		$usuario['cpf'] = strip_tags(trim(addslashes($_POST["cpf"])));
 		$usuario['cep'] = strip_tags(trim(addslashes($_POST["cep"])));

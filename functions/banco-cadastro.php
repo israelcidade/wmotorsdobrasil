@@ -12,7 +12,7 @@
 		}
 
 		function CadastraUsuario($usuario){
-			$Sql = "Insert into c_usuarios (nome,senha,nascimento,rg,cpf,cep,endereco,bairro,cidade,estado) VALUES ('".$usuario['nome']."','".$usuario['senha']."','".$usuario['nascimento']."','".$usuario['rg']."','".$usuario['cpf']."','".$usuario['cep']."','".$usuario['endereco']."','".$usuario['bairro']."','".$usuario['cidade']."','".$usuario['estado']."') ";
+			$Sql = "Insert into c_usuarios (nome,senha,nascimento,email,rg,cpf,cep,endereco,bairro,cidade,estado) VALUES ('".$usuario['nome']."','".$usuario['senha']."','".$usuario['nascimento']."','".$usuario['rg']."','".$usuario['cpf']."','".$usuario['cep']."','".$usuario['endereco']."','".$usuario['bairro']."','".$usuario['cidade']."','".$usuario['estado']."') ";
 			
 			if($this->BuscaUsuarioPorCpf($usuario['cpf'])){
 				return MSG_ERRO_CPF_EXISTENTE;
