@@ -223,8 +223,8 @@
 
 		function MontaMsg($tipo,$msg){
 			if($tipo == 'erro'){
-				$flag = "<div class='alert alert-danger' role='alert'>
-      			<strong>Erro!</strong> ".$msg." </div>";
+				$flag = "<div class='alert alert-danger alert-danger-estilo' role='alert'>
+      			<strong>Erro!</strong> ".$msg."</div>";
 			}elseif($tipo == 'ok'){
 				$flag = "<div class='alert alert-success' role='alert'>
       			<strong>OK!</strong> ".$msg." </div>";
