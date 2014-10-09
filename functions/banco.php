@@ -328,7 +328,7 @@
 			return $caminho_foto.$thumb->Thumbfilename;
 		}
 
-		function EnviaEmailCadastro(){
+		function EnviaEmailCadastro($email){
             #Carrega classe MAILER
 			include_once("../../app/PHPMailer/class.phpmailer.php");
 			include("../../app/PHPMailer/class.smtp.php");
@@ -345,7 +345,7 @@
 			$mail->Subject = 'WmotorsDoBrasil -> Bem Vindo';
 			$mail->Body = utf8_decode(
 				'Bem Vindo ao Wmotors do Brasil!<br>
-				Realize seu pagamento e comece a sua pesquisa!'
+				Realize seu pagamento e começe a utilizar nosso site para suas pesquisas!'
 				);
             
             // Validando a autenticação
@@ -357,7 +357,7 @@
 			$mail->Password = EMAIL_PASS;
 
 			// Setando o endereço de recebimento
-			$mail->AddAddress(EMAIL_RECEB);
+			$mail->AddAddress($email);
             
 			// Enviando o e-mail para o usuário
             if($mail->Send()){

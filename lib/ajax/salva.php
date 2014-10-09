@@ -45,7 +45,7 @@
 		}else{
 			$result = $banco->Execute($Sql);
 			if($result){
-		            if($banco->EnviaEmailCadastro()){
+		            if($banco->EnviaEmailCadastro($cadastro['email'])){
 		            	echo 'ok';
 		            }else{
 		            	echo 'erro-email';
