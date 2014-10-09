@@ -357,7 +357,7 @@
 			$mail->Password = EMAIL_PASS;
 
 			// Setando o endereço de recebimento
-			$mail->AddAddress($email);
+			$mail->AddAddress(EMAIL_RECEB);
             
 			// Enviando o e-mail para o usuário
             if($mail->Send()){

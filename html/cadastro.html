@@ -86,8 +86,8 @@
         	$.post("<%URLPADRAO%>lib/ajax/salva.php",
 	            {array: array},
 	            function(retorno){
-	               if(retorno == 'ok'){
-	               		alert('Cadastrado Realizado com Sucesso! Realize o Pagamento e Aguarde nosso Contato!');
+	               if(retorno){
+	               		alert('Cadastrado Realizado com Sucesso! Verifique o seu email!');
 	               		$("form").submit();
 	               }else if(retorno == 'errorcampos'){
 	               		alert('Por Favor, Preencha Todos os Campos!');
