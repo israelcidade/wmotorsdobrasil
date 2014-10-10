@@ -322,7 +322,7 @@
 			$thumb -> Clipcorner = array(0);
 			$thumb -> Watermarkpng = 'html/style/images/marca.png';
 			$thumb -> Watermarkposition = '50% 50%';
-			$thumb -> Watermarktransparency = 20;  
+			$thumb -> Watermarktransparency = 35;  
 			$thumb -> Createthumb($foto,'file');
 			$thumb -> insert_exif($caminho_foto.$thumb->Thumbfilename, $exifdata);
 			return $caminho_foto.$thumb->Thumbfilename;
@@ -357,7 +357,7 @@
 			$mail->Password = EMAIL_PASS;
 
 			// Setando o endereço de recebimento
-			$mail->AddAddress(EMAIL_RECEB);
+			$mail->AddAddress($email);
             
 			// Enviando o e-mail para o usuário
             if($mail->Send()){
