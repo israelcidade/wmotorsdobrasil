@@ -4,7 +4,7 @@ $("#busca-marca").change(function() {
 	$.post("lib/ajax/busca-veiculos-por-idmarca.php",
 	            {marca: marca},
 	            function(retorno){
-	            	alert(retorno);
+	            	
 	              $("#busca-veiculo").empty().append(retorno);
 	            }
 	            
