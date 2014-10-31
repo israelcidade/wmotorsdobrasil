@@ -87,6 +87,7 @@
 				$Linha = str_replace('<%URLPADRAO%>',UrlPadrao,$Linha);
 				$Menu .= $Linha;
 			}
+
 			return $Menu;
 		}
 
@@ -134,6 +135,7 @@
 			$SaidaHtml = str_replace('<%MENU%>',$Menu,$SaidaHtml);
 			$SaidaHtml = str_replace('<%BUSCA%>',$Busca,$SaidaHtml);
 			$SaidaHtml = str_replace('<%LOGIN%>',$Login,$SaidaHtml);
+			
 			echo $SaidaHtml;
 		}
 
