@@ -135,7 +135,7 @@
 			$SaidaHtml = str_replace('<%MENU%>',$Menu,$SaidaHtml);
 			$SaidaHtml = str_replace('<%BUSCA%>',$Busca,$SaidaHtml);
 			$SaidaHtml = str_replace('<%LOGIN%>',$Login,$SaidaHtml);
-			
+
 			echo $SaidaHtml;
 		}
 
@@ -265,7 +265,7 @@
 		}
 
 		function MontaSelectMarcas($marca){
-			$marcas = '<select name="marca" style="width:130px;">';
+			$marcas = '<select id="busca-marca" name="marca" style="width:130px;">';
 			$marcas .= '<option value="0">Marca</option>';
 			$Sql = "Select idmarca , marca from c_marcas";
 			$result = $this->Execute($Sql);
@@ -299,14 +299,14 @@
 		}
 
 		function MontaSelectModelos(){
-			$modelos = '<select name="modelo" style="width:120px;">';
+			$modelos = '<select id="busca-veiculo" name="modelo" style="width:120px;">';
 			$modelos .= '<option value="0">Nome</option>';
-			$Sql = "Select modelo from c_veiculos";
+			/*$Sql = "Select modelo from c_veiculos";
 			$result = $this->Execute($Sql);
 			while($aux = mysql_fetch_array($result, MYSQL_ASSOC))
 			{
 				$modelos .= '<option value="'.$aux['modelo'].'" '.$selected.'>'.$aux['modelo'].'</option>';
-			}
+			}*/
 			$modelos .= '</select>';
 			return $modelos;	
 		}
