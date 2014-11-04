@@ -17,7 +17,7 @@
 	$padrao = '';
 	$titulo = '';
 
-	if($banco->VerificaSessao()){
+	if($banco->VerificaSessaoAdmin()){
 
 		#Trabalha com o Editar
 		if($this->PaginaAux[0] == 'editar'){
