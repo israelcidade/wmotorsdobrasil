@@ -136,6 +136,7 @@
 		}
 
 		function InsereImagens($arrImagens,$arr,$idveiculo){
+			require('../app/wideimage/WideImage.php');
 			
 			for ($i=0; $i <= 9 ; $i++) { 
 				$fotos[] = array(
@@ -147,6 +148,7 @@
 					'imagem-desc' => $arr['imagem-desc'][$i]
 				);
 			}
+			
 			
 			for ($i=0; $i <= 9 ; $i++) {
 
@@ -165,6 +167,11 @@
 				}
 
 				if($fotos[$i]['name'] != ''){
+					// Carrega a imagem a ser manipulada
+					$image = wiImage::load($fotos[$i]['tmp_name']);
+					$image = $image->resize(640, 480, 'outside', 'any')->crop('center', 'center', 640, 480);
+					$image->saveToFile('teste.jpg');
+
 					preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $fotos[$i]["name"], $ext);
 					$caminho_foto = $this->MarcaDagua($fotos[$i]["tmp_name"],$idveiculo,$ext);
 
@@ -188,7 +195,7 @@
 						)";
 					}
 
-					$this->Execute($SqlBanco);
+				$this->Execute($SqlBanco);
 				}
 
 			}
