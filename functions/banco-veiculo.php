@@ -136,8 +136,8 @@
 		}
 
 		function InsereImagens($arrImagens,$arr,$idveiculo){
-			require('../app/wideimage/WideImage.php');
-			
+			include('resize-class.php');
+
 			for ($i=0; $i <= 9 ; $i++) { 
 				$fotos[] = array(
 					'name' => $arrImagens['name'][$i], 
@@ -168,12 +168,15 @@
 
 				if($fotos[$i]['name'] != ''){
 					// Carrega a imagem a ser manipulada
-					$image = wiImage::load($fotos[$i]['tmp_name']);
-					$image = $image->resize(640, 480, 'outside', 'any')->crop('center', 'center', 640, 480);
-					$image->saveToFile('teste.jpg');
-
 					preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $fotos[$i]["name"], $ext);
-					$caminho_foto = $this->MarcaDagua($fotos[$i]["tmp_name"],$idveiculo,$ext);
+
+					if(move_uploaded_file($fotos[$i]["tmp_name"], 'arq/veiculos/'.$idveiculo.'/'.$fotos[$i]['name'])){
+						$resizeObj = new resize('arq/veiculos/'.$idveiculo.'/'.$fotos[$i]['name']);
+						$resizeObj -> resizeImage(640, 480, 'crop');
+						$resizeObj -> saveImage('arq/veiculos/'.$idveiculo.'/'.$fotos[$i]['name'], 100);
+						$caminho_foto = $this->MarcaDagua('arq/veiculos/'.$idveiculo.'/'.$fotos[$i]['name'],$idveiculo,$ext);
+						unlink('arq/veiculos/'.$idveiculo.'/'.$fotos[$i]['name']);
+					}
 
 					if($num_rows){
 						unlink($rs['caminho']);

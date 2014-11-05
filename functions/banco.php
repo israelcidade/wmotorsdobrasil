@@ -265,6 +265,7 @@
 		}
 
 		function MontaSelectMarcas($marca){
+			$marca = '';
 			$marcas = '<select id="busca-marca" name="marca" style="width:130px;">';
 			$marcas .= '<option value="0">Marca</option>';
 			$Sql = "Select idmarca , marca from c_marcas";
@@ -327,6 +328,7 @@
 			$thumb -> Watermarktransparency = 35;  
 			$thumb -> Createthumb($foto,'file');
 			$thumb -> insert_exif($caminho_foto.$thumb->Thumbfilename, $exifdata);
+
 			return $caminho_foto.$thumb->Thumbfilename;
 		}
 
