@@ -11,3 +11,17 @@ $("#busca-marca").change(function() {
         	);
   	
 });
+
+$("#busca-categoria").change(function() {
+	var categoria = $("#busca-categoria option:selected").val();
+	
+	$.post("lib/ajax/busca-marcas-por-idcategoria.php",
+	            {categoria: categoria},
+	            function(retorno){
+	            	
+	              $("#busca-marca").empty().append(retorno);
+	            }
+	            
+        	);
+  	
+});

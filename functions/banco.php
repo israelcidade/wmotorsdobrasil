@@ -196,13 +196,13 @@
 			}
 		}
 		
-		#Função que chama a pagina.php desejada.
+		#Funï¿½ï¿½o que chama a pagina.php desejada.
 		public function ChamaPhp($Nome){
 			@require_once('lib/'.$Nome.'.php');
 			return $Conteudo;
 		}
 	
-		#Função que monta o html da pagina
+		#Funï¿½ï¿½o que monta o html da pagina
 		public function CarregaHtml($Nome){
 			$filename = 'html/'.$Nome.".html";
 			$handle = fopen($filename,"r");
@@ -237,7 +237,7 @@
 			return $flag;
 		}
 		
-		#Funcao que carrega as páginas
+		#Funcao que carrega as pï¿½ginas
 		function CarregaPaginas(){
 			$urlDesenvolve = 'wmotorsdobrasil';
 			$primeiraBol = true;
@@ -283,7 +283,7 @@
 		}
 
 		function MontaSelectCategorias($categoria){
-			$categorias = '<select name="categoria" style="width:120px;">';
+			$categorias = '<select id="busca-categoria" name="categoria" style="width:120px;">';
 			$categorias .= '<option value="0">Tipo</option>';
 			$Sql = "Select idcategoria , categoria from fixo_categorias";
 			$result = $this->Execute($Sql);
@@ -340,7 +340,7 @@
 			$mail = new PHPMailer();
 			// Charset para evitar erros de caracteres
 			$mail->Charset = 'UTF-8';
-			// Dados de quem está enviando o email
+			// Dados de quem estï¿½ enviando o email
 			$mail->From = 'contato@wmotorsdobrasil.com';
 			$mail->FromName = 'wmotorsdobrasil';
 
@@ -349,10 +349,10 @@
 			$mail->Subject = 'WmotorsDoBrasil -> Bem Vindo';
 			$mail->Body = utf8_decode(
 				'Bem Vindo ao Wmotors do Brasil!<br>
-				Realize seu pagamento e começe a utilizar nosso site para suas pesquisas!'
+				Realize seu pagamento e comeï¿½e a utilizar nosso site para suas pesquisas!'
 				);
             
-            // Validando a autenticação
+            // Validando a autenticaï¿½ï¿½o
 			$mail->IsSMTP();
 			$mail->SMTPAuth = true;
 			$mail->Host     = "ssl://smtp.gmail.com";
@@ -360,10 +360,10 @@
 			$mail->Username = EMAIL_USER;
 			$mail->Password = EMAIL_PASS;
 
-			// Setando o endereço de recebimento
+			// Setando o endereï¿½o de recebimento
 			$mail->AddAddress($email);
             
-			// Enviando o e-mail para o usuário
+			// Enviando o e-mail para o usuï¿½rio
             if($mail->Send()){
             	return true;
             }else{
@@ -383,16 +383,16 @@
         }
 
         function validaCPF($cpf)
-		{	// Verifiva se o número digitado contém todos os digitos
+		{	// Verifiva se o nï¿½mero digitado contï¿½m todos os digitos
 		    $cpf = str_pad(ereg_replace('[^0-9]', '', $cpf), 11, '0', STR_PAD_LEFT);
 			
-			// Verifica se nenhuma das sequências abaixo foi digitada, caso seja, retorna falso
+			// Verifica se nenhuma das sequï¿½ncias abaixo foi digitada, caso seja, retorna falso
 		    if (strlen($cpf) != 11 || $cpf == '00000000000' || $cpf == '11111111111' || $cpf == '22222222222' || $cpf == '33333333333' || $cpf == '44444444444' || $cpf == '55555555555' || $cpf == '66666666666' || $cpf == '77777777777' || $cpf == '88888888888' || $cpf == '99999999999')
 			{
 			return false;
 		    }
 			else
-			{   // Calcula os números para verificar se o CPF é verdadeiro
+			{   // Calcula os nï¿½meros para verificar se o CPF ï¿½ verdadeiro
 		        for ($t = 9; $t < 11; $t++) {
 		            for ($d = 0, $c = 0; $c < $t; $c++) {
 		                $d += $cpf{$c} * (($t + 1) - $c);
