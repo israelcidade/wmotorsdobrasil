@@ -152,9 +152,9 @@
 			}
 			$Sql = "SELECT V.*, M.marca as nomemarca, F.*
 					FROM c_veiculos V 
-					INNER JOIN c_marcas M ON v.marca = m.idmarca
-					INNER JOIN c_fotos F on v.idveiculo = f.idveiculo
-					Where f.referencia = 0
+					INNER JOIN c_marcas M ON V.marca = M.idmarca
+					INNER JOIN c_fotos F on V.idveiculo = F.idveiculo
+					Where F.referencia = 0
 					".$categoria."
 					".$marca."
 					".$modelo."
