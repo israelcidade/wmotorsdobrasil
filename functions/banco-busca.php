@@ -136,19 +136,19 @@
 		function ListaResultadoCompleto($aux){
 			
 			if($aux['categoria']){
-				$categoria = "AND v.categoria = '".$aux['categoria']."' ";
+				$categoria = "AND V.categoria = '".$aux['categoria']."' ";
 			}
 			if($aux['marca']){
-				$marca = "AND v.marca = '".$aux['marca']."'";
+				$marca = "AND V.marca = '".$aux['marca']."'";
 			}
 			if($aux['modelo']){
-				$modelo = "AND v.modelo = '".$aux['modelo']."'";
+				$modelo = "AND V.modelo = '".$aux['modelo']."'";
 			}
 			if($aux['anofab']){
-				$fabri = "AND v.anofab = '".$aux['anofab']."'";
+				$fabri = "AND V.anofab = '".$aux['anofab']."'";
 			}
 			if($aux['anomod']){
-				$mod = "AND v.anomod = '".$aux['anomod']."'";
+				$mod = "AND V.anomod = '".$aux['anomod']."'";
 			}
 			$Sql = "SELECT V.*, M.marca as nomemarca, F.*
 					FROM c_veiculos V 
