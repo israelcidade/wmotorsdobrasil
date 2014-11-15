@@ -1,15 +1,15 @@
 $("#busca-marca").change(function() {
-	var teste = location.host;
+	var aux = location.host;
 	
-	if(teste === "localhost:8888"){
-		var url = 'http://localhost:8888/wmotorsdobrasil/lib/ajax/busca-marcas-por-idcategoria.php';
+	if(aux === "localhost:8888"){
+		var url = 'http://localhost:8888/wmotorsdobrasil/lib/ajax/busca-veiculos-por-idmarca.php';
 	}else{
-		var url = 'http://www.wmotorsdobrasil.com.br/lib/ajax/busca-marcas-por-idcategoria.php';
+		var url = 'http://www.wmotorsdobrasil.com.br/lib/ajax/busca-veiculos-por-idmarca.php';
 	}
 	
 	var marca = $("#busca-marca option:selected").val();
 	
-	$.post("lib/ajax/busca-veiculos-por-idmarca.php",
+	$.post(url,
 	            {marca: marca},
 	            function(retorno){
 	            	
@@ -21,9 +21,9 @@ $("#busca-marca").change(function() {
 });
 
 $("#busca-categoria").change(function() {
-	var teste = location.host;
+	var aux = location.host;
 	
-	if(teste === "localhost:8888"){
+	if(aux === "localhost:8888"){
 		var url = 'http://localhost:8888/wmotorsdobrasil/lib/ajax/busca-marcas-por-idcategoria.php';
 	}else{
 		var url = 'http://www.wmotorsdobrasil.com.br/lib/ajax/busca-marcas-por-idcategoria.php';
