@@ -16,7 +16,11 @@
 					$Linha = $Auxilio;
 					$Linha = str_replace('<%CPF%>',$cpf,$Linha);
 					$Linha = str_replace('<%IP%>',$rs['ip'],$Linha);
-					$Linha = str_replace('<%DATA%>',$rs['data'],$Linha);
+					
+					$timestamp = strtotime($rs['data']);
+					$data_formatada = date('d/m/Y h:i', $timestamp);
+					
+					$Linha = str_replace('<%DATA%>',$data_formatada,$Linha);
 					$Logs .= $Linha;
 				}
 			}else{

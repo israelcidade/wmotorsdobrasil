@@ -113,7 +113,8 @@
 			if( $this->Pagina == 'veiculo' || 
 				$this->Pagina == 'lista-veiculos' || 
 				$this->Pagina == 'lista-marcas' || 
-				$this->Pagina == 'marca' || 
+				$this->Pagina == 'marca' ||
+				$this->Pagina == 'log-acesso' ||
 				$this->Pagina == 'lista-usuarios'){
 
 				$SaidaHtml = $this->CarregaHtml('modelo-admin');
