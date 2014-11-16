@@ -22,12 +22,16 @@
 		function IniciaSessao($cpf){
 			session_start('login');
 			$_SESSION['cpf'] = $cpf;
+			
+			$this->GravaLog($cpf);
 		}
 
 		function IniciaSessaoAdmin($user){
 			session_start('login');
 			$_SESSION['cpf'] = $user;
 			$_SESSION['admin'] = '1';
+			
+			$this->GravaLog($user);
 		}
 
 		#fecha sessao
@@ -407,6 +411,14 @@
 		 
 		     return true;
     		}
+		}
+		
+		function GravaLog($cpf){
+			$ip = $_SERVER["REMOTE_ADDR"];
+			$data = date('Y-m-d H:i:s');
+			
+			$Sql = "Insert into c_log_acesso (cpf, ip, data ) VALUES ('".$cpf."','".$ip."','".$data."')";
+			$this->Execute($Sql);
 		}
 	}
 ?>

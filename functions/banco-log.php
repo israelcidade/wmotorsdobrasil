@@ -20,7 +20,7 @@
 					$Logs .= $Linha;
 				}
 			}else{
-				return $msg = $this->MontaMsg('atencao',ERRO_ZERO_MARCAS);
+				return $msg = $this->MontaMsg('atencao',ERRO_ZERO_LOGS);
 			}
 
 			return $Logs;

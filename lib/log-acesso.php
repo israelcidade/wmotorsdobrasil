@@ -7,7 +7,7 @@
 
 	if($banco->VerificaSessaoAdmin()){
 
-		$LOGS = $banco->ListaLogs($this->PaginaAux[0]));
+		$LOGS = $banco->ListaLogs($this->PaginaAux[0]);
 
 		#Imprimi valores
 		$Conteudo = $banco->CarregaHtml('log-acesso');
