@@ -15,8 +15,19 @@
 
 			// Setando o conteudo
 			$mail->IsHTML(true);
-			$mail->Subject = 'Mensagem enviada de teste ->'.$assunto;
-			$mail->Body = utf8_decode($mensagem);
+			$mail->Subject = 'IMPORTANTE - Contato do site WmotorsdoBrasil';
+			
+			$monta_mensagem = "
+							   Esse contato foi gerado a partir do site WmotorsdoBrasil.com.br.<br><br>
+							   
+							   Nome: $nome <br>
+			                   Email: $email <br>
+							   Assunto: $assunto <br>
+							   Mensagem: $mensagem <br><br><br>
+							   
+							   Para responder esse contato copie o email e clique em Novo Email.
+								";
+			$mail->Body = utf8_decode($monta_mensagem);
             
             // Validando a autenticação
 			$mail->IsSMTP();
