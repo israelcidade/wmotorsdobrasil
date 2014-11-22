@@ -273,7 +273,7 @@
 			$marca = '';
 			$marcas = '<select id="busca-marca" name="marca" style="width:130px;">';
 			$marcas .= '<option value="0">Marca</option>';
-			$Sql = "Select idmarca , marca from c_marcas";
+			/*$Sql = "Select idmarca , marca from c_marcas";
 			$result = $this->Execute($Sql);
 			while($aux = mysql_fetch_array($result, MYSQL_ASSOC))
 			{
@@ -282,7 +282,7 @@
 					$selected = 'selected';
 				}
 				$marcas .= '<option value="'.$aux['idmarca'].'" '.$selected.'>'.$aux['marca'].'</option>';
-			}
+			}*/
 			$marcas .= '</select>';
 			return $marcas;	
 		}

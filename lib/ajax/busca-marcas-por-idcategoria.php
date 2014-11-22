@@ -9,7 +9,7 @@ $Marcas = '<option value = 0> Marca ';
 
 $Sql = "Select marca from c_veiculos where categoria = '".$idcategoria."' group by marca";
 $result = $banco->Execute($Sql);
-//<option value="ILR EVOQUE DYNAMIC 3D">ILR EVOQUE DYNAMIC 3D</option>
+
 while($rs = mysql_fetch_array($result, MYSQL_ASSOC))
 {
 	$SqlNomeMarca = "Select marca as marca_nome from c_marcas where idmarca = '".$rs['marca']."' ";
