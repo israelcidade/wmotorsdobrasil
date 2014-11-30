@@ -26,8 +26,8 @@
 				$mail->IsHTML(true);
 				$mail->Subject = 'WmotorsDoBrasil -> Recuperação de Senha';
 				$mail->Body = utf8_decode(
-						'Clique no link a baixo para recuperar sua senha.<br>
-						<a href="'.UrlPadrao.'recuperar-senha/codigo/$codigo">$codigo</a>'
+						"Clique no link a baixo para recuperar sua senha.<br>
+						<a href=' ".UrlPadrao."recuperar-senha/codigo/".$codigo." ' > Clique Aqui </a>"
 				);
 					
 				// Validando a autentica��o
