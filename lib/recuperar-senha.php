@@ -12,7 +12,11 @@
 	if( isset($_POST["acao"]) && $_POST["acao"] != '' ){
 		$email = $_POST['email'];
 			
-		$result = $banco->InsereVeiculo($arr,$botao,$idveiculo);
+		if($result = $banco->EnviarEmailRecuperarSenha($email)){
+			
+		}else{
+			$msg = 'Esse email nao existe em nossos registros';
+		}
 		
 		
 	}
