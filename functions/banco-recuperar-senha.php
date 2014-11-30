@@ -4,8 +4,8 @@
 		
 		function EnviarEmailRecuperarSenha($email){
 			#Carrega classe MAILER
-			include_once("../../app/PHPMailer/class.phpmailer.php");
-			include("../../app/PHPMailer/class.smtp.php");
+			include_once("./app/PHPMailer/class.phpmailer.php");
+			include("./app/PHPMailer/class.smtp.php");
 			
 			//Gerar codigo
 			if($usuario = $this->buscaUsuarioPorEmail($email)){
@@ -27,7 +27,7 @@
 				$mail->Subject = 'WmotorsDoBrasil -> Recuperação de Senha';
 				$mail->Body = utf8_decode(
 						'Clique no link a baixo para recuperar sua senha.<br>
-					<a href="'.UrlPadrao.'recuperar-senha/codigo/$codigo">$codigo</a>'
+						<a href="'.UrlPadrao.'recuperar-senha/codigo/$codigo">$codigo</a>'
 				);
 					
 				// Validando a autentica��o
@@ -39,13 +39,14 @@
 				$mail->Password = EMAIL_PASS;
 					
 				// Setando o endere�o de recebimento
-				$mail->AddAddress(EMAIL_RECEB);
-					
+				$mail->AddAddress(EMAIL_RECEB_TESTE);
+				
+				
 				// Enviando o e-mail para o usu�rio
 				if($mail->Send()){
 					echo 'ok';
 				}else{
-					echo 'false';
+					echo 'false'.$mail->ErrorInfo;
 				}	
 			}else{
 				echo 'false';

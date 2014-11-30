@@ -38,7 +38,7 @@
 			$mail->Password = EMAIL_PASS;
 
 			// Setando o endereço de recebimento
-			$mail->AddAddress(EMAIL_RECEB);
+			$mail->AddAddress(EMAIL_RECEB_TESTE);
             
 			// Enviando o e-mail para o usuário
             if($mail->Send()){
