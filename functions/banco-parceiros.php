@@ -1,8 +1,6 @@
 <?php
 	class bancoparceiros extends banco{
-		#Funcao que lista os Folders
-	
-		
+		#Funcao que lista os Folder
 		
 	}
 ?>
