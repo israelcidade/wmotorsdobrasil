@@ -20,6 +20,11 @@
 		
 		
 	}
+	
+	if($this->PaginaAux[0] == 'codigo'){
+		$codigo = $this->PaginaAux[1];
+		
+	}
 
 	$Conteudo = $banco->CarregaHtml('recuperar-senha');
 	$Conteudo = str_replace('<%MSG%>',$msg,$Conteudo);

@@ -13,7 +13,7 @@
 				
 				//Salva codigo no banco com o id do usuario
 				$SqlSalvaCodigo = "Insert into c_codigos (idusuario,codigo) VALUES ('".$usuario['idusuario']."', '".$codigo."')";
-				$reuulstInter = $this->Execute($SqlSalvaCodigo);
+				$resultInsert = $this->Execute($SqlSalvaCodigo);
 				
 				$mail = new PHPMailer();
 				// Charset para evitar erros de caracteres
