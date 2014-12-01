@@ -52,9 +52,16 @@ $(document).ready(function(){
 
 	// Máscaras de campo
 	$('#i-nascimento').mask('99/99/9999');
-	$('#i-rg').mask('9999999999');
 	$('#i-cpf').mask('999.999.999-99');
 	$('#l-cpf').mask('999.999.999-99');
 	$('#i-cep').mask('99999-999');
+
+
+	// LISTA DE PARCEIROS
+	$('#parceiros li').hover(function(){
+
+		$(this).find('.hover').stop(true,true).fadeToggle();
+
+	});
 
 });
