@@ -66,11 +66,12 @@
 		}
 		
 		function AtualizaSenha($codigo){
+			$codigo_novo = md5($codigo);
 			$Sql = "Select * from c_codigos where codigo = '".$codigo."' ";
 			$result = $this->Execute($Sql);
 			$rs = mysql_fetch_array($result, MYSQL_ASSOC);
 			
-			$Update = "Update c_usuarios set senha = '".$codigo."' where idusuario = '".$rs['idusuario']."' "; 
+			$Update = "Update c_usuarios set senha = '".$codigo_novo."' where idusuario = '".$rs['idusuario']."' "; 
 			$resultUpdate = $this->Execute($Update);
 			return true;
 		}
