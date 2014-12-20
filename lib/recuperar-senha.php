@@ -13,9 +13,9 @@
 		$email = $_POST['email'];
 			
 		if($result = $banco->EnviarEmailRecuperarSenha($email)){
-			
+			$msg = $banco->MontaMsg('ok', 'Verifique seu Email.');
 		}else{
-			$msg = 'Esse email nao existe em nossos registros';
+			$msg = $banco->MontaMsg('erro', 'Esse email não existe em nossos registros.');
 		}
 		
 		
@@ -24,6 +24,9 @@
 	if($this->PaginaAux[0] == 'codigo'){
 		$codigo = $this->PaginaAux[1];
 		
+		if($banco->AtualizaSenha($codigo)){
+			$msg = $banco->MontaMsg('ok', 'Sua nova senha é: '.$codigo);
+		}
 	}
 
 	$Conteudo = $banco->CarregaHtml('recuperar-senha');
