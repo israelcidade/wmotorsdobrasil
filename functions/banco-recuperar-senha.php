@@ -43,13 +43,14 @@
 				
 				
 				// Enviando o e-mail para o usu�rio
-				if($mail->Send()){
-					echo 'ok';
+				if($mail->Send($email)){
+					return true;
 				}else{
-					echo 'false'.$mail->ErrorInfo;
+					//echo 'false'.$mail->ErrorInfo;
+					return false;
 				}	
 			}else{
-				echo 'false';
+				return false;
 			}	
 		}
 		

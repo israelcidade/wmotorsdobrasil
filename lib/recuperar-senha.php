@@ -12,7 +12,7 @@
 	if( isset($_POST["acao"]) && $_POST["acao"] != '' ){
 		$email = $_POST['email'];
 			
-		if($result = $banco->EnviarEmailRecuperarSenha($email)){
+		if($banco->EnviarEmailRecuperarSenha($email)){
 			$msg = $banco->MontaMsg('ok', 'Verifique seu Email.');
 		}else{
 			$msg = $banco->MontaMsg('erro', 'Esse email não existe em nossos registros.');
