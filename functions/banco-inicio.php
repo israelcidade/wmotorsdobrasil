@@ -17,7 +17,7 @@
 					INNER JOIN c_fotos F ON V.idveiculo = F.idveiculo
 					AND F.referencia = 0 
 					AND V.destaque = 1
-					Order by V.idveiculo 
+					Order by rand() 
 					";
 			$result = parent::Execute($Sql);
 			$num_rows = parent::Linha($result);
