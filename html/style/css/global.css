@@ -135,18 +135,17 @@ nav a:hover, nav a.active { background: #FFF; color: #0466a9; }
 
 #apoio h2 { display: block; margin-bottom: 10px; padding-bottom: 10px; font-size: 22px; font-size: 1.375rem; text-transform: uppercase; font-weight: 300; border-bottom: 3px double #cccccc; }
 
-#apoio a { display: block; width: 49%; height: 100px; background-color: #eeeeee; margin-right: 2%; float: left; }
+#apoio a { display: block; width: 23.5%; height: 100px; margin-right: 2%; float: left; cursor:pointer; }
 
 #apoio a:last-child { margin-right: 0; }
 
-.links, .parceiros { width: 48%; float: left; }
-
-.links { margin-right: 4%; }
+.links { width:100%; }
 /*.parceiros{ display:none; }*/
 
 #apoio a.sinesp{ background:#BBCFDA url(../images/sinesp.jpg) no-repeat center center; }
-
 #apoio a.fipe{background:#003169 url(../images/fipe.jpg) no-repeat center center; }
+#apoio a.clientes{background:#003169 url(../images/clientes-parceiros.jpg) no-repeat center center; }
+#apoio a.chassis{background:#003169 url(../images/recuperacao-chassis.jpg) no-repeat center center; }
 
 /* ======================= */
 /* RODAPÉ
@@ -200,13 +199,15 @@ footer .center .f-left { min-width: 500px; }
 /* ======================= */
 /* CADASTRO
 */
-.col-cadastro{ width:396px; margin:0 auto; float:none; }
+.col-cadastro{ width:396px; float:left; margin-right:42px; }
 .col-left p { margin: 10px 0 20px; }
 
 .col-cadastro fieldset{ border:1px solid #CCC; padding:10px; margin-bottom:20px; }
 .col-cadastro fieldset legend{ padding:0 10px; text-transform:uppercase; }
+#cadastro fieldset.termos input{ display:inline; height:auto; margin:0 10px 0 0; }
 
 #cadastro input, #cadastro select { display: block; height: 30px; border: 1px solid #cccccc; margin-bottom: 10px; font-size: 18px; font-size: 1.125rem; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; color: #888888; padding: 0 5px; box-sizing: border-box; }
+#cadastro select{ width:100%; }
 
 .i-full { width: 100%; float: none; }
 
@@ -222,6 +223,14 @@ footer .center .f-left { min-width: 500px; }
 #cadastro button:hover { background-color: #0466a9; color: #FFF; }
 
 #botao-pagseguro{ cursor:pointer; float:right; margin-right:-3px; }
+
+#plano-anual,
+#plano-mensal{ display:block; width:260px; height:305px; float:left; transition:all 300ms ease-in-out; }
+#plano-anual{ background:url(../images/plano-anual.jpg) no-repeat center center; }
+#plano-mensal{ background:url(../images/plano-mensal.jpg) no-repeat center center; margin-right:42px; }
+
+#plano-anual.faded,
+#plano-mensal.faded{ opacity:0.4; }
 
 /* ======================= */
 /* CONTATO
@@ -246,7 +255,7 @@ footer .center .f-left { min-width: 500px; }
 
 #ultimo-carro h2 i { color: #ff9900; font-size: 40px; font-size: 2.5rem; margin-right: 5px; }
 
-.main-pic { width: 500px; height: 335px; float: left; margin-right: 25px; overflow:hidden; }
+.main-pic { width: 500px; height: 375px; float: left; margin-right: 25px; overflow:hidden; }
 
 .main-pic img{ display:block; width:100%; }
 
@@ -257,11 +266,11 @@ footer .center .f-left { min-width: 500px; }
 #small-pics h3 span { text-transform: none; color: #0466a9; font-size: 14px; font-size: 0.875rem; font-weight: 400; }
 #small-pics .titulos{ float:left; width:70px; }
 
-#small-pics li { float: left; margin: 0 10px 10px 0; width:125px; height:90px; overflow:hidden; }
+#small-pics li { float: left; margin: 0 10px 30px 0; width:125px; height:90px; overflow:hidden; }
 
 #small-pics li img{ display:block; width:100%; }
 
-#small-pics h4{ line-height:75px; margin-bottom:10px; }
+#small-pics h4{ line-height:60px; margin-bottom:58px; }
 
 #ultimo-carro h4 { font-size: 20px; font-size: 1.25rem; margin: 20px 0 10px; }
 
@@ -282,13 +291,15 @@ footer .center .f-left { min-width: 500px; }
 /* PARCEIROS
 */
 #parceiros{}
-#parceiros li{ float:left; width:19.2%; margin:0 1% 10px 0; position:relative; cursor:default; }
-#parceiros li:nth-child(5n){ margin-right:0; }
+#parceiros li{ float:left; width:23.5%; margin:0 2% 10px 0; position:relative; cursor:default; }
+#parceiros li:nth-child(4n){ margin-right:0; }
 #parceiros li img{ display:block; width:100%; }
 #parceiros li .hover{ display:none; position:absolute; top:0; left:0; width:100%; height:100%; padding:10px; background:url(../images/bkg-overlay.png) repeat; box-sizing:border-box; color:#FFF; }
 #parceiros li .hover h3{ display:block; width:100%; border-bottom:1px solid #FFF; padding-bottom:10px; margin-bottom:10px; font-size:16px; text-transform:uppercase; }
 #parceiros li .hover .endereco{}
 #parceiros li .hover .telefone{ font-size:18px; margin-top:10px; }
+
+#parceiros li.nopic .hover{ display:block !important; height:157px; background:#0466a9; }
 
 #pg404{ display:block; margin:100px 0; text-align:center; font-size:20px; text-transform:uppercase; font-weight:400; }
 #pg404 i{ display:inline-block; color:#ff9900; font-size:24px; margin-right:5px; }

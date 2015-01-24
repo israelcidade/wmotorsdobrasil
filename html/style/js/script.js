@@ -27,9 +27,9 @@ $(document).ready(function(){
 	// GALERIA DE IMAGENS
 
 	$('#galeria-favoritos').owlCarousel({
+		autoPlay:2000,
 		items:1,
-		singleItem:true,
-		autoPlay:true
+		singleItem:true
 	});
 
 	$('.galeria').fancybox();
@@ -59,8 +59,25 @@ $(document).ready(function(){
 
 	// LISTA DE PARCEIROS
 	$('#parceiros li').hover(function(){
+		$(this).not('.nopic').find('.hover').stop(true,true).fadeToggle();
+	});
 
-		$(this).find('.hover').stop(true,true).fadeToggle();
+	// ESCOLHA DO PLANO
+	$('#plano-mensal').click(function(e){
+		e.preventDefault();
+
+		$(this).removeClass('faded');
+		$('#plano').val('mensal');
+		$('#plano-anual').addClass('faded');
+
+	});
+
+	$('#plano-anual').click(function(e){
+		e.preventDefault();
+
+		$(this).removeClass('faded');
+		$('#plano').val('anual');
+		$('#plano-mensal').addClass('faded');
 
 	});
 
