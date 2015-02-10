@@ -49,7 +49,7 @@
 
 			<fieldset class="termos">
 				<legend>Termos de contrato</legend>
-				<label><input type="checkbox" name="termos">Lí e concordo com os <a href="javascript:;">termos de serviço</a></label>
+				<label><input type="checkbox" name="termos"><a onClick="Termo()"> Lí e concordo com os termos de serviço</a></label>
 			</fieldset>
 
 			<div id="btn-cadastro">
@@ -67,9 +67,17 @@
 	
 	<br class="clear">
 
+<div id="dialog" title="Basic dialog">
+  <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+</div>
+
 </section>
 
 <script type="text/javascript">
+	function Termo(){
+		$( "#dialog" ).dialog();
+	}
+	
 	
 	function Salva(){
 		var array = 
