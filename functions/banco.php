@@ -115,6 +115,7 @@
 				$this->Pagina == 'lista-marcas' || 
 				$this->Pagina == 'marca' ||
 				$this->Pagina == 'log-acesso' ||
+				$this->Pagina == 'admin-sobre' ||
 				$this->Pagina == 'lista-usuarios'){
 
 				$SaidaHtml = $this->CarregaHtml('modelo-admin');

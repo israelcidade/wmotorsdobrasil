@@ -4,6 +4,10 @@
 
 	#Instancia o objeto
 	$banco = new bancosobre();
-
+	
+	$sobre = $banco->SelectSobre();
+	
+	
 	$Conteudo = $banco->CarregaHtml('sobre');
+	$Conteudo = str_replace('<%SOBRE%>', $sobre, $Conteudo);
 ?>
