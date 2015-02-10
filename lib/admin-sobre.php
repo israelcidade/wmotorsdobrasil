@@ -11,7 +11,8 @@
 	if($banco->VerificaSessaoAdmin()){
 		
 		if( isset($_POST["acao"]) && $_POST["acao"] != '' ){
-			$sobre = strip_tags(trim(addslashes($_POST["sobre"])));
+			$sobre = $_POST["sobre"];
+			//$sobre = strip_tags(trim(addslashes($_POST["sobre"])));
 			if($botao == 'Salvar'){
 				$result = $banco->SalvarSobre($sobre);
 				$banco->RedirecionaPara('admin-sobre');
