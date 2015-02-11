@@ -31,6 +31,14 @@
 			$num_rows = parent::Linha($result);
 			return $num_rows;
 		}
+		
+		function TermoDeUso(){
+			$Sql = "Select termo from c_termo where idtermo = 0";
+			$result = parent::Execute($Sql);
+			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+			$termo = $rs['termo'];
+			return $termo;
+		}
 
 		function EnviaEmailCadastro($mensagem){
             #Carrega classe MAILER

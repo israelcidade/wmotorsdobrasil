@@ -31,9 +31,12 @@
 		$arr = $banco->BuscaCep($cep);
 	}
 	
+	$termo = $banco->TermoDeUso();
+	
 	#Imprimi valores
 	$Conteudo = $banco->CarregaHtml('cadastro');
 	$Conteudo = str_replace('<%MSG%>', $msg, $Conteudo);
+	$Conteudo = str_replace('<%TERMO%>', $termo, $Conteudo);
 	$Conteudo = str_replace('<%CEP%>', $cep, $Conteudo);
 	$Conteudo = str_replace('<%ENDERECO%>',$arr['tipo_logradouro'].' '.$arr['logradouro'], $Conteudo);
 	$Conteudo = str_replace('<%BAIRRO%>', $arr['bairro'], $Conteudo);
