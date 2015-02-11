@@ -36,7 +36,7 @@
 		}
 
 		function BuscaMarcas(){
-			$Sql = "Select * from c_marcas";
+			$Sql = "Select * from c_marcas Order by rand() ";
 			$result = $this->Execute($Sql);
 			$num_rows = $this->Linha($result);
 			$Auxilio = $this->CarregaHtml('itens/lista-marcas-inicio-itens');
