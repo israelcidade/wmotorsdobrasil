@@ -27,7 +27,7 @@
 			foreach ($_POST as $key => $value) {
 				$aux[$key] = $_POST[$key];
 			}
-
+			
 			#Chama funcao Lista Manual passando o Auxilio
 			$Busca = $banco->ListaResultadoCompleto($aux);
 		}
@@ -37,7 +37,6 @@
 			$valor = $this->PaginaAux[1];
 			$Busca = $banco->ListaResultado($flag,$valor);
 		}
-
 
 		#Imprime Valores
 		$Conteudo = $banco->CarregaHtml('busca');
