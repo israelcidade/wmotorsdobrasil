@@ -109,7 +109,7 @@ nav a:hover, nav a.active { background: #FFF; color: #0466a9; }
 
 #marcas .center{ border-top: 1px solid #cccccc; }
 
-#galeria-marcas { display: block; width: 150px; height: 60px; margin: 0 0 10px; padding: 10px 0; }
+#galeria-marcas { display: block; float:left; width: 150px; height: 60px; margin: 0 0 10px; padding: 10px 0; }
 
 #galeria-marcas li{ height:60px; }
 
@@ -336,3 +336,9 @@ footer .center .f-left { min-width: 500px; }
 #dialog{ box-sizing:border-box; width:500px; height:400px; position:absolute; top:50%; left:50%; margin-left:-250px; margin-top:-200px; background-color:#FFF; padding:20px; overflow-x:scroll; }
 #dialog h2{ text-transform:uppercase; color:#0466a9; font-size:18px; }
 #dialog p{ margin:10px 0; line-height:1.3em; }
+
+/* ======================= */
+/* Prévia
+*/
+#previa{ display:block; float:left; max-width:700px; font-size:28px; color:#0466a9; font-weight:300; margin:25px 0 0 100px; }
+#previa a{ }
