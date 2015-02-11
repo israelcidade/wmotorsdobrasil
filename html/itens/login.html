@@ -5,14 +5,20 @@
 	    <form action="<%URLPADRAO%>inicio" method="post">
 
 			<input type ="hidden" name="acao" value="acao">
+			
+			<input id="tipo-login-cpf" type="radio" name="tipo-login" value="tipo-login-cpf">CPF
+			
+			<input id="tipo-login-cnpj" type="radio" name="tipo-login" value="tipo-login-cnpj">CNPJ
 
-            <input type="text" name="cpf" placeholder="Login" id="l-cpf">
+            <input id="login-cpf" type="text" name="cpf" placeholder="Login" id="l-cpf">
 
             <input type="password" name="senha" placeholder="•••••••••" style="float:left; width:100px;">
 
             <button type="submit">OK</button>
 
         </form>
+        
+        <br><br>
         
         <a href="<%URLPADRAO%>recuperar-senha">esqueceu a senha?</a>
 

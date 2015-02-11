@@ -98,3 +98,14 @@ $('#pessoa').change(function(){
 	}
 
 });
+
+// ESCOLHA DO TIPO DE PESSOA
+
+$('input[type=radio][name=tipo-login]').change(function() {
+        if (this.value == 'tipo-login-cpf') {
+        	$('#login-cpf').mask('999.999.999-99');
+        }
+        else if (this.value == 'tipo-login-cnpj') {
+        	$('#login-cpf').mask('99.999.999/9999-99');
+        }
+    });
