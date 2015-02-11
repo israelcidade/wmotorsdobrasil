@@ -47,8 +47,9 @@ $('#small-pics li a').click(function(e){
 // Máscaras de campo
 $('#i-nascimento').mask('99/99/9999');
 $('#i-cpf').mask('999.999.999-99');
-$('#l-cpf').mask('999.999.999-99');
 $('#i-cep').mask('99999-999');
+
+$('#l-cpf').mask('999.999.999-99');
 
 
 // LISTA DE PARCEIROS
@@ -83,3 +84,17 @@ function Termo(){
 		$(this).parent().fadeOut();
 	});
 }
+
+// ESCOLHA DO TIPO DE PESSOA
+$('#pessoa').change(function(){
+
+	var pessoa = $(this).val();
+	console.log(pessoa)
+
+	if(pessoa == 'juridica'){
+		$('#i-cpf').attr('placeholder','CNPJ').mask('99.999.999/9999-99');
+	} else {
+		$('#i-cpf').attr('placeholder','CPF').mask('999.999.999-99');
+	}
+
+});
