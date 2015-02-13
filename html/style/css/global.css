@@ -62,9 +62,12 @@ header .center { position: relative; }
 
 #login-box { display: none; position: absolute; top: 49px; right: 0; z-index: 11; padding: 10px; background: #FFF; }
 
-#login-box input { display: block; background: #FFF; border: 1px solid #cccccc; padding: 5px; font-size: 12px; font-size: 0.75rem; width: 140px; }
+#login-box input[type=text],
+#login-box input[type=password]{ display: block; background: #FFF; border: 1px solid #cccccc; padding: 5px; font-size: 12px; font-size: 0.75rem; width: 140px; margin-top:5px; }
+#login-box .input-radio{ width:50%; float:left; }
 
-#login-box button { display: block; float: left; padding: 5px 7px; margin-left: 5px; border: 0; background-color: #0466a9; color: #FFF; font-size: 14px; font-size: 0.875rem; cursor: pointer; }
+#login-box button { display: block; float: left; padding: 5px 3px; margin-left: 5px; border: 0; background-color: #0466a9; color: #FFF; font-size: 14px; font-size: 0.875rem; cursor: pointer; margin-top:5px; }
+#login-box .esqueceu-senha{ font-size:12px; color:#777; margin-top:5px; }
 
 h1 { display: block; float: left; font-size: 20px; font-size: 1.25rem; font-weight: 600; color: #FFF; margin: 37px 0 0 180px; }
 

@@ -6,9 +6,10 @@
 
 			<input type ="hidden" name="acao" value="acao">
 			
-			<input id="tipo-login-cpf" type="radio" name="tipo-login" value="tipo-login-cpf">CPF
+			<label class="input-radio"><input id="tipo-login-cpf" type="radio" name="tipo-login" value="tipo-login-cpf">CPF</label>
 			
-			<input id="tipo-login-cnpj" type="radio" name="tipo-login" value="tipo-login-cnpj">CNPJ
+			<label class="input-radio"><input id="tipo-login-cnpj" type="radio" name="tipo-login" value="tipo-login-cnpj">CNPJ</label>
+			<br class="clear">
 
             <input id="login-cpf" type="text" name="cpf" placeholder="Login" id="l-cpf">
 
@@ -20,6 +21,6 @@
         
         <br><br>
         
-        <a href="<%URLPADRAO%>recuperar-senha">esqueceu a senha?</a>
+        <a href="<%URLPADRAO%>recuperar-senha" class="esqueceu-senha">esqueceu a senha?</a>
 
     </div>

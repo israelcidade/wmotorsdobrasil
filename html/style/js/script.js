@@ -45,9 +45,12 @@ $('.galeria').fancybox();
 
 // LOGIN
 
-$('.login-wrapper').hover(function(){
+$('#login').click(function(e){
+	e.preventDefault();
+
 	$('#login').toggleClass('active');
 	$('#login-box').stop(true, true).slideToggle();
+	
 });
 
 // TEXTOS DAS IMAGENS
