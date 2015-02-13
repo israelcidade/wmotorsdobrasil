@@ -17,24 +17,29 @@
 			<h4>Informações pessoais</h4>
 
 			<p>
-				<strong>Lucas Almeida</strong><br>
-				07/11/1988<br>
-				lucas@perdidao.net<br>
+				<strong><%NOME%></strong><br>
+				<%DATANASC%><br>
+				<%EMAIL%>t<br>
 			</p>
 
 			<p>
-				<strong>CPF:</strong> 044.153.019-24<br>
-				<strong>RG:</strong> 8.651.974-7
+				<strong>CPF:</strong> <%CPF%><br>
+				<strong>RG:</strong> <%RG%>
 			</p>
-
-			<p>
-				<strong>Rua:</strong> Rua Tangânica, 1500<br>
-				<strong>Bairro:</strong> Ouro Verde<br>
-				<strong>CEP:</strong> 86.080-000<br>
-				<strong>Estado:</strong> Paraná<br>
-				<strong>Cidade:</strong> Londrina
-			</p>
-
+			
+			<form action="" method="POST" id="contato">
+			<fieldset>
+				<legend>Endereço:</legend>
+				<input type ="hidden" name="acao" value="acao">
+				<input type="text" name="cep" placeholder="CEP" onBlur="buscacep()" class="i-half i-left" value="<%CEP%>" id="i-cep">
+				<input type="text" name="endereco" placeholder="Endereço" class="i-left" value="<%ENDERECO%>">
+				<input type="text" name="bairro" placeholder="Bairro" class="i-left" value="<%BAIRRO%>">
+				<input type="text" name="cidade" placeholder="Cidade" class="i-half" value="<%CIDADE%>">
+				<input type="text" name="estado" placeholder="Estado" class="i-half i-first" value="<%ESTADO%>">
+			</fieldset>
+			<button type="submit" class="button">Atualizar</button>
+			</form>
+		
 		</section>
 
 		<section id="senha">
