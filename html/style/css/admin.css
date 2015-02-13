@@ -95,7 +95,7 @@ main { width: 500px; margin: 50px auto 100px; }
 
 #registers li .car-controls { float: right; }
 
-#registers li .car-controls .btn-edit { display: block; padding: 0 10px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #0466a9; background-color: transparent; color: #0466a9; font-size: 10px; font-size: 0.625rem; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; text-transform: uppercase; text-align: center; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; cursor: pointer; }
+#registers li .car-controls .btn-edit { display: block; margin-bottom:10px; padding: 0 10px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #0466a9; background-color: transparent; color: #0466a9; font-size: 10px; font-size: 0.625rem; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; text-transform: uppercase; text-align: center; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; cursor: pointer; }
 #registers li .car-controls .btn-edit:hover { background-color: #0466a9; color: #FFF; }
 
 #registers li .car-controls .btn-delete { display: block; margin-top: 5px; padding: 0 10px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #ff3333; background-color: transparent; color: #ff3333; font-size: 10px; font-size: 0.625rem; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; text-transform: uppercase; text-align: center; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; cursor: pointer; }
@@ -147,3 +147,10 @@ legend i{ color:#F93; }
 .alert{padding:15px;margin-bottom:20px;border:1px solid transparent;border-radius:4px}
 .alert-warning{color:#8a6d3b;background-color:#fcf8e3;border-color:#faebcc}
 .alert-success{color:#3c763d;background-color:#dff0d8;border-color:#d6e9c6}
+
+/* ======================= */
+/* LOG DE ACESSO
+*/
+.log-info{ width:49%; float:left; text-align:center; font-size:16px; padding:10px 0; }
+.log-info:first-child{ border-right:1px solid #0466a9; }
+.log-ip{ color:#0466a9; }
