@@ -24,7 +24,8 @@
 
 		if($flag){
 			$banco->IniciaSessao($cpf);
-			$banco->RedirecionaPara('sobre');
+			
+			$banco->RedirecionaPara('inicio');
 		}else{
 			$banco->RedirecionaPara('inicio/acesso');
 		}

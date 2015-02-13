@@ -20,6 +20,9 @@
 
 		#abre a sessao
 		function IniciaSessao($cpf){
+			$cpf = str_replace('.', '' , $cpf);
+			$cpf = str_replace('-', '' , $cpf);
+			$cpf = str_replace('/', '' , $cpf);
 			session_start('login');
 			$_SESSION['cpf'] = $cpf;
 			
