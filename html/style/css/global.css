@@ -341,4 +341,22 @@ footer .center .f-left { min-width: 500px; }
 /* Prévia
 */
 #previa{ display:block; float:left; max-width:700px; font-size:28px; color:#0466a9; font-weight:300; margin:25px 0 0 100px; }
-#previa a{ }
+
+/* ======================= */
+/* Minha conta
+*/
+#tabs{ float:left; width:30%; border-bottom:1px solid #CCC; }
+#tabs li{  }
+#tabs li a{ display:block; height:50px; line-height:50px; border:1px solid #CCC; border-bottom:0; background-color:#FFF; text-align:center; text-transform:uppercase; font-size:16px; outline:none; }
+#tabs li a.current{ background-color:#EEE; color:#0466a9; }
+
+.conta .sections{ width:68%; float:left; margin-left:2%; }
+.conta .sections section{ display:none; }
+.conta h3{ text-transform:uppercase; color:#0466a9; font-size:22px; margin-bottom:15px; }
+.conta h4{ font-weight:700; font-size:14px; text-transform:uppercase; margin-bottom:10px; }
+.conta p{ margin:0 0 20px; line-height:1.3em; }
+.conta p strong{ font-weight:700; }
+
+.conta label{ display:block; margin-bottom:20px; }
+.conta input{ display:block; width:50%; padding:5px 10px; font-size:14px; margin-top:5px; color:#666; }
+.conta button{ display: block; width:20%; margin-left:34%; padding:5px 7px; border: 0; background-color: #0466a9; color: #FFF; font-size: 14px; font-size: 0.875rem; cursor: pointer;  }

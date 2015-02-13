@@ -1,3 +1,24 @@
+// *** INFORMAÇÕES DE CONTA
+
+$('#tabs li a').click(function(e){
+	e.preventDefault();
+
+	var id = $(this).attr('data-id');
+
+	$('#tabs li a').removeClass('current');
+	$(this).addClass('current');
+
+	$('.sections section').hide();
+	$('#'+id).fadeIn();
+
+});
+
+$(document).ready(function(){
+	$('#tabs li:first a').click();
+});
+
+// *** INFORMAÇÕES DE CONTA
+
 var banners = $('#banner ul');
 banners.owlCarousel({
 	items:1,
