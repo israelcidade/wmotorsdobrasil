@@ -107,6 +107,7 @@
 
 			$Busca = str_replace('<%MARCAS%>',$Marcas,$Busca);
 			$Busca = str_replace('<%TIPO%>',$Tipo,$Busca);
+			$Busca = str_replace('<%URLPADRAO%>',UrlPadrao,$Busca);
 			if($this->VerificaSessao()){
 				$Busca = str_replace('<%MODELOS%>',$Modelos,$Busca);
 			}else{
