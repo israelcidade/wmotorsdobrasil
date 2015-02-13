@@ -2,7 +2,12 @@
 	class bancoinicio extends banco{
 		
 		function BuscaUsuario($cpf,$senha){
+			$cpf = str_replace('.', '' , $cpf);
+			$cpf = str_replace('-', '' , $cpf);
+			$cpf = str_replace('/', '' , $cpf);
+			
 			$senha = md5($senha);
+			
 			$Sql = "Select * from c_usuarios where cpf = '".$cpf."' AND senha = '".$senha."' ";
 			
 			$result = parent::Execute($Sql);
