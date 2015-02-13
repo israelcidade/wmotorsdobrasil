@@ -114,6 +114,9 @@
 			}
 			return $Busca;
 		}
+	
+		
+	
 		
 		#funcao imprime conteudo
 		function Imprime($Conteudo){
@@ -454,4 +457,5 @@
 		}
 		
 	}
+	
 ?>

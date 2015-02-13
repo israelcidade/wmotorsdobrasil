@@ -24,6 +24,7 @@
 		}
 
 		if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST["acao"] == 'busca-completa'){
+			
 			foreach ($_POST as $key => $value) {
 				$aux[$key] = $_POST[$key];
 			}
@@ -32,13 +33,14 @@
 			$Busca = $banco->ListaResultadoCompleto($aux);
 		}
 
-		if($this->PaginaAux[0]){
+		/*if($this->PaginaAux[0]){
 			$flag = $this->PaginaAux[0];
 			$valor = $this->PaginaAux[1];
 			$Busca = $banco->ListaResultado($flag,$valor);
-		}
+		}*/
 
 		#Imprime Valores
+		
 		$Conteudo = $banco->CarregaHtml('busca');
 		$Conteudo = str_replace('<%BUSCA%>',$Busca,$Conteudo);
 
