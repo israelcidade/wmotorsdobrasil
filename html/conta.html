@@ -1,15 +1,15 @@
 <div class="center conta">
-
+	
 	<h2 class="page-title"><i class="fa fa-user"></i> Minha conta</h2>
-
+	<%MSG%>
 	<ul id="tabs">
 		<li><a href="javascript:;" class="current" data-id="informacoes">Informações de conta</a></li>
 		<li><a href="javascript:;" data-id="senha">Alterar senha</a></li>
 		<li><a href="javascript:;" data-id="pagamento">Informações de pagamento</a></li>
 	</ul>
-
+	
 	<div class="sections">
-
+		
 		<section id="informacoes">
 			
 			<h3>Informações de conta</h3>
@@ -31,6 +31,7 @@
 			<fieldset>
 				<legend>Endereço:</legend>
 				<input type ="hidden" name="acao" value="acao">
+				<input type ="hidden" name="nome-form" value="altera-endereco">
 				<input type="text" name="cep" placeholder="CEP" onBlur="buscacep()" class="i-half i-left" value="<%CEP%>" id="i-cep">
 				<input type="text" name="endereco" placeholder="Endereço" class="i-left" value="<%ENDERECO%>">
 				<input type="text" name="bairro" placeholder="Bairro" class="i-left" value="<%BAIRRO%>">
@@ -43,9 +44,10 @@
 		</section>
 
 		<section id="senha">
-			
+		<form action="" method="POST" id="contato">	
 			<h3>Alterar senhas</h3>
-
+			<input type ="hidden" name="acao" value="acao">
+			<input type ="hidden" name="nome-form" value="altera-senha">
 			<label>
 				Senha antiga
 				<input type="password" name="senhaAntiga">
@@ -53,16 +55,17 @@
 
 			<label>
 				Nova senha
-				<input type="password" name="senhaAntiga">
+				<input type="password" name="senhaNova">
 			</label>
 
 			<label>
 				Confirmação de senha
-				<input type="password" name="senhaAntiga">
+				<input type="password" name="senhaNova2">
 			</label>
 
-			<button type="submit">Salvar</button>
+			<button type="submit" class="button">Atualizar</button>
 
+		</form>
 		</section>
 
 		<section id="pagamento">

@@ -17,6 +17,15 @@
 		function RedirecionaPara($nome){
 			header("Location: ".UrlPadrao.$nome);
 		}
+		
+		function BuscaIdUSuario($cpf){
+			
+			$Sql = "select idusuario from c_usuarios where cpf = '".$cpf."'";
+			$result = $this->Execute($Sql);
+			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+			return $rs['idusuario'];
+			
+		}
 
 		#abre a sessao
 		function IniciaSessao($cpf){
@@ -25,6 +34,7 @@
 			$cpf = str_replace('/', '' , $cpf);
 			session_start('login');
 			$_SESSION['cpf'] = $cpf;
+			$_SESSION['idusuario'] = $this->BuscaIdUsuario($cpf);
 			
 			$this->GravaLog($cpf);
 		}
