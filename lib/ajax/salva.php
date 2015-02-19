@@ -48,6 +48,8 @@
 		
 		if($banco->BuscaCpf($cpf)){
 			echo 'cpfcadastrado';
+		}elseif($banco->BuscaEmail($cadastro['email'])){
+			echo 'emailcadastrado';
 		}else{
 			$result = $banco->Execute($Sql);
 			if($result){

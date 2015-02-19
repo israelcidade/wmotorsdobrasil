@@ -401,11 +401,21 @@
 
         function BuscaCpf($cpf){
         	$Sql = "Select * from c_usuarios where cpf = '".$cpf."'";
-        	
         	$result = $this->Execute($Sql);
         	$num_rows = $this->Linha($result);
         	if($num_rows){
-        		return 'ok';
+        		return true;
+        	}else{
+        		return false;
+        	}
+        }
+        
+        function BuscaEmail($email){
+        	$Sql = "Select * from c_usuarios where email = '".$email."'";
+        	$result = $this->Execute($Sql);
+        	$num_rows = $this->Linha($result);
+        	if($num_rows){
+        		return true;
         	}else{
         		return false;
         	}

@@ -143,7 +143,9 @@
 	               		alert('Falha as Cadastrar! Cpf Ja Cadastrado!');
 	               }else if(retorno == 'erro-email'){
 	               		alert('Falha as Cadastrar! Tente Novamente Mais Tarde!');
-	               }else if(retorno == 'erro-cpf'){
+	               }else if(retorno == 'emailcadastrado'){
+		               	alert('Falha as Cadastrar! Email ja cadastrado!');
+		           }else if(retorno == 'erro-cpf'){
 	               		alert('Falha as Cadastrar! Cpf Invalido!');
 	               }
 	            }
