@@ -64,5 +64,9 @@
 		
 		}
 		
+		function SalvaPagamento($arr){
+			$Sql = "Insert into c_pagamento () VALUES ()";
+		}
+		
 	}
 ?>
