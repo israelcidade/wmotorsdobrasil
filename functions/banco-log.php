@@ -65,7 +65,18 @@
 		}
 		
 		function SalvaPagamento($arr){
-			$Sql = "Insert into c_pagamento () VALUES ()";
+			$Sql = "Insert into c_pagamento 
+					(pagamento_tipo,pagamento_data,pagamento_validade,pagamento_cpf) 
+					VALUES 
+					('".$arr['plano_pagamento']."','".$arr['data_pagamento']."','".$arr['validade_pagamento']."','".$arr['cpf_pagamento']."')
+					";
+			
+			if(parent::Execute($Sql)){
+				return true;
+			}else{
+				return false;
+			}
+		
 		}
 		
 	}
