@@ -61,9 +61,6 @@
 			$cpf = str_replace('-', '' , $cpf);
 			$cpf = str_replace('/', '' , $cpf);
 			
-			$_SESSION['cpf'] = $cpf;
-			$_SESSION['idusuario'] = $this->BuscaIdUsuario($cpf);
-			
 			//Verifica se ele pode acessar
 			$validade_pagamento = $this->BuscaDataValidadePagamento($cpf);
 			
@@ -80,6 +77,9 @@
 			}else{
 				session_start('login');
 			}
+			
+			$_SESSION['cpf'] = $cpf;
+			$_SESSION['idusuario'] = $this->BuscaIdUsuario($cpf);
 			
 			$this->GravaLog($cpf);
 		}

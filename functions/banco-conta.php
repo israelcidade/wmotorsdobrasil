@@ -33,5 +33,13 @@
 			$result = parent::Execute($Sql);
 			return true;
 		}
+		
+		function BuscaInfoPagamento($cpf){
+			$Sql = "Select pagamento_tipo, MAX(pagamento_validade) as max from c_pagamento where pagamento_cpf = '".$cpf." '";
+			
+			$result = parent::Execute($Sql);
+			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+			return $rs;
+		}
 	}
 ?>

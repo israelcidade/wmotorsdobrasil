@@ -9,6 +9,9 @@
 
 		$info = $banco->BuscaInfoUsuario();
 		
+		$info_pagamento = $banco->BuscaInfoPagamento($_SESSION['cpf']);
+		
+		
 		if( isset($_POST["acao"]) && $_POST["acao"] != '' && $_POST['nome-form'] == 'altera-senha'){
 			$senhaAntiga = strip_tags(trim(addslashes($_POST["senhaAntiga"])));
 			$senhaNova = strip_tags(trim(addslashes($_POST["senhaNova"])));
@@ -69,7 +72,14 @@
 		$Conteudo = str_replace('<%BAIRRO%>',$info['bairro'],$Conteudo);
 		$Conteudo = str_replace('<%CIDADE%>',$info['cidade'],$Conteudo);
 		$Conteudo = str_replace('<%ESTADO%>',$info['estado'],$Conteudo);
-
+		
+		//Pagamento
+		$Conteudo = str_replace('<%PLANO%>',$info_pagamento['pagamento_tipo'],$Conteudo);
+		
+		
+		$timestamp_pagamento_validade = strtotime($info_pagamento['max']);
+		$pagamento_validade = date('d/m/Y', $timestamp_pagamento_validade);
+		$Conteudo = str_replace('<%VALIDADE%>',$pagamento_validade,$Conteudo);
 
 	}else{
 		$banco->RedirecionaPara('inicio/acesso');
