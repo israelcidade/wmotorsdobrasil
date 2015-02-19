@@ -136,6 +136,8 @@
 				$this->Pagina == 'lista-marcas' || 
 				$this->Pagina == 'marca' ||
 				$this->Pagina == 'log-acesso' ||
+				$this->Pagina == 'log-pagamento' ||
+				$this->Pagina == 'add-pagamento' ||
 				$this->Pagina == 'admin-sobre' ||
 					$this->Pagina == 'admin-termo' ||
 				$this->Pagina == 'lista-usuarios'){
@@ -419,6 +421,14 @@
         	}else{
         		return false;
         	}
+        }
+        
+        function BuscaUltimoUsuario(){
+        	$Sql = "Select MAX(idusuario) as max from c_usuarios"; 
+        	$result = $this->Execute($Sql);
+        	$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+        	return $rs['max'];
+        	
         }
 
         function validaCPF($cpf)
