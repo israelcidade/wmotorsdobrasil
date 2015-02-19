@@ -26,15 +26,60 @@
 			return $rs['idusuario'];
 			
 		}
+		
+		function BuscaDataValidadePagamento($cpf){
+			$Sql = "Select Max(pagamento_validade) as max
+					from c_pagamento
+					where pagamento_cpf = '".$cpf."' 
+					";
+			
+			$result = $this->Execute($Sql);
+			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+			return $rs['max'];
+			
+		}
+		
+		function VerificaStatus($cpf){
+			$Sql = "Select status from c_usuarios where cpf = '".$cpf."'";
+			$result = $this->Execute($Sql);
+			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+			return $rs['status'];
+		}
+		
+		function UpdateStatus($cpf){
+			$Sql = "Update c_usuarios set status = 0 where cpf = '".$cpf."'";
+			$result = $this->Execute($Sql);
+			//$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+			//return $rs['status'];
+		}
 
 		#abre a sessao
 		function IniciaSessao($cpf){
+			$hoje = date('Y-m-d');
+			
 			$cpf = str_replace('.', '' , $cpf);
 			$cpf = str_replace('-', '' , $cpf);
 			$cpf = str_replace('/', '' , $cpf);
-			session_start('login');
+			
 			$_SESSION['cpf'] = $cpf;
 			$_SESSION['idusuario'] = $this->BuscaIdUsuario($cpf);
+			
+			//Verifica se ele pode acessar
+			$validade_pagamento = $this->BuscaDataValidadePagamento($cpf);
+			
+			if(strtotime($hoje) > strtotime($validade_pagamento)){
+				$status = $this->VerificaStatus($cpf);
+				if($status == 0){
+					session_start('login');
+					//$this->RedirecionaPara('inicio')
+				}else{
+					$this->UpdateStatus($cpf);
+					session_start('login');
+				}
+			}else{
+				session_start('login');
+			}
+			
 			
 			$this->GravaLog($cpf);
 		}
