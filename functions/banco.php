@@ -71,15 +71,15 @@
 				$status = $this->VerificaStatus($cpf);
 				if($status == 0){
 					session_start('login');
-					//$this->RedirecionaPara('inicio')
-				}else{
-					$this->UpdateStatus($cpf);
+					$this->RedirecionaPara('conta');
+				}elseif($status == 1){
 					session_start('login');
+					$this->UpdateStatus($cpf);
+					$this->RedirecionaPara('conta');
 				}
 			}else{
 				session_start('login');
 			}
-			
 			
 			$this->GravaLog($cpf);
 		}
