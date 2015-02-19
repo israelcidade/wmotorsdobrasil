@@ -83,6 +83,25 @@
 		
 		}
 		
+		function AtualizaPagamento($arr){
+			
+			$Sql = "
+					Update c_pagamento set 
+					pagamento_tipo 		= '".$arr['plano_pagamento']."',
+					pagamento_data 		= '".$arr['data_pagamento']."',
+					pagamento_validade 	= '".$arr['validade_pagamento']."',
+					pagamento_cpf 		= '".$arr['cpf_pagamento']."'
+					where pagamento_id 	= '".$arr['pagamento_id']."'
+					";
+				
+			if(parent::Execute($Sql)){
+				return true;
+			}else{
+				return false;
+			}
+		
+		}
+		
 		function BuscaPagamentoPorId($id){
 			$Sql = "Select * from c_pagamento where pagamento_id = '".$id."' ";
 			$result = parent::Execute($Sql);
