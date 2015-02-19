@@ -32,7 +32,8 @@
 		}
 		
 		function ListaLogsPagamento($cpf){
-			$Sql = "Select * from c_pagamento where cpf = '".$cpf."'";
+			$Sql = "Select * from c_pagamento where pagamento_cpf = '".$cpf."'";
+
 			$result = parent::Execute($Sql);
 			$num_rows = parent::Linha($result);
 		
@@ -53,6 +54,9 @@
 					$timestamp_pagamento_validade = strtotime($rs['pagamento_validade']);
 					$pagamento_validade = date('d/m/Y', $timestamp_pagamento_validade);
 					$Linha = str_replace('<%PAGAMENTOVALIDADE%>',$pagamento_validade,$Linha);
+					
+					$Linha = str_replace('<%PAGAMENTOID%>',$rs['pagamento_id'],$Linha);
+					$Linha = str_replace('<%URLPADRAO%>',UrlPadrao,$Linha);
 					
 					$Logs .= $Linha;
 				}
@@ -77,6 +81,13 @@
 				return false;
 			}
 		
+		}
+		
+		function BuscaPagamentoPorId($id){
+			$Sql = "Select * from c_pagamento where pagamento_id = '".$id."' ";
+			$result = parent::Execute($Sql);
+			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+			return $rs;
 		}
 		
 	}
