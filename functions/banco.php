@@ -401,10 +401,11 @@
 
         function BuscaCpf($cpf){
         	$Sql = "Select * from c_usuarios where cpf = '".$cpf."'";
+        	
         	$result = $this->Execute($Sql);
         	$num_rows = $this->Linha($result);
         	if($num_rows){
-        		return true;
+        		return 'ok';
         	}else{
         		return false;
         	}

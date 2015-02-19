@@ -60,10 +60,18 @@
 				<legend>Termos de contrato</legend>
 				<label><input type="checkbox" name="termos"><a onClick="Termo()"> Lí e concordo com os termos de serviço</a></label>
 			</fieldset>
-
+			
+			<!-- 
+			Assinatura: BECFFCAB4E4E36E994AD3F915D884F0C
+			Compra Anual: 7DAEE227AEAE84BFF48B2F949F2E3F75
+			action="https://pagseguro.uol.com.br/v2/pre-approvals/request.html"
+			
+			 -->
+			
+			
 			<div id="btn-cadastro">
 				<form method="post" action="https://pagseguro.uol.com.br/v2/pre-approvals/request.html">
-					<input type="hidden" name="code" value="F9D14932CBCBFA9AA4FD6F901869448B" />
+					<input type="hidden" id="codigo-assinatura" name="code" value="" />
 					<div onClick="Salva()" id="botao-pagseguro">  <img src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/assinaturas/209x48-assinar-assina.gif"> </div>
 				</form>
 			</div>
@@ -124,14 +132,14 @@
         	$.post("<%URLPADRAO%>lib/ajax/salva.php",
 	            {array: array},
 	            function(retorno){
-	               if(retorno){
+	               if(retorno == 'cadastrado'){
 	               		alert('Cadastrado Realizado com Sucesso! Verifique o seu email!');
 	               		$("form").submit();
 	               }else if(retorno == 'errorcampos'){
 	               		alert('Por Favor, Preencha Todos os Campos!');
 	               }else if(retorno == 'erro'){
 	               		alert('Falha as Cadastrar! Tente Novamente Mais Tarde!');
-	               }else if(retorno == 'cpf-cadastrado'){
+	               }else if(retorno == 'cpfcadastrado'){
 	               		alert('Falha as Cadastrar! Cpf Ja Cadastrado!');
 	               }else if(retorno == 'erro-email'){
 	               		alert('Falha as Cadastrar! Tente Novamente Mais Tarde!');

@@ -30,7 +30,6 @@
 		
 		function AtualizarSenha($novasenha){
 			$Sql = "Update c_usuarios set senha = '".$novasenha."' where idusuario = ' ".$_SESSION['idusuario']." '";
-			
 			$result = parent::Execute($Sql);
 			return true;
 		}
