@@ -1,35 +1,38 @@
 <%MSG%>
-<div class="center conta">
-<section id="pagamento">
-		<form action="" method="POST" id="contato">	
-			<h3>Adicionar Pagamento</h3>
-			<input type ="hidden" name="acao" value="acao">
-			<input type ="hidden" name="nome-form" value="pagamento">
-			<label>
-				CPF:
-				<input type="text" name="cpf-pagamento" value="<%CPF%>" readonly>
-			</label>
+<div class="center conta" id="pagamento">
+	<h3>Adicionar Pagamento</h3>
+	<section class="inner">
+			<form action="" method="POST" id="contato">	
+				<input type ="hidden" name="acao" value="acao">
+				<input type ="hidden" name="nome-form" value="pagamento">
+				<label>
+					CPF:
+					<input type="text" name="cpf-pagamento" value="<%CPF%>" readonly>
+				</label>
 
-			
-				<legend>Plano escolhido</legend>
-				<select name="plano-pagamento" id="plano">
-					<option value="">Escolha</option>
-					<option <%SELECTEDMENSAL%> value="mensal">Plano Mensal</option>
-					<option <%SELECTEDANUAL%> value="anual">Plano Anual</option>
-				</select>
-			
-			<label>
-				Data do Pagamento:
-				<input type="text" name="data-pagamento" placeholder="Data de Pagamento" id="i-nascimento" value="<%DATAPAGAMENTO%>">
-			</label>
-			
-			<label>
-				Validade do Pagamento:
-				<input type="text" name="validade-pagamento" placeholder="Validade de Pagamento"  id="i-nascimento" value ="<%VALIDADEPAGAMENTO%>" >
-			</label>
+				
+					<label>Plano escolhido
+						<select name="plano-pagamento" id="plano">
+							<option value="">Escolha</option>
+							<option <%SELECTEDMENSAL%> value="mensal">Plano Mensal</option>
+							<option <%SELECTEDANUAL%> value="anual">Plano Anual</option>
+						</select>
+					</label>
+				
+				<label>
+					Data do Pagamento:
+					<input type="text" name="data-pagamento" placeholder="Data de Pagamento" class="input-data" value="<%DATAPAGAMENTO%>">
+				</label>
+				
+				<label>
+					Validade do Pagamento:
+					<input type="text" name="validade-pagamento" placeholder="Validade de Pagamento" class="input-data" value ="<%VALIDADEPAGAMENTO%>" >
+				</label>
 
-			<button type="submit" class="button"><%BOTAO%></button>
+				<button type="submit" class="save"><%BOTAO%></button>
 
-		</form>
-</section>
+				<br class="clear">
+
+			</form>
+	</section>
 </div>

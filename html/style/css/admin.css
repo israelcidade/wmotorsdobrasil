@@ -154,3 +154,25 @@ legend i{ color:#F93; }
 .log-info{ width:49%; float:left; text-align:center; font-size:16px; padding:10px 0; }
 .log-info:first-child{ border-right:1px solid #0466a9; }
 .log-ip{ color:#0466a9; }
+
+/* ======================= */
+/* PAGAMENTO
+*/
+#pagamento{ max-width:480px; margin:40px auto; }
+#pagamento h3{ text-transform:uppercase; color:#0466A9; font-size:18px; margin-bottom:20px; }
+#pagamento .inner{ background-color:#FFF; padding:20px; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
