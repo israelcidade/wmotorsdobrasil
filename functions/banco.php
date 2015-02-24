@@ -229,6 +229,8 @@
 			$Auxilio = str_replace('<%NOME%>',$rs['nome'],$Auxilio);
 			$Auxilio = str_replace('<%URLPADRAO%>',UrlPadrao,$Auxilio);
 			$Auxilio = str_replace('<%CPF%>',$rs['cpf'],$Auxilio);
+			$Auxilio = str_replace('<%IP%>',$_SERVER["REMOTE_ADDR"], $Auxilio);
+			
 			return $Auxilio;
 		}
 		
