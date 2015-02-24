@@ -391,6 +391,13 @@ footer .center .f-left { min-width: 500px; }
 	width:260px; float:left;
 }
 
+/* ======================= */
+/* FAQ
+*/
+#faq h2{ margin-bottom:20px; }
+#faq dt{ font-size:16px; border-bottom:1px solid #0466A9; padding-bottom:3px; color:#0466A9; font-weight:700; }
+#faq dt:before{ content:'- '; }
+#faq dd{ line-height:1.3em; margin:10px 0 30px; }
 
 
 
