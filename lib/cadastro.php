@@ -13,6 +13,7 @@
 		$usuario['cpf'] = strip_tags(trim(addslashes($_POST["cpf"])));
 		$usuario['cep'] = strip_tags(trim(addslashes($_POST["cep"])));
 		$usuario['endereco'] = strip_tags(trim(addslashes($_POST["endereco"])));
+		$usuario['complemento'] = strip_tags(trim(addslashes($_POST["complemento"])));
 		$usuario['bairro'] = strip_tags(trim(addslashes($_POST["bairro"])));
 		$usuario['cidade'] = strip_tags(trim(addslashes($_POST["cidade"])));
 		$usuario['estado'] = strip_tags(trim(addslashes($_POST["estado"])));
