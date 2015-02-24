@@ -17,6 +17,7 @@
 					$Linha = str_replace('<%ID%>',$rs['idusuario'],$Linha);
 					$Linha = str_replace('<%NOME%>',$rs['nome'],$Linha);
 					$Linha = str_replace('<%CPF%>',$rs['cpf'],$Linha);
+					$Linha = str_replace('<%EMAIL%>',$rs['email'],$Linha);
 					if($rs['status'] == '0'){
 						$Linha = str_replace('<%STATUS%>','inativo',$Linha);
 						$Linha = str_replace('<%BOTAO%>','btn-edit',$Linha);

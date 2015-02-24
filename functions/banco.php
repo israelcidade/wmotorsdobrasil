@@ -299,9 +299,11 @@
 		}
 
 		function MontaMsg($tipo,$msg){
+			
 			if($tipo == 'erro'){
-				$flag = "<div class='alert alert-danger alert-danger-estilo' role='alert'>
-      			<strong>Erro!</strong> ".$msg."</div>";
+				$flag = "<div class='mensagem-acesso'><p><i class='fa fa-eye-slash'></i>Você não tem acesso à Wmotors do Brasil! <a href= 'cadastro'>Cadastre-se</a>.</p></div>";
+				/*$flag = "<div class='alert alert-danger alert-danger-estilo' role='alert'>
+      			<strong>Erro!</strong> ".$msg."</div>";*/
 			}elseif($tipo == 'ok'){
 				$flag = "<div class='alert alert-success' role='alert'>
       			<strong>OK!</strong> ".$msg." </div>";
