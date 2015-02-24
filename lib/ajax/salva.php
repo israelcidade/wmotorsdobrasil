@@ -17,9 +17,10 @@
 		'cpf' 				=>   $aux[5],
 		'cep' 				=>   $aux[6],
 		'endereco' 			=>   $aux[7],
-		'bairro' 			=>   $aux[8],
-		'cidade' 			=>   $aux[9],
-		'estado' 			=>   $aux[10]
+		'complemento' 		=>   $aux[8],
+		'bairro' 			=>   $aux[9],
+		'cidade' 			=>   $aux[10],
+		'estado' 			=>   $aux[11]
 		);
 
 	
@@ -31,7 +32,7 @@
 		$cpf = str_replace('-', '' , $cpf);
 		$cpf = str_replace('/', '' , $cpf);
 		
-		$Sql = "Insert into c_usuarios (senha,nome,nascimento,email,rg,cpf,cep,endereco,bairro,cidade,estado)
+		$Sql = "Insert into c_usuarios (senha,nome,nascimento,email,rg,cpf,cep,endereco,complemento,bairro,cidade,estado)
 			VALUES ('".$cadastro['senha']."',
 					'".$cadastro['nome']."',
 					'".$cadastro['nascimento']."',
@@ -40,6 +41,7 @@
 					'".$cpf."',
 					'".$cadastro['cep']."',
 					'".$cadastro['endereco']."',
+					'".$cadastro['complemento']."',		
 					'".$cadastro['bairro']."',
 					'".$cadastro['cidade']."',
 					'".$cadastro['estado']."'

@@ -45,7 +45,7 @@
 				<legend>Endereço</legend>
 				<input type="text" name="cep" placeholder="CEP" onBlur="buscacep()" class="i-left i-first" value="<%CEP%>" id="i-cep">
 				<input type="text" name="endereco" placeholder="Endereço" class="i-full" value="<%ENDERECO%>">
-				<input type="text" name="complemento" placeholder="Complemento" class="i-half i-first" value="<%COMPLEMENTO%>">
+				<input type="text" name="complemento" placeholder="Complemento" class="i-half i-first" value="">
 				<input type="text" name="bairro" placeholder="Bairro" class="i-half" value="<%BAIRRO%>">
 				<input type="text" name="estado" placeholder="Estado" class="i-half i-first" value="<%ESTADO%>">
 				<input type="text" name="cidade" placeholder="Cidade" class="i-half" value="<%CIDADE%>">
@@ -114,6 +114,7 @@
                       $("input[name=cpf-cadastro]").val()+'|'+
                       $("input[name=cep]").val()+'|'+
                       $("input[name=endereco]").val()+'|'+
+                      $("input[name=complemento]").val()+'|'+
                       $("input[name=bairro]").val()+'|'+
                       $("input[name=cidade]").val()+'|'+
                       $("input[name=estado]").val()
@@ -128,6 +129,7 @@
         	$("input[name=cpf-cadastro]").val() == '' ||
         	$("input[name=cep]").val() == '' ||
         	$("input[name=endereco]").val() == '' ||
+        	$("input[name=complemento]").val() == '' ||
         	$("input[name=bairro]").val() == '' ||
         	$("input[name=cidade]").val() == '' ||
         	$("input[name=estado]").val() == ''
