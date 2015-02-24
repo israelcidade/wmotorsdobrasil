@@ -111,7 +111,7 @@ function Termo(){
 	$('#overlay').fadeIn();
 
 	$('#fechar').click(function(e){
-		$(this).parent().fadeOut();
+		$('#overlay').fadeOut();
 	});
 }
 

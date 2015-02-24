@@ -335,8 +335,8 @@ footer .center .f-left { min-width: 500px; }
 /* Lightbox
 */
 #overlay{ display:none; position:fixed; z-index:10009; top:0; left:0; width:100%; height:100%; background-color:rgba(4,102,169,0.9); }
-#fechar{ display:block; width:30px; height:30px; border:2px solid #FFF; text-align:center; line-height:26px; font-size:22px; font-weight:300; color:#FFF; position:absolute; top:20px; left:20px; }
-#dialog{ box-sizing:border-box; width:500px; height:400px; position:absolute; top:50%; left:50%; margin-left:-250px; margin-top:-200px; background-color:#FFF; padding:20px; overflow-x:scroll; }
+#fechar{ display:block; width:30px; height:30px; border:2px solid #FFF; text-align:center; line-height:26px; font-size:22px; font-weight:300; color:#FFF; position:absolute; top:50%; margin-top:-340px; right:50%; margin-right:-290px; }
+#dialog{ box-sizing:border-box; width:500px; height:500px; position:absolute; top:50%; left:50%; margin-left:-250px; margin-top:-300px; background-color:#FFF; padding:20px; overflow-x:scroll; }
 #dialog h2{ text-transform:uppercase; color:#0466a9; font-size:18px; }
 #dialog p{ margin:10px 0; line-height:1.3em; }
 
@@ -363,3 +363,16 @@ footer .center .f-left { min-width: 500px; }
 .conta label{ display:block; margin-bottom:20px; }
 .conta input{ display:block; width:50%; padding:5px 10px; font-size:14px; margin-top:5px; color:#666; }
 .conta button{ display: block; width:20%; margin-left:34%; padding:5px 7px; border: 0; background-color: #0466a9; color: #FFF; font-size: 14px; font-size: 0.875rem; cursor: pointer;  }
+
+/* ======================= */
+/* FIXES
+*/
+.slogan{ font-size:24px; text-align:center; }
+.link-termos a{ text-decoration:underline; color:#0466A9; cursor:pointer; }
+
+/* ======================= */
+/* MENSAGEM DE ERRO DE ACESSO
+*/
+.mensagem-acesso p{ display:block; margin:100px 0; text-align:center; font-size:20px; text-transform:uppercase; font-weight:400; }
+.mensagem-acesso i{ display:inline-block; color:#ff9900; font-size:24px; margin-right:5px; }
+.mensagem-acesso a{ color:#0466a9; }
