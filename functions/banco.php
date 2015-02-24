@@ -158,16 +158,19 @@
 			//Marca e Tipo
 			$Marcas = $this->MontaSelectMarcas();
 			$Tipo = $this->MontaSelectCategorias();
-			$Modelos = $this->MontaSelectModelos();
+			
+			if($this->VerificaSessao()){
+				$Modelos = $this->MontaSelectModelos();
+			}else{
+				$Modelos = $this->MontaSelectModelos('N');
+			}
+			
 
 			$Busca = str_replace('<%MARCAS%>',$Marcas,$Busca);
 			$Busca = str_replace('<%TIPO%>',$Tipo,$Busca);
+			$Busca = str_replace('<%MODELOS%>',$Modelos,$Busca);
 			$Busca = str_replace('<%URLPADRAO%>',UrlPadrao,$Busca);
-			if($this->VerificaSessao()){
-				$Busca = str_replace('<%MODELOS%>',$Modelos,$Busca);
-			}else{
-				$Busca = str_replace('<%MODELOS%>','',$Busca);
-			}
+			
 			return $Busca;
 		}
 	
@@ -378,9 +381,16 @@
 			return $categorias;	
 		}
 
-		function MontaSelectModelos(){
+		function MontaSelectModelos($logado){
+			
 			$modelos = '<select id="busca-veiculo" name="modelo" style="width:120px;">';
-			$modelos .= '<option value="0">Nome</option>';
+			$modelos .= '<option value="0">Modelo</option>';
+			
+			if($logado == 'N'){
+				$modelos .= '<option value="1">Você precisa estar logado para visualizar!</option>';
+			}
+			
+			
 			/*$Sql = "Select modelo from c_veiculos";
 			$result = $this->Execute($Sql);
 			while($aux = mysql_fetch_array($result, MYSQL_ASSOC))

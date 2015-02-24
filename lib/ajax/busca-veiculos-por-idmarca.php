@@ -5,16 +5,20 @@
 	$banco->Conecta();
 
 	$idmarca = $_POST['marca'];
-	$Veiculos = '<option value = 0> Nome ';
+	$Veiculos = '<option value = 0> Modelo ';
 	
-	$Sql = "Select * from c_veiculos where marca = '".$idmarca."'";
-	$result = $banco->Execute($Sql);
-	//<option value="ILR EVOQUE DYNAMIC 3D">ILR EVOQUE DYNAMIC 3D</option>
-	while($rs = mysql_fetch_array($result, MYSQL_ASSOC))
-	{
-		$Linha = "<option value= '".$rs['modelo']."'> ".$rs['modelo']." </option>";
-		$Veiculos .= $Linha;
+	if($banco->VerificaSessao()){
+		$Sql = "Select * from c_veiculos where marca = '".$idmarca."'";
+		$result = $banco->Execute($Sql);
 		
+		while($rs = mysql_fetch_array($result, MYSQL_ASSOC))
+		{
+			$Linha = "<option value= '".$rs['modelo']."'> ".$rs['modelo']." </option>";
+			$Veiculos .= $Linha;
+			
+		}
+	}else{
+		$Veiculos .= '<option value="1">Você precisa estar logado para visualizar!</option>';
 	}
 
 	echo $Veiculos;
