@@ -1,7 +1,15 @@
 <li>
-	<div class="log-info log-ip"><p><%CPF%></p></div>
-	<div class="log-info"><p><%PAGAMENTOTIPO%></p></div>
-	<div class="log-info"><p><%PAGAMENTODATA%></p></div>
-	<div class="log-info"><p><a href="<%URLPADRAO%>add-pagamento/alterar/<%PAGAMENTOID%>"><%PAGAMENTOVALIDADE%></a></p></div>
+	<div class="f-left">
+		<h3><%NOME%> <em>(<%CPF%>)</em></h3>
+		<p class="tipo-plano">Plano <%PAGAMENTOTIPO%></p>
+		<p class="data"><strong>Início em:</strong> <%PAGAMENTODATA%></p>
+		<p class="data"><strong>Término em:</strong> <em><%PAGAMENTOVALIDADE%></em></p>
+	</div>
+
+	<div class="f-right">
+		<a href="<%URLPADRAO%>add-pagamento/alterar/<%PAGAMENTOID%>" class="btn-edit">Alterar</a>
+		<a href="<%URLPADRAO%>add-pagamento/alterar/<%PAGAMENTOID%>" class="btn-delete">Deletar</a>
+	</div>
+
 	<br class="clear">
 </li>

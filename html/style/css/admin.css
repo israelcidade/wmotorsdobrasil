@@ -161,8 +161,20 @@ legend i{ color:#F93; }
 #pagamento{ max-width:480px; margin:40px auto; }
 #pagamento h3{ text-transform:uppercase; color:#0466A9; font-size:18px; margin-bottom:20px; }
 #pagamento .inner{ background-color:#FFF; padding:20px; }
+.delete{  display: block; float:left; width:150px; margin-top: 10px; padding: 5px 30px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #ff3333; background-color: transparent; color: #ff3333; font-size: 12px; font-size: 0.75rem; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; text-transform: uppercase; text-align: center; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; cursor: pointer;  }
+.delete:hover{ background-color:#F33; color:#FFF; }
 
-
+#registers{}
+#registers li h3{ color:#0466A9; font-size:18px; }
+#registers li h3 em{ font-size:14px; }
+#registers li .tipo-plano{ font-size:12px; color:#0466A9; }
+#registers li .data{  }
+#registers li .data strong{ font-weight:700; }
+#registers li .data em{ color:#F33; }
+#registers li .btn-edit { display: block; margin-bottom:10px; padding: 0 30px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #0466a9; background-color: transparent; color: #0466a9; font-size: 10px; font-size: 0.625rem; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; text-transform: uppercase; text-align: center; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; cursor: pointer; }
+#registers li .btn-edit:hover { background-color: #0466a9; color: #FFF; }
+#registers li .btn-delete { display: block; margin-top: 5px; padding: 0 30px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #ff3333; background-color: transparent; color: #ff3333; font-size: 10px; font-size: 0.625rem; font-family: "Source Sans Pro", Helvetica, Arial, Sans-serif; text-transform: uppercase; text-align: center; -moz-transition: all 300ms ease-in-out; -o-transition: all 300ms ease-in-out; -webkit-transition: all 300ms ease-in-out; transition: all 300ms ease-in-out; cursor: pointer; }
+#registers li .btn-delete:hover { background-color: #ff3333; color: #FFF; }
 
 
 
