@@ -32,7 +32,11 @@
 		}
 		
 		function ListaLogsPagamento($cpf){
-			$Sql = "Select * from c_pagamento where pagamento_cpf = '".$cpf."'";
+			$Sql = "Select * 
+					from c_usuarios U
+					INNER JOIN c_pagamento P
+					ON U.cpf = P.pagamento_cpf
+					Where U.cpf = '".$cpf."'";
 
 			$result = parent::Execute($Sql);
 			$num_rows = parent::Linha($result);
@@ -46,6 +50,7 @@
 					$Linha = $Auxilio;
 					$Linha = str_replace('<%CPF%>',$cpf,$Linha);
 					$Linha = str_replace('<%PAGAMENTOTIPO%>',$rs['pagamento_tipo'],$Linha);
+					$Linha = str_replace('<%NOME%>',$rs['nome'],$Linha);
 						
 					$timestamp_pagamento_data = strtotime($rs['pagamento_data']);
 					$pagamento_data = date('d/m/Y', $timestamp_pagamento_data);
