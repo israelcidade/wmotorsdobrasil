@@ -8,6 +8,14 @@
 	if($banco->VerificaSessaoAdmin()){
 
 		$LOGS = $banco->ListaLogsPagamento($this->PaginaAux[0]);
+		
+		#Trabalha com deletar
+		if($this->PaginaAux[0] == 'deletar'){
+			$cpf = $banco->DeletaPagamento($this->PaginaAux[1]);
+			if($cpf){
+				$banco->RedirecionaPara('log-pagamento/'.$cpf);
+			}
+		}
 
 		#Imprimi valores
 		$Conteudo = $banco->CarregaHtml('log-pagamento');

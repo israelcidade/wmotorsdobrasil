@@ -114,5 +114,16 @@
 			return $rs;
 		}
 		
+		function DeletaPagamento($id){
+			$Sql_select = "Select pagamento_cpf from c_pagamento where pagamento_id = '".$id."'";
+			$result_select = $this->Execute($Sql_select);
+			$rs = mysql_fetch_array($result_select , MYSQL_ASSOC);
+			if($result_select){
+				$Sql = "Delete from c_pagamento where pagamento_id = '".$id."' ";
+				$result = $this->Execute($Sql);
+				return $rs['pagamento_cpf'];
+			}
+		}
+		
 	}
 ?>
