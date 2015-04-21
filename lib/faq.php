@@ -5,7 +5,7 @@
 	#Instancia o objeto
 	$banco = new bancofaq();
 	
-	if($banco->VerificaSessao()){
+	//if($banco->VerificaSessao()){
 		#Declara Variaveis
 		$msg  = '';
 		
@@ -19,7 +19,7 @@
 	
 		$Conteudo = $banco->CarregaHtml('faq');
 		$Conteudo = str_replace('<%MSG%>',$msg,$Conteudo);
-	}else{
-				
-		readfile($aquivoNome);ionaPara('inicio/acesso');
-	}
+		$Conteudo = str_replace('<%URLPADRAO%>',UrlPadrao,$Conteudo);
+	//}else{
+	//	$banco->RedirecionaPara('inicio/acesso');
+	//}
