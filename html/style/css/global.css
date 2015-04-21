@@ -161,7 +161,7 @@ footer .center .f-left { min-width: 500px; }
 
 #assinatura { width: 50px; height: 47px; float: left; margin-right: 10px; background: transparent url(../images/assinatura.png) no-repeat center center; }
 
-.copyrights { font-size: 12px; font-size: 0.75rem; }
+.copyrights { font-size: 12px; font-size: 0.75rem; font-weight: bold; }
 
 .footer-menu { margin-bottom: 20px; }
 
