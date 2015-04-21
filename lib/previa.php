@@ -10,13 +10,13 @@
 		$Auxilio = $banco->CarregaHtml('itens/lista-veiculo-unico-itens');
 
 		#Chama funcao Lista Manual passando o Auxilio
-		$VeiculoUnico = $banco->BuscaVeiculoUnico(4);
+		$VeiculoUnico = $banco->BuscaVeiculoUnico(32);
 
 		#Carrega imagens de 1 ate 9
-		$ImagensVeiculo = $banco->BuscaImagensVeiculo(4);
+		$ImagensVeiculo = $banco->BuscaImagensVeiculo(32);
 
 		#Carrega Textos das Imagens
-		$Textos = $banco->BuscaTextosVeiculos(4);
+		$Textos = $banco->BuscaTextosVeiculos(32);
 
 		#Imprimi valores
 		$Conteudo = $banco->CarregaHtml('previa');
