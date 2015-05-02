@@ -115,6 +115,18 @@
 				return false;
 			}
 		}
+		
+		function VerificaPagamento(){
+			$Sql = "Select pagamento from c_usuarios where cpf = '".$_SESSION['cpf']."'";
+			$result = $this->Execute($Sql);
+			$num_rows = $this->Linha($result);
+			$rs = mysql_fetch_array($result , MYSQL_ASSOC);
+			if($rs['pagamento'] == '1'){
+				return true;
+			}else{
+				return false;
+			}
+		}
 
 		function VerificaSessaoAdmin(){
 			session_start('login');
