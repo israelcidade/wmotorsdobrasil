@@ -31,14 +31,16 @@ var marcas = $('#galeria-marcas');
 marcas.owlCarousel({
 	items:1,
 	singleItem:true,
-	autoPlay:3000
+	autoPlay:3000,
+	rewindSpeed:0
 });
 
 // GALERIA DE IMAGENS
 $('#galeria-favoritos').owlCarousel({
 	autoPlay:2000,
 	items:1,
-	singleItem:true
+	singleItem:true,
+	rewindSpeed:0
 });
 
 $('.galeria').fancybox();
