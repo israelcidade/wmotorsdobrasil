@@ -393,13 +393,17 @@ footer .center .f-left { min-width: 500px; }
 .coluna-esquerda,
 .coluna-right{
 	width:260px; float:left;
+	line-height:1.2em; 
 }
 .coluna-esquerda{
 	margin-right:42px;
 }
 
+.coluna-right img,
 .coluna-esquerda img{ margin:10px 0; }
-.coluna-esquerda p{ line-height:1.2em; margin-bottom:10px; }
+.coluna-right p,
+.coluna-esquerda p{ margin-bottom:10px; }
+.coluna-right p a,
 .coluna-esquerda p a{ color:#0466A9; }
 
 /* ======================= */
