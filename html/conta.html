@@ -78,10 +78,39 @@
 				<strong>Validade:</strong> <%VALIDADE%>
 			</p>
 
+		
+		
+		<h3>Realizar um Pagamento</h3>
+		<fieldset>
+				<legend>Plano escolhido</legend>
+				<select name="plano" id="plano">
+					<option value="">Escolha</option>
+					<option value="mensal">Plano Mensal</option>
+					<option value="anual">Plano Anual</option>
+				</select>
+			</fieldset>
+			
+		<div id="btn-cadastro">
+				<form id="redireciona" method="post" action="https://pagseguro.uol.com.br/v2/pre-approvals/request.html">
+					<input type="hidden" id="codigo-assinatura" name="code" value="" />
+					<div onClick="Redireciona()" id="botao-pagseguro">  <img src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/assinaturas/209x48-assinar-assina.gif"> </div>
+				</form>
+			</div>
 		</section>
-
 	</div>
 
 	<br class="clear">
 
 </div>
+
+<script>
+	function Redireciona(){
+		var theValor = $('#plano').val();
+		if(theValor != ''){
+			alert('Você sera redirecionado! Ao finalizar a compra entre em contato conosco!');
+			$("form#redireciona").submit();
+		}else{
+			alert('Selecione o Plano para pagamento!');
+		}
+	}
+</script>
