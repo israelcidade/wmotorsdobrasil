@@ -74,6 +74,7 @@
 		}
 		
 		function SalvaPagamento($arr){
+			
 			$Sql = "Insert into c_pagamento 
 					(pagamento_tipo,pagamento_data,pagamento_validade,pagamento_cpf) 
 					VALUES 
@@ -81,6 +82,17 @@
 					";
 			
 			if(parent::Execute($Sql)){
+				$data_ultimo_pagamento = parent::BuscaDataValidadePagamento($arr['cpf_pagamento']);
+				
+				$hoje = date('Y-m-d');
+				if(strtotime($hoje) > strtotime($data_ultimo_pagamento)){
+					$Select_pagamento = "Update c_usuarios set pagamento = 0 where cpf = '".$arr['cpf_pagamento']."'";
+					$result_pagamento = $this->Execute($Select_pagamento);
+				}else{
+					$Select_pagamento = "Update c_usuarios set pagamento = 1 where cpf = '".$arr['cpf_pagamento']."'";
+					$result_pagamento = $this->Execute($Select_pagamento);
+				}
+				
 				return true;
 			}else{
 				return false;
@@ -100,6 +112,17 @@
 					";
 				
 			if(parent::Execute($Sql)){
+			$data_ultimo_pagamento = parent::BuscaDataValidadePagamento($arr['cpf_pagamento']);
+				
+				$hoje = date('Y-m-d');
+				if(strtotime($hoje) > strtotime($data_ultimo_pagamento)){
+					$Select_pagamento = "Update c_usuarios set pagamento = 0 where cpf = '".$arr['cpf_pagamento']."'";
+					$result_pagamento = $this->Execute($Select_pagamento);
+				}else{
+					$Select_pagamento = "Update c_usuarios set pagamento = 1 where cpf = '".$arr['cpf_pagamento']."'";
+					$result_pagamento = $this->Execute($Select_pagamento);
+				}
+				
 				return true;
 			}else{
 				return false;
@@ -121,6 +144,26 @@
 			if($result_select){
 				$Sql = "Delete from c_pagamento where pagamento_id = '".$id."' ";
 				$result = $this->Execute($Sql);
+				
+				//Verifica ultimo pagamento
+				$data_ultimo_pagamento = parent::BuscaDataValidadePagamento($rs['pagamento_cpf']);
+				
+				if($data_ultimo_pagamento == NULL){
+					$Select_pagamento = "Update c_usuarios set pagamento = 0 where cpf = '".$rs['pagamento_cpf']."'";
+					$result_pagamento = $this->Execute($Select_pagamento);
+				}else{
+					$data_ultimo_pagamento = parent::BuscaDataValidadePagamento($arr['cpf_pagamento']);
+					$hoje = date('Y-m-d');
+					if(strtotime($hoje) > strtotime($data_ultimo_pagamento)){
+						$Select_pagamento = "Update c_usuarios set pagamento = 0 where cpf = '".$arr['cpf_pagamento']."'";
+						$result_pagamento = $this->Execute($Select_pagamento);
+					}else{
+						$Select_pagamento = "Update c_usuarios set pagamento = 1 where cpf = '".$arr['cpf_pagamento']."'";
+						$result_pagamento = $this->Execute($Select_pagamento);
+					
+					}
+				}
+				
 				return $rs['pagamento_cpf'];
 			}
 		}
