@@ -90,7 +90,7 @@ $('#parceiros li').hover(function(){
 
 $('#plano-mensal').click(function(e){
 	e.preventDefault();
-
+	
 	$(this).removeClass('faded');
 	$('#plano').val('mensal');
 	$('#plano-anual').addClass('faded');
@@ -108,6 +108,19 @@ $('#plano-anual').click(function(e){
 
 });
 
+//ESCOLHA O PLANO DE PAGAMENTO 
+$('#plano').change(function(){
+
+	var plano = $(this).val();
+
+	if(plano == 'mensal'){
+		$('#codigo-assinatura').val('31A3030C8484B586646BCFB3B05E3B92');
+	} else {
+		$('#codigo-assinatura').val('89DD4A807979A15AA433AFB498085E37');	
+	}
+
+});
+
 // SCRIPT DO MODAL DE TERMOS DE SERVIÇO
 function Termo(){
 	$('#overlay').fadeIn();
@@ -121,7 +134,6 @@ function Termo(){
 $('#pessoa').change(function(){
 
 	var pessoa = $(this).val();
-	console.log(pessoa)
 
 	if(pessoa == 'juridica'){
 		$('#i-cpf').attr('placeholder','CNPJ').mask('99.999.999/9999-99');
