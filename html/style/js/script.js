@@ -86,7 +86,7 @@ $('#parceiros li').hover(function(){
 // ESCOLHA DO PLANO
 
 //Assinatura Mensal: 31A3030C8484B586646BCFB3B05E3B92
-//Compra Anual: 80255FB87D7DFE94446A9F8F3D7339E6
+//Compra Anual: 89DD4A807979A15AA433AFB498085E37
 
 $('#plano-mensal').click(function(e){
 	e.preventDefault();
@@ -104,7 +104,7 @@ $('#plano-anual').click(function(e){
 	$(this).removeClass('faded');
 	$('#plano').val('anual');
 	$('#plano-mensal').addClass('faded');
-	$('#codigo-assinatura').val('80255FB87D7DFE94446A9F8F3D7339E6');
+	$('#codigo-assinatura').val('89DD4A807979A15AA433AFB498085E37');
 
 });
 
