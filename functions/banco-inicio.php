@@ -6,10 +6,10 @@
 			$cpf = str_replace('-', '' , $cpf);
 			$cpf = str_replace('/', '' , $cpf);
 			
+			
 			$senha = md5($senha);
 			
 			$Sql = "Select * from c_usuarios where cpf = '".$cpf."' AND senha = '".$senha."' ";
-			
 			$result = parent::Execute($Sql);
 			$num_rows = parent::Linha($result);
 			return $num_rows;

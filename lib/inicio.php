@@ -34,6 +34,10 @@
 	if($this->PaginaAux[0] == 'acesso'){
 		$msg = $banco->MontaMsg('erro',MSG_ERRO_ACESSO);
 	}
+	
+	if($this->PaginaAux[0] == 'pagamento'){
+		$msg = $banco->MontaMsg('erro',1,MSG_ERRO_ACESSO_PAGAMENTO);
+	}
 
 	if($this->PaginaAux[0] == 'acesso-negado'){
 		$msg = $banco->MontaMsg('erro',MSG_ERRO_ACESSO_NEGADO);

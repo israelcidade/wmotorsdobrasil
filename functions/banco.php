@@ -52,6 +52,22 @@
 			//$rs = mysql_fetch_array($result , MYSQL_ASSOC);
 			//return $rs['status'];
 		}
+		
+		function UpdatePagamento($cpf){
+			$Select = "Select pagamento from c_usuarios where cpf = '".$cpf."'";
+			$result_select = $this->Execute($Select);
+			$rs_select = mysql_fetch_array($result_select , MYSQL_ASSOC);
+			$pagamento = $rs_select['pagamento'];
+			
+			if($pagamento == 1){
+				$Sql = "Update c_usuarios set pagamento = 0 where cpf = '".$cpf."'";
+			}else{
+				$Sql = "Update c_usuarios set pagamento = 1 where cpf = '".$cpf."'";
+			}
+			
+			$result = $this->Execute($Sql);
+			
+		}
 
 		#abre a sessao
 		function IniciaSessao($cpf){
@@ -70,9 +86,11 @@
 					session_start('login');
 					$this->RedirecionaPara('conta');
 				}elseif($status == 1){
+					
 					session_start('login');
-					$this->UpdateStatus($cpf);
-					$this->RedirecionaPara('conta');
+					//$this->UpdateStatus($cpf);
+					$this->UpdatePagamento($cpf);
+					$this->RedirecionaPara('conta/pagamento');
 				}
 			}else{
 				session_start('login');
@@ -315,12 +333,14 @@
 			return $num_rows;
 		}
 
-		function MontaMsg($tipo,$msg){
+		function MontaMsg($tipo,$flag_msg,$msg){
 			
 			if($tipo == 'erro'){
-				$flag = "<div class='mensagem-acesso'><p><i class='fa fa-eye-slash'></i>Você não tem acesso à Wmotors do Brasil! <a href= 'cadastro'>Cadastre-se</a>.</p></div>";
-				/*$flag = "<div class='alert alert-danger alert-danger-estilo' role='alert'>
-      			<strong>Erro!</strong> ".$msg."</div>";*/
+				if($flag_msg == 1){
+					$flag = "<div class='mensagem-acesso'><p><i class='fa fa-eye-slash'></i>$msg <a href= '".UrlPadrao."conta'>Atualize o Pagamento</a>.</p></div>";
+				}else{
+					$flag = "<div class='mensagem-acesso'><p><i class='fa fa-eye-slash'></i>Você não tem acesso à Wmotors do Brasil! <a href= '".UrlPadrao."cadastro'>Cadastre-se</a>.</p></div>";
+				}
 			}elseif($tipo == 'ok'){
 				$flag = "<div class='alert alert-success' role='alert'>
       			<strong>OK!</strong> ".$msg." </div>";
