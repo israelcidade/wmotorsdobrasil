@@ -32,6 +32,7 @@
 	define('ERRO_ZERO_VEICULOS_ENCONTRADOS','Nenhum Ve&iacute;culo Encontrado!');
 
 	define('MSG_ERRO_ACESSO','Voce nao tem permissao para acessar esta pagina!');
+	define('MSG_ERRO_ACESSO_PAGAMENTO','Pagamento Pendente!');
 	define('MSG_ERRO_ACESSO_NEGADO','Voc&ecirc; precisa estar logado para acessar esta p&aacute;gina!');
 	define('MSG_ERRO_MARCA_CADASTRADA','Marca ja cadastrada!');
 	define('MSG_ERRO_SENHA_DIFERENTE','Senhas diferentes');
@@ -39,7 +40,6 @@
 	define('MSG_ERRO_BANCO','Falha ao conectar no banco de dados, tente novamente mais tarde!');
 	
 	//Senhas
-	
 	define('MSG_SENHA_ATUALIZADA','Senha atualizada com sucesso!');
 	define('MSG_ERRO_SENHA_IGUAL','Senha antiga é diferente a sua senha atual!');
 	define('MSG_ERRO_SENHA_DIFERENTE_ATT','Nova senha é diferente da confirmação de senha!');
