@@ -153,3 +153,23 @@ $('input[type=radio][name=tipo-login]').change(function() {
         	$('#login-cpf').mask('99.999.999/9999-99');
         }
     });
+
+
+// OVERLAYS DA PÁGINA DE CADASTRO
+$('#btn-medidor').click(function(e){
+	e.preventDefault();
+	$('.overlay-pad').fadeIn();
+	$('#medidor').fadeIn();
+});
+
+$('#btn-kit').click(function(e){
+	e.preventDefault();
+	$('.overlay-pad').fadeIn();
+	$('#kit').fadeIn();
+});
+
+$('.fechar-pad').click(function(e){
+	e.preventDefault();
+	$('.overlay-pad').fadeOut();
+	$('.dialog-pad').fadeOut();
+});
