@@ -1,0 +1,39 @@
+<br class="clear">
+<div class="center form-cadastro">
+
+	<h1>Cadastro de Parceiros</h1>
+
+	<form action="" method="POST" enctype="multipart/form-data">
+
+		<div class="col-half">
+
+			<input type ="hidden" name="acao" value="acao">
+			<h2>Informações gerais</h2>
+
+			<label>
+				Nome<br>
+				<input type="text" placeholder="Nome do Parceiro" name="nome" value="<%NOME%>">
+			</label>
+
+			<label>
+				Telefone<br>
+				<input type="text" placeholder="Telefone" name="telefone" value="<%TELEFONE%>">
+			</label>
+
+			<h2>Imagens</h2>
+			<%IMG%>
+			<label>
+				<input type="file" name="foto">
+			</label>
+
+			<input type="submit" class="save" name="submit" value="<%BOTAO%>">
+
+		</div>
+
+		<br class="clear">
+
+	</form>
+
+	<br class="clear">
+
+</div>

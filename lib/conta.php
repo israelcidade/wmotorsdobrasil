@@ -76,10 +76,18 @@
 		//Pagamento
 		$Conteudo = str_replace('<%PLANO%>',$info_pagamento['pagamento_tipo'],$Conteudo);
 		
+		//Verifica Pagamento
+		$verifica_pagamento = $banco->VerificaPagamento();
+		if($verifica_pagamento){
+			$verifica_pagamento = "PagamentoOk()";
+		}else{
+			$verifica_pagamento = "Redireciona()";
+		}
 		
 		$timestamp_pagamento_validade = strtotime($info_pagamento['max']);
 		$pagamento_validade = date('d/m/Y', $timestamp_pagamento_validade);
 		$Conteudo = str_replace('<%VALIDADE%>',$pagamento_validade,$Conteudo);
+		$Conteudo = str_replace('<%VERIFICAPAGAMENTO%>', $verifica_pagamento, $Conteudo);
 
 	}else{
 		$banco->RedirecionaPara('inicio/acesso');

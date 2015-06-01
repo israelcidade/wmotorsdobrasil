@@ -217,7 +217,9 @@
 				$this->Pagina == 'log-pagamento' ||
 				$this->Pagina == 'add-pagamento' ||
 				$this->Pagina == 'admin-sobre' ||
-					$this->Pagina == 'admin-termo' ||
+				$this->Pagina == 'admin-termo' ||
+				$this->Pagina == 'add-parceiro' ||
+				$this->Pagina == 'lista-parceiros' ||
 				$this->Pagina == 'lista-usuarios'){
 
 				$SaidaHtml = $this->CarregaHtml('modelo-admin');
